@@ -1,0 +1,29 @@
+
+{
+  "authors": [
+    {
+      "id": "joao-silva",
+      "name": "João Silva",
+      "position": "Frontend Developer",
+      "linkedin": "https://linkedin.com/in/joao-silva",
+      "github": "https://github.com/joao-silva",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+    },
+    {
+      "id": "maria-santos",
+      "name": "Maria Santos",
+      "position": "Full Stack Developer",
+      "linkedin": "https://linkedin.com/in/maria-santos",
+      "github": "https://github.com/maria-santos",
+      "image": "https://images.unsplash.com/photo-1494790108755-2616b612b002?w=400&h=400&fit=crop&crop=face"
+    },
+    {
+      "id": "carlos-ferreira",
+      "name": "Carlos Ferreira",
+      "position": "DevOps Engineer",
+      "linkedin": "https://linkedin.com/in/carlos-ferreira",
+      "github": "https://github.com/carlos-ferreira",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+    }
+  ]
+}
