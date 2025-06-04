@@ -224,10 +224,10 @@ export default function Index() {
               </p>
               <div className="mt-8 flex items-center justify-center gap-x-6">
                 <Button size="lg" asChild>
-                  <Link to="/contato">
+                  <a href="https://links.whitestonedev.com.br" target="_blank" rel="noopener noreferrer">
                     <Users className="mr-2 h-5 w-5" />
                     Junte-se a Nós
-                  </Link>
+                  </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/como-ajudar">Como Apoiar</Link>

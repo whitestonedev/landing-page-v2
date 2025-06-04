@@ -13,7 +13,7 @@ const navigation = [
   { name: "Blog", href: "/blog" },
   { name: "Projetos", href: "/projetos" },
   { name: "Como Ajudar", href: "/como-ajudar" },
-  { name: "Contato", href: "/contato" },
+  { name: "Contato", href: "https://links.whitestonedev.com.br", external: true },
 ];
 
 const socialLinks = [
@@ -48,18 +48,30 @@ export function Navigation() {
         
         <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => (
-            <Link
-              key={item.name}
-              to={item.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                location.pathname === item.href 
-                  ? "text-primary" 
-                  : "text-muted-foreground"
-              )}
-            >
-              {item.name}
-            </Link>
+            item.external ? (
+              <a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  location.pathname === item.href 
+                    ? "text-primary" 
+                    : "text-muted-foreground"
+                )}
+              >
+                {item.name}
+              </Link>
+            )
           ))}
         </div>
         
@@ -106,19 +118,32 @@ export function Navigation() {
               <div className="-my-6 divide-y divide-border">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={cn(
-                        "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-accent",
-                        location.pathname === item.href 
-                          ? "text-primary" 
-                          : "text-foreground"
-                      )}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
+                    item.external ? (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-accent text-foreground"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        className={cn(
+                          "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-accent",
+                          location.pathname === item.href 
+                            ? "text-primary" 
+                            : "text-foreground"
+                        )}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    )
                   ))}
                 </div>
                 <div className="py-6">

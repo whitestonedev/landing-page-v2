@@ -2,9 +2,64 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Calendar, Users, Code, MapPin } from "lucide-react";
+import { Calendar, Users, Code, MapPin, Coffee, Mic, Heart, Globe } from "lucide-react";
 
 export function Hero() {
+  const features = [
+    {
+      icon: MapPin,
+      title: "Pedra Branca",
+      description: "Eventos presenciais na região continental",
+      delay: "0s"
+    },
+    {
+      icon: Users,
+      title: "Comunidade",
+      description: "Networking e troca de conhecimento",
+      delay: "0.1s"
+    },
+    {
+      icon: Calendar,
+      title: "Eventos Regulares",
+      description: "Palestras, workshops e coffee break",
+      delay: "0.2s"
+    },
+    {
+      icon: Code,
+      title: "Open Source",
+      description: "Projetos colaborativos e código aberto",
+      delay: "0.3s"
+    },
+    {
+      icon: Coffee,
+      title: "Coffee Break",
+      description: "Networking descontraído com café gratuito",
+      delay: "0.4s"
+    },
+    {
+      icon: Mic,
+      title: "Palestras",
+      description: "Conteúdo técnico de qualidade",
+      delay: "0.5s"
+    },
+    {
+      icon: Heart,
+      title: "Inclusão",
+      description: "Ambiente acolhedor e diverso",
+      delay: "0.6s"
+    },
+    {
+      icon: Globe,
+      title: "Acesso Livre",
+      description: "Eventos 100% gratuitos para todos",
+      delay: "0.7s"
+    }
+  ];
+
+  // Dividir em duas fileiras para o carrossel
+  const row1 = features.slice(0, 4);
+  const row2 = features.slice(4, 8);
+
   return (
     <div className="relative isolate overflow-hidden bg-background">
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
@@ -35,76 +90,75 @@ export function Hero() {
             </Button>
           </div>
         </div>
+        
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <Card className="animate-fade-in">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">Pedra Branca</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Eventos presenciais na região continental
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="space-y-4 overflow-hidden">
+              {/* Primeira fileira - deslizando para a direita */}
+              <div className="animate-[slide-right_20s_linear_infinite] flex gap-4 whitespace-nowrap">
+                {[...row1, ...row1].map((feature, index) => (
+                  <Card key={`row1-${index}`} className="flex-shrink-0 w-80 animate-fade-in hover:shadow-lg transition-shadow duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-center space-x-3">
+                        <div className="flex-shrink-0">
+                          <feature.icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold">{feature.title}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
               
-              <Card className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0">
-                      <Users className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">Comunidade</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Networking e troca de conhecimento
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0">
-                      <Calendar className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">Eventos Regulares</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Palestras, workshops e coffee break
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0">
-                      <Code className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">Open Source</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Projetos colaborativos e código aberto
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Segunda fileira - deslizando para a esquerda */}
+              <div className="animate-[slide-left_25s_linear_infinite] flex gap-4 whitespace-nowrap">
+                {[...row2, ...row2].map((feature, index) => (
+                  <Card key={`row2-${index}`} className="flex-shrink-0 w-80 animate-fade-in hover:shadow-lg transition-shadow duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-center space-x-3">
+                        <div className="flex-shrink-0">
+                          <feature.icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold">{feature.title}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
+      
+      <style jsx>{`
+        @keyframes slide-right {
+          from {
+            transform: translateX(-50%);
+          }
+          to {
+            transform: translateX(0%);
+          }
+        }
+        
+        @keyframes slide-left {
+          from {
+            transform: translateX(0%);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </div>
   );
 }
