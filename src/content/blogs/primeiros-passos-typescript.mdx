@@ -1,0 +1,266 @@
+
+---
+title: "Primeiros passos com TypeScript"
+date: "2024-06-15"
+author: "Maria Santos"
+tags: ["TypeScript", "JavaScript", "Tutorial"]
+banner_link: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop"
+short_description: "Guia completo para desenvolvedores que querem começar com TypeScript e suas principais vantagens."
+---
+
+# Primeiros Passos com TypeScript
+
+Se você é desenvolvedor JavaScript e ainda não experimentou **TypeScript**, este artigo é para você! Vamos explorar por que TypeScript está se tornando essencial no desenvolvimento moderno.
+
+## O que é TypeScript?
+
+TypeScript é um **superset** do JavaScript que adiciona tipagem estática ao código. Isso significa que você pode definir tipos para variáveis, funções e objetos, ajudando a prevenir erros comuns durante o desenvolvimento.
+
+### Por que usar TypeScript?
+
+```typescript
+// JavaScript tradicional
+function calcularArea(largura, altura) {
+    return largura * altura;
+}
+
+// Com TypeScript
+function calcularArea(largura: number, altura: number): number {
+    return largura * altura;
+}
+```
+
+## Principais Vantagens
+
+### 1. Detecção de Erros Antecipada
+Com TypeScript, muitos erros são detectados durante a escrita do código, não apenas em tempo de execução.
+
+### 2. Melhor IntelliSense
+IDEs como VS Code oferecem autocompletar muito mais preciso com TypeScript.
+
+### 3. Refatoração Segura
+Renomear variáveis e funções fica muito mais seguro com checagem de tipos.
+
+### 4. Documentação Viva
+Os tipos servem como documentação do código.
+
+## Instalação e Setup
+
+### Instalação Global
+```bash
+npm install -g typescript
+```
+
+### Inicializando um Projeto
+```bash
+# Criar tsconfig.json
+tsc --init
+
+# Compilar arquivo TypeScript
+tsc meuarquivo.ts
+```
+
+### Configuração Básica do tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
+```
+
+## Tipos Básicos
+
+### Tipos Primitivos
+```typescript
+let nome: string = "Maria";
+let idade: number = 30;
+let ativo: boolean = true;
+let indefinido: undefined = undefined;
+let nulo: null = null;
+```
+
+### Arrays
+```typescript
+let numeros: number[] = [1, 2, 3, 4, 5];
+let nomes: Array<string> = ["Ana", "João", "Carlos"];
+```
+
+### Objetos
+```typescript
+interface Pessoa {
+  nome: string;
+  idade: number;
+  email?: string; // Propriedade opcional
+}
+
+const usuario: Pessoa = {
+  nome: "João",
+  idade: 25
+};
+```
+
+## Funções em TypeScript
+
+### Tipagem de Parâmetros e Retorno
+```typescript
+function somar(a: number, b: number): number {
+  return a + b;
+}
+
+// Arrow function
+const multiplicar = (a: number, b: number): number => a * b;
+
+// Função sem retorno
+function log(message: string): void {
+  console.log(message);
+}
+```
+
+### Parâmetros Opcionais
+```typescript
+function criarUsuario(nome: string, idade?: number): Pessoa {
+  return {
+    nome,
+    idade: idade || 18
+  };
+}
+```
+
+## Interfaces vs Types
+
+### Interfaces
+```typescript
+interface Veiculo {
+  marca: string;
+  modelo: string;
+  ano: number;
+}
+
+// Extensão de interface
+interface Carro extends Veiculo {
+  numeroPortas: number;
+}
+```
+
+### Types
+```typescript
+type Status = "ativo" | "inativo" | "pendente";
+
+type Usuario = {
+  id: number;
+  nome: string;
+  status: Status;
+};
+```
+
+## Generics
+
+Os generics permitem criar componentes reutilizáveis:
+
+```typescript
+function primeiroItem<T>(items: T[]): T | undefined {
+  return items[0];
+}
+
+const primeiroNumero = primeiroItem([1, 2, 3]); // number | undefined
+const primeiraString = primeiroItem(["a", "b", "c"]); // string | undefined
+```
+
+## Unions e Intersections
+
+### Union Types
+```typescript
+type ID = number | string;
+
+function buscarUsuario(id: ID): Usuario | null {
+  // Implementação
+}
+```
+
+### Intersection Types
+```typescript
+type Admin = Usuario & {
+  permissoes: string[];
+};
+```
+
+## Dicas Práticas
+
+### 1. Use o Strict Mode
+Sempre configure `"strict": true` no tsconfig.json.
+
+### 2. Comece Gradualmente
+Em projetos JavaScript existentes, você pode adicionar TypeScript gradualmente:
+```typescript
+// Permita any temporariamente
+let dadosLegados: any = getDadosLegados();
+```
+
+### 3. Utilize Type Guards
+```typescript
+function isString(value: unknown): value is string {
+  return typeof value === "string";
+}
+
+if (isString(input)) {
+  // TypeScript sabe que input é string aqui
+  console.log(input.toUpperCase());
+}
+```
+
+### 4. Aproveite Utility Types
+```typescript
+interface Usuario {
+  id: number;
+  nome: string;
+  email: string;
+  senha: string;
+}
+
+// Partial - torna todas as propriedades opcionais
+type AtualizarUsuario = Partial<Usuario>;
+
+// Pick - seleciona propriedades específicas
+type UsuarioPublico = Pick<Usuario, "id" | "nome" | "email">;
+
+// Omit - exclui propriedades específicas
+type CriarUsuario = Omit<Usuario, "id">;
+```
+
+## Ferramentas Recomendadas
+
+### 1. VS Code Extensions
+- **TypeScript Importer**: Auto-import de módulos
+- **Bracket Pair Colorizer**: Melhor visualização de código
+- **Error Lens**: Mostra erros inline
+
+### 2. Linting
+```bash
+npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+### 3. Prettier
+Configure formatting automático para manter código consistente.
+
+## Próximos Passos
+
+1. **Pratique**: Converta um projeto JavaScript pequeno para TypeScript
+2. **Explore Frameworks**: Next.js, React com TypeScript
+3. **Aprenda Padrões Avançados**: Decorators, Mapped Types
+4. **Participe da Comunidade**: Contribua com projetos open source
+
+## Conclusão
+
+TypeScript não é apenas uma moda passageira - é uma evolução natural do JavaScript que torna o código mais robusto, maintível e profissional.
+
+**Dica da whiteStone_dev**: Comece pequeno, seja paciente com a curva de aprendizado, e logo você não conseguirá mais viver sem TypeScript!
+
+---
+
+*Este artigo foi criado para a comunidade whiteStone_dev. Se você tem dúvidas ou sugestões, participe dos nossos eventos presenciais!*
