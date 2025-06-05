@@ -1,4 +1,3 @@
-
 ---
 title: "Primeiros passos com TypeScript"
 date: "2024-06-15"

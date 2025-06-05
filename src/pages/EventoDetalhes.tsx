@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, MapPin, Users, Clock, ArrowLeft, ExternalLink } from "lucide-react";
 import { useMDXPost } from "@/hooks/useMDX";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
 export default function EventoDetalhes() {
   const { slug } = useParams<{ slug: string }>();
@@ -91,9 +91,7 @@ export default function EventoDetalhes() {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <div className="prose prose-lg max-w-none mb-8">
-                <div className="text-lg text-muted-foreground leading-relaxed whitespace-pre-wrap">
-                  {event.content}
-                </div>
+                <MarkdownRenderer content={event.content} />
               </div>
 
               {/* Speaker */}

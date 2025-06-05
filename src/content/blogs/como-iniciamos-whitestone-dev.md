@@ -1,4 +1,3 @@
-
 ---
 title: "Como iniciamos a whiteStone_dev"
 date: "2024-06-20"

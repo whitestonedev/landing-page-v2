@@ -1,4 +1,3 @@
-
 ---
 title: "DevOps com Docker e Kubernetes"
 date: "2024-07-22"

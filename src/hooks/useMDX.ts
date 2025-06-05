@@ -1,11 +1,21 @@
-
 import { useState, useEffect } from 'react';
 import matter from 'gray-matter';
+import authorsData from '@/data/authors.json';
+
+export interface Author {
+  id: string;
+  name: string;
+  position: string;
+  linkedin: string;
+  github: string;
+  image: string;
+}
 
 export interface MDXMatter {
   title: string;
   date: string;
   author: string;
+  author_id: string;
   tags: string[];
   banner_link?: string;
   short_description: string;
@@ -16,28 +26,38 @@ export interface MDXPost {
   slug: string;
   matter: MDXMatter;
   content: string;
+  authorData?: Author;
 }
 
-export const useMDXPosts = (folder: 'blogs' | 'events') => {
+export const useMDXPosts = (folder: 'blogs' | 'events' | 'projects') => {
   const [posts, setPosts] = useState<MDXPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        // Get all MDX files from the folder
-        const modules = import.meta.glob('/src/content/**/*.mdx', { as: 'raw' });
+        // Get all MD files from the folder
+        const modules = import.meta.glob('/src/content/**/*.md', { 
+          query: '?raw',
+          import: 'default'
+        });
         const postPromises = Object.entries(modules)
           .filter(([path]) => path.includes(`/${folder}/`))
           .map(async ([path, loadContent]) => {
-            const content = await loadContent();
-            const { data, content: markdownContent } = matter(content);
-            const slug = path.split('/').pop()?.replace('.mdx', '') || '';
+            const content = await loadContent() as string;
+            const { data } = matter(content);
+            const slug = path.split('/').pop()?.replace('.md', '') || '';
+            
+            // Find author data
+            const authorData = authorsData.authors.find(
+              (author) => author.id === data.author_id
+            );
             
             return {
               slug,
               matter: data as MDXMatter,
-              content: markdownContent
+              content: null, // We don't need the content for the list view
+              authorData
             };
           });
 
@@ -68,13 +88,20 @@ export const useMDXPost = (folder: 'blogs' | 'events', slug: string) => {
   useEffect(() => {
     const loadPost = async () => {
       try {
-        const content = await import(`/src/content/${folder}/${slug}.mdx?raw`);
-        const { data, content: markdownContent } = matter(content.default);
+        // Import the raw markdown content
+        const rawModule = await import(/* @vite-ignore */ `/src/content/${folder}/${slug}.md?raw`);
+        const { data, content } = matter(rawModule.default);
+        
+        // Find author data
+        const authorData = authorsData.authors.find(
+          (author) => author.id === data.author_id
+        );
         
         setPost({
           slug,
           matter: data as MDXMatter,
-          content: markdownContent
+          content,
+          authorData
         });
       } catch (error) {
         console.error(`Error loading ${folder}/${slug}:`, error);

@@ -1,4 +1,3 @@
-
 ---
 title: "React 19 e as Novas Features"
 date: "2024-07-15"

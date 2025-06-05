@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,6 +18,23 @@ export default function Blog() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
             <div className="text-center">
               <p className="text-muted-foreground">Carregando posts...</p>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (!blogPosts || blogPosts.length === 0) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <main className="pt-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">Nenhum post encontrado</h1>
+              <p className="text-muted-foreground">Ainda não há posts disponíveis. Volte em breve!</p>
             </div>
           </div>
         </main>
@@ -83,7 +99,7 @@ export default function Blog() {
                     </CardHeader>
                     <CardContent>
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {featuredPost.matter.tags.map((tag) => (
+                        {featuredPost.matter.tags?.map((tag) => (
                           <Badge key={tag} variant="secondary">{tag}</Badge>
                         ))}
                       </div>
@@ -131,7 +147,7 @@ export default function Blog() {
                     </CardHeader>
                     <CardContent>
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {post.matter.tags.slice(0, 2).map((tag) => (
+                        {post.matter.tags?.slice(0, 2).map((tag) => (
                           <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
                         ))}
                       </div>
