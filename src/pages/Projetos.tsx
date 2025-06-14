@@ -1,22 +1,26 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Code, Star, Users, ExternalLink } from "lucide-react";
-import projectsData from '@/data/projects.json';
-import { Project } from '@/types';
+import projectsData from "@/data/projects.json";
+import { Project } from "@/types";
 
 // Ajuste a importação se projects.json não for importado diretamente como um array
-const projects: Project[] = (projectsData as any).default || projectsData as Project[]; // Handle potential default export
+const projects: Project[] =
+  (projectsData as any).default || (projectsData as Project[]); // Handle potential default export
 
 export default function Projetos() {
-
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      
       <main className="pt-16">
         {/* Hero Section */}
         <section className="py-16 bg-muted/30">
@@ -27,7 +31,8 @@ export default function Projetos() {
                 Projetos Open Source
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Explore os projetos desenvolvidos pela comunidade whiteStone_dev e descubra como contribuir.
+                Explore os projetos desenvolvidos pela comunidade whiteStone_dev
+                e descubra como contribuir.
               </p>
             </div>
           </div>
@@ -38,10 +43,13 @@ export default function Projetos() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => (
-                <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                   {project.image && (
-                    <img 
-                      src={project.image} 
+                <Card
+                  key={project.id}
+                  className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                >
+                  {project.image && (
+                    <img
+                      src={project.image}
                       alt={project.name}
                       className="h-48 w-full object-cover"
                     />
@@ -53,42 +61,64 @@ export default function Projetos() {
                         {project.name}
                       </CardTitle>
                       {project.status && (
-                        <Badge variant={project.status === "Beta" ? "default" : "secondary"}>
+                        <Badge
+                          variant={
+                            project.status === "Beta" ? "default" : "secondary"
+                          }
+                        >
                           {project.status}
                         </Badge>
                       )}
                     </div>
-                    <CardDescription>{project.shortDescription}</CardDescription>
+                    <CardDescription>
+                      {project.shortDescription}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex items-center text-sm text-muted-foreground mb-4">
-                       {project.stars !== undefined && (
-                        <><Star className="mr-1 h-3 w-3" /> {project.stars} estrelas</>
+                      {project.stars !== undefined && (
+                        <>
+                          <Star className="mr-1 h-3 w-3" /> {project.stars}{" "}
+                          estrelas
+                        </>
                       )}
-                       {project.contributors !== undefined && (
-                         <><Users className="ml-4 mr-1 h-3 w-3" /> {project.contributors} contribuidores</>
-                       )}
+                      {project.contributors !== undefined && (
+                        <>
+                          <Users className="ml-4 mr-1 h-3 w-3" />{" "}
+                          {project.contributors} contribuidores
+                        </>
+                      )}
                     </div>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.map((tech) => (
-                        <Badge key={tech} variant="outline">{tech}</Badge>
+                        <Badge key={tech} variant="outline">
+                          {tech}
+                        </Badge>
                       ))}
                     </div>
                     <div className="flex gap-4">
                       {project.github && (
-                         <Button variant="outline" className="flex-1" asChild>
-                           <a href={project.github} target="_blank" rel="noopener noreferrer">
-                             GitHub <ExternalLink className="ml-2 h-4 w-4" />
-                           </a>
-                         </Button>
+                        <Button variant="outline" className="flex-1" asChild>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            GitHub <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
                       )}
-                     {project.demo && (
+                      {project.demo && (
                         <Button className="flex-1" asChild>
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             Ver Demo <ExternalLink className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
-                     )}
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -105,11 +135,16 @@ export default function Projetos() {
                 Quer Contribuir?
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Explore nossos repositórios no GitHub, reporte bugs, sugira novas features ou envie seu primeiro Pull Request!
+                Explore nossos repositórios no GitHub, reporte bugs, sugira
+                novas features ou envie seu primeiro Pull Request!
               </p>
               <div className="mt-8">
                 <Button size="lg" asChild>
-                  <a href="https://github.com/whitestonedev" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/whitestonedev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Users className="mr-2 h-5 w-5" />
                     Ver no GitHub
                   </a>
@@ -119,8 +154,6 @@ export default function Projetos() {
           </div>
         </section>
       </main>
-      
-      <Footer />
     </div>
   );
 }

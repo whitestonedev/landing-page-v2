@@ -5,16 +5,9 @@ time: "19:00"
 duration: "2h"
 location: "Pedra Branca Tech Park"
 address: "Av. Luiz Boiteux Piazza, 1302 - Cachoeira do Bom Jesus, Florianópolis - SC"
-author: "João Silva"
 tags: ["React", "Frontend", "JavaScript"]
 banner_link: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop"
 short_description: "Explorando as novidades do React 19 e como aplicá-las em projetos reais."
-speaker_name: "João Silva"
-speaker_position: "Senior Frontend Developer"
-speaker_company: "TechCorp"
-speaker_image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
-max_attendees: 50
-current_attendees: 32
 registration_url: "https://links.whitestonedev.com.br"
 ---
 

@@ -1,21 +1,24 @@
-
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  Heart, 
-  Coffee, 
-  Megaphone, 
-  Handshake, 
-  Star, 
-  Users, 
+import {
+  Heart,
+  Coffee,
+  Megaphone,
+  Handshake,
+  Star,
+  Users,
   Trophy,
   Building,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 
 const supportTypes = [
@@ -27,9 +30,10 @@ const supportTypes = [
       "Logo em destaque no site",
       "Reconhecimento nos eventos",
       "Menção nas redes sociais",
-      "Networking com a comunidade"
+      "Networking com a comunidade",
     ],
-    color: "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800"
+    color:
+      "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800",
   },
   {
     icon: Star,
@@ -40,9 +44,10 @@ const supportTypes = [
       "Logo premium em materiais",
       "Espaço para apresentação da empresa",
       "Co-criação de eventos temáticos",
-      "Acesso VIP para representantes"
+      "Acesso VIP para representantes",
     ],
-    color: "bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800"
+    color:
+      "bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800",
   },
   {
     icon: Megaphone,
@@ -52,9 +57,10 @@ const supportTypes = [
       "Ampliação do alcance",
       "Fortalecimento da comunidade",
       "Reconhecimento como apoiador",
-      "Participação em ações especiais"
+      "Participação em ações especiais",
     ],
-    color: "bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800"
+    color:
+      "bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800",
   },
   {
     icon: Handshake,
@@ -64,10 +70,11 @@ const supportTypes = [
       "Evento sob medida",
       "Branding da empresa",
       "Acesso direto a talentos",
-      "Fortalecimento da marca empregadora"
+      "Fortalecimento da marca empregadora",
     ],
-    color: "bg-orange-50 dark:bg-orange-950/20 border-orange-200 dark:border-orange-800"
-  }
+    color:
+      "bg-orange-50 dark:bg-orange-950/20 border-orange-200 dark:border-orange-800",
+  },
 ];
 
 const sponsors = [
@@ -75,40 +82,38 @@ const sponsors = [
     name: "TechCorp Solutions",
     logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
     tier: "Premium",
-    website: "https://techcorp.com"
+    website: "https://techcorp.com",
   },
   {
     name: "DevTools Inc",
     logo: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=100&fit=crop",
     tier: "Gold",
-    website: "https://devtools.com"
+    website: "https://devtools.com",
   },
   {
     name: "Cloud Innovations",
     logo: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=200&h=100&fit=crop",
     tier: "Silver",
-    website: "https://cloudinnovations.com"
+    website: "https://cloudinnovations.com",
   },
   {
     name: "StartupHub",
     logo: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=200&h=100&fit=crop",
     tier: "Bronze",
-    website: "https://startuphub.com"
-  }
+    website: "https://startuphub.com",
+  },
 ];
 
 const impactStats = [
   { number: "500+", label: "Participantes em eventos" },
   { number: "25+", label: "Eventos realizados" },
   { number: "50+", label: "Palestrantes voluntários" },
-  { number: "10+", label: "Empresas apoiadoras" }
+  { number: "10+", label: "Empresas apoiadoras" },
 ];
 
 export default function ComoAjudar() {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      
       <main className="pt-16">
         {/* Hero Section */}
         <section className="py-16 bg-muted/30">
@@ -119,8 +124,9 @@ export default function ComoAjudar() {
                 Como Apoiar a Comunidade
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Sua contribuição ajuda a manter nossa comunidade ativa e acessível para todos. 
-                Descubra como fazer parte desta iniciativa que está transformando o ecossistema tech em Florianópolis.
+                Sua contribuição ajuda a manter nossa comunidade ativa e
+                acessível para todos. Descubra como fazer parte desta iniciativa
+                que está transformando o ecossistema tech em Florianópolis.
               </p>
             </div>
           </div>
@@ -137,8 +143,12 @@ export default function ComoAjudar() {
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {impactStats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-primary">{stat.number}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                  <div className="text-3xl font-bold text-primary">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-muted-foreground mt-1">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -153,13 +163,17 @@ export default function ComoAjudar() {
                 Formas de Apoio
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Escolha a modalidade que melhor se adequa à sua empresa ou interesse pessoal
+                Escolha a modalidade que melhor se adequa à sua empresa ou
+                interesse pessoal
               </p>
             </div>
-            
+
             <div className="grid gap-8 md:grid-cols-2">
               {supportTypes.map((type, index) => (
-                <Card key={index} className={`${type.color} hover:shadow-lg transition-shadow duration-300`}>
+                <Card
+                  key={index}
+                  className={`${type.color} hover:shadow-lg transition-shadow duration-300`}
+                >
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
                       <type.icon className="h-8 w-8 text-primary" />
@@ -172,7 +186,10 @@ export default function ComoAjudar() {
                   <CardContent>
                     <div className="space-y-2">
                       {type.benefits.map((benefit, benefitIndex) => (
-                        <div key={benefitIndex} className="flex items-center gap-2">
+                        <div
+                          key={benefitIndex}
+                          className="flex items-center gap-2"
+                        >
                           <CheckCircle className="h-4 w-4 text-green-600" />
                           <span className="text-sm">{benefit}</span>
                         </div>
@@ -182,7 +199,7 @@ export default function ComoAjudar() {
                 </Card>
               ))}
             </div>
-            
+
             <div className="mt-12 text-center">
               <Button size="lg" asChild>
                 <Link to="/contato">
@@ -203,10 +220,11 @@ export default function ComoAjudar() {
                 Benefícios para Patrocinadores
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Conecte sua marca a uma comunidade engajada e apaixonada por tecnologia
+                Conecte sua marca a uma comunidade engajada e apaixonada por
+                tecnologia
               </p>
             </div>
-            
+
             <div className="grid gap-8 md:grid-cols-3">
               <Card className="text-center">
                 <CardHeader>
@@ -215,11 +233,12 @@ export default function ComoAjudar() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Logotipo em destaque no site, redes sociais, materiais de eventos e reconhecimento público
+                    Logotipo em destaque no site, redes sociais, materiais de
+                    eventos e reconhecimento público
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Users className="mx-auto h-8 w-8 text-primary mb-2" />
@@ -227,11 +246,12 @@ export default function ComoAjudar() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Acesso direto a uma comunidade tech engajada e profissionais qualificados da região
+                    Acesso direto a uma comunidade tech engajada e profissionais
+                    qualificados da região
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <Heart className="mx-auto h-8 w-8 text-primary mb-2" />
@@ -239,7 +259,8 @@ export default function ComoAjudar() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Associe sua marca a propósito, inclusão, inovação e desenvolvimento do ecossistema tech
+                    Associe sua marca a propósito, inclusão, inovação e
+                    desenvolvimento do ecossistema tech
                   </p>
                 </CardContent>
               </Card>
@@ -255,23 +276,40 @@ export default function ComoAjudar() {
                 Empresas que Já Apoiam
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Organizações que acreditam no poder da comunidade para transformar o cenário tech
+                Organizações que acreditam no poder da comunidade para
+                transformar o cenário tech
               </p>
             </div>
-            
+
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {sponsors.map((sponsor, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow duration-300 group">
+                <Card
+                  key={index}
+                  className="hover:shadow-lg transition-shadow duration-300 group"
+                >
                   <CardContent className="p-6 text-center">
-                    <img 
-                      src={sponsor.logo} 
+                    <img
+                      src={sponsor.logo}
                       alt={sponsor.name}
                       className="h-16 w-full object-contain mb-4 group-hover:scale-105 transition-transform duration-300"
                     />
-                    <h3 className="font-semibold text-foreground mb-1">{sponsor.name}</h3>
-                    <Badge variant="secondary" className="mb-3">{sponsor.tier}</Badge>
-                    <Button variant="outline" size="sm" asChild className="w-full">
-                      <a href={sponsor.website} target="_blank" rel="noopener noreferrer">
+                    <h3 className="font-semibold text-foreground mb-1">
+                      {sponsor.name}
+                    </h3>
+                    <Badge variant="secondary" className="mb-3">
+                      {sponsor.tier}
+                    </Badge>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="w-full"
+                    >
+                      <a
+                        href={sponsor.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Visitar Site <ArrowRight className="ml-2 h-3 w-3" />
                       </a>
                     </Button>
@@ -290,7 +328,8 @@ export default function ComoAjudar() {
                 Vamos Construir Juntos
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Seja parte desta iniciativa que está democratizando o acesso ao conhecimento tech em Florianópolis
+                Seja parte desta iniciativa que está democratizando o acesso ao
+                conhecimento tech em Florianópolis
               </p>
               <div className="mt-8 flex items-center justify-center gap-x-6">
                 <Button size="lg" asChild>
@@ -307,8 +346,6 @@ export default function ComoAjudar() {
           </div>
         </section>
       </main>
-      
-      <Footer />
     </div>
   );
 }

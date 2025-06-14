@@ -1,5 +1,3 @@
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,50 +6,37 @@ import { Calendar, User, ArrowLeft, Github, Linkedin } from "lucide-react";
 import { useMDXPost } from "@/hooks/useMDX";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
-
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const { post, loading } = useMDXPost("blogs", slug || "");
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
-        <Navigation />
-        <main className="pt-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-            <div className="text-center">
-              <p className="text-muted-foreground">Carregando post...</p>
-            </div>
-          </div>
-        </main>
-        <Footer />
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+        <div className="text-center">
+          <p className="text-muted-foreground">Carregando post...</p>
+        </div>
       </div>
     );
   }
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background">
-        <Navigation />
-        <main className="pt-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-            <div className="text-center">
-              <h1 className="text-4xl font-bold text-foreground mb-4">
-                Post não encontrado
-              </h1>
-              <p className="text-muted-foreground mb-8">
-                O post que você está procurando não existe ou foi removido.
-              </p>
-              <Button asChild>
-                <Link to="/blog">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Voltar ao Blog
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </main>
-        <Footer />
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Post não encontrado
+          </h1>
+          <p className="text-muted-foreground mb-8">
+            O post que você está procurando não existe ou foi removido.
+          </p>
+          <Button asChild>
+            <Link to="/blog">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Voltar ao Blog
+            </Link>
+          </Button>
+        </div>
       </div>
     );
   }
@@ -60,8 +45,6 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-
       <main className="pt-16">
         {/* Hero Section */}
         <section className="py-16 bg-muted/30">
@@ -168,8 +151,6 @@ export default function BlogPost() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

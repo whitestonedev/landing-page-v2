@@ -5,16 +5,9 @@ time: "19:00"
 duration: "2h30"
 location: "Pedra Branca Tech Park"
 address: "Av. Luiz Boiteux Piazza, 1302 - Cachoeira do Bom Jesus, Florianópolis - SC"
-author: "Carlos Ferreira"
 tags: ["DevOps", "Docker", "Kubernetes"]
 banner_link: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=400&fit=crop"
 short_description: "Workshop prático sobre containerização e orquestração de aplicações."
-speaker_name: "Carlos Ferreira"
-speaker_position: "DevOps Engineer"
-speaker_company: "CloudTech Solutions"
-speaker_image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-max_attendees: 40
-current_attendees: 28
 registration_url: "https://links.whitestonedev.com.br"
 ---
 
