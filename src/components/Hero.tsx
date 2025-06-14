@@ -1,8 +1,16 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Calendar, Users, Code, MapPin, Coffee, Mic, Heart, Globe } from "lucide-react";
+import {
+  Calendar,
+  Users,
+  Code,
+  MapPin,
+  Coffee,
+  Mic,
+  Heart,
+  Globe,
+} from "lucide-react";
 
 export function Hero() {
   const features = [
@@ -10,50 +18,50 @@ export function Hero() {
       icon: MapPin,
       title: "Pedra Branca",
       description: "Eventos presenciais na região continental",
-      delay: "0s"
+      delay: "0s",
     },
     {
       icon: Users,
       title: "Comunidade",
       description: "Networking e troca de conhecimento",
-      delay: "0.1s"
+      delay: "0.1s",
     },
     {
       icon: Calendar,
       title: "Eventos Regulares",
       description: "Palestras, workshops e coffee break",
-      delay: "0.2s"
+      delay: "0.2s",
     },
     {
       icon: Code,
       title: "Open Source",
       description: "Projetos colaborativos e código aberto",
-      delay: "0.3s"
+      delay: "0.3s",
     },
     {
       icon: Coffee,
       title: "Coffee Break",
       description: "Networking descontraído com café gratuito",
-      delay: "0.4s"
+      delay: "0.4s",
     },
     {
       icon: Mic,
       title: "Palestras",
       description: "Conteúdo técnico de qualidade",
-      delay: "0.5s"
+      delay: "0.5s",
     },
     {
       icon: Heart,
       title: "Inclusão",
       description: "Ambiente acolhedor e diverso",
-      delay: "0.6s"
+      delay: "0.6s",
     },
     {
       icon: Globe,
       title: "Acesso Livre",
       description: "Eventos 100% gratuitos para todos",
-      delay: "0.7s"
-    }
+      delay: "0.7s",
+    },
   ];
 
   // Dividir em duas fileiras para o carrossel
@@ -81,80 +89,87 @@ export function Hero() {
           }
         }
       `}</style>
-      
+
       <div className="relative isolate overflow-hidden bg-background">
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-          <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
-            <div className="mt-24 sm:mt-32 lg:mt-16">
-              <a href="#" className="inline-flex space-x-6">
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-primary ring-1 ring-inset ring-primary/20">
-                  Nova temporada de eventos
-                </span>
-              </a>
-            </div>
-            <h1 className="mt-10 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-              Conectando a comunidade{" "}
-              <span className="gradient-text">tech</span> de Florianópolis
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              A whiteStone_dev promove eventos gratuitos e presenciais de tecnologia, 
-              focados em inclusão, networking e troca de conhecimento na Grande Florianópolis.
-            </p>
-            <div className="mt-10 flex items-center gap-x-6">
-              <Button asChild size="lg">
-                <Link to="/eventos">Próximos Eventos</Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/sobre">
-                  Saiba mais <span aria-hidden="true">→</span>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-10">
+          <div className="flex flex-col items-center justify-center min-h-screen">
+            <div className="flex flex-col items-center justify-center flex-1 w-full">
+              <div className="flex justify-center">
+                <Link to="/" className="inline-flex items-center gap-4">
+                  <img
+                    src="https://statics.whitestonedev.com.br/site/wsd_logo.png"
+                    alt="whiteStone_dev logo"
+                    className="h-32 w-auto sm:h-40 md:h-48 lg:h-56"
+                  />
                 </Link>
-              </Button>
-            </div>
-          </div>
-          
-          <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
-            <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-              <div className="space-y-4 overflow-hidden">
-                {/* Primeira fileira - deslizando para a direita */}
-                <div className="animate-[slide-right_20s_linear_infinite] flex gap-4 whitespace-nowrap">
-                  {[...row1, ...row1].map((feature, index) => (
-                    <Card key={`row1-${index}`} className="flex-shrink-0 w-80 animate-fade-in hover:shadow-lg transition-shadow duration-300">
-                      <CardContent className="p-6">
-                        <div className="flex items-center space-x-3">
-                          <div className="flex-shrink-0">
-                            <feature.icon className="h-6 w-6 text-primary" />
+              </div>
+              <h1 className="mt-6 text-4xl tracking-tight text-foreground sm:text-7xl -mt-2 text-center">
+                white<span className="font-bold">Stone</span>
+                <span className="italic">_dev</span>
+              </h1>
+              <p className="mt-4 text-base leading-7 text-muted-foreground text-center max-w-xl">
+                A whiteStone_dev promove eventos gratuitos e presenciais de
+                tecnologia, focados em inclusão, networking e troca de
+                conhecimento na Grande Florianópolis.
+              </p>
+
+              <div className="mt-8 w-full max-w-5xl">
+                <div className="space-y-3 overflow-hidden relative">
+                  {/* Gradiente para fade nas extremidades */}
+                  <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none hidden lg:block" />
+                  <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none hidden lg:block" />
+
+                  {/* Primeira fileira - deslizando para a direita */}
+                  <div className="animate-[slide-right_20s_linear_infinite] flex gap-3 whitespace-nowrap">
+                    {[...row1, ...row1].map((feature, index) => (
+                      <Card
+                        key={`row1-${index}`}
+                        className="flex-shrink-0 min-w-[16rem] max-w-[20rem] hover:shadow-lg transition-shadow duration-300"
+                      >
+                        <CardContent className="p-4">
+                          <div className="flex items-start space-x-2">
+                            <div className="flex-shrink-0 mt-1">
+                              <feature.icon className="h-5 w-5 text-primary" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-base font-semibold truncate">
+                                {feature.title}
+                              </h3>
+                              <p className="text-xs text-muted-foreground line-clamp-2">
+                                {feature.description}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="text-lg font-semibold">{feature.title}</h3>
-                            <p className="text-sm text-muted-foreground">
-                              {feature.description}
-                            </p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+
+                  {/* Segunda fileira - deslizando para a esquerda */}
+                  <div className="animate-[slide-left_25s_linear_infinite] flex gap-3 whitespace-nowrap">
+                    {[...row2, ...row2].map((feature, index) => (
+                      <Card
+                        key={`row2-${index}`}
+                        className="flex-shrink-0 min-w-[16rem] max-w-[20rem] hover:shadow-lg transition-shadow duration-300"
+                      >
+                        <CardContent className="p-4">
+                          <div className="flex items-start space-x-2">
+                            <div className="flex-shrink-0 mt-1">
+                              <feature.icon className="h-5 w-5 text-primary" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-base font-semibold truncate">
+                                {feature.title}
+                              </h3>
+                              <p className="text-xs text-muted-foreground line-clamp-2">
+                                {feature.description}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-                
-                {/* Segunda fileira - deslizando para a esquerda */}
-                <div className="animate-[slide-left_25s_linear_infinite] flex gap-4 whitespace-nowrap">
-                  {[...row2, ...row2].map((feature, index) => (
-                    <Card key={`row2-${index}`} className="flex-shrink-0 w-80 animate-fade-in hover:shadow-lg transition-shadow duration-300">
-                      <CardContent className="p-6">
-                        <div className="flex items-center space-x-3">
-                          <div className="flex-shrink-0">
-                            <feature.icon className="h-6 w-6 text-primary" />
-                          </div>
-                          <div>
-                            <h3 className="text-lg font-semibold">{feature.title}</h3>
-                            <p className="text-sm text-muted-foreground">
-                              {feature.description}
-                            </p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

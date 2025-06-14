@@ -42,7 +42,7 @@ export function Navigation() {
               alt="whiteStone_dev logo"
               className="h-8 w-auto"
             />
-            <span className="text-2xl font-['Roboto']">
+            <span className="text-2xl">
               white<span className="font-bold">Stone</span>
               <span className="italic">_dev</span>
             </span>
@@ -130,7 +130,7 @@ export function Navigation() {
                     alt="whiteStone_dev logo"
                     className="h-6 w-auto"
                   />
-                  <span className="text-xl font-['Roboto']">
+                  <span className="text-xl">
                     white<span className="font-bold">Stone</span>
                     <span className="italic">_dev</span>
                   </span>

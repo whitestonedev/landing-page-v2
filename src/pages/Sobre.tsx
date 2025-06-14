@@ -15,8 +15,9 @@ export default function Sobre() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Header */}
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Sobre a whiteStone_dev
+            <h1 className="text-4xl  tracking-tight text-foreground sm:text-5xl">
+              Sobre a white<span className="font-bold">Stone</span>
+              <span className="italic">_dev</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
               Conheça nossa história, missão e valores que guiam nossa

@@ -66,16 +66,19 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+      sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
-  }
-
-  html {
-    scroll-behavior: smooth;
   }
 }
 
@@ -90,5 +93,13 @@
 
   .gradient-text {
     @apply bg-gradient-to-r from-[#1b3258] to-[#1151bd] bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .font-system {
+    font-family: -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+      sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 }
