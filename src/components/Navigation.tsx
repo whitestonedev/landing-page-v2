@@ -114,93 +114,86 @@ export function Navigation() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-[100] lg:hidden">
           <div
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm"
+            className="inset-0 bg-background/80 backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed inset-0 overflow-y-auto bg-background">
-            <div className="flex min-h-full flex-col">
-              <div className="flex items-center justify-between p-4">
-                <Link
-                  to="/"
-                  className="-m-1.5 p-1.5 flex items-center gap-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <img
-                    src="https://statics.whitestonedev.com.br/site/wsd_logo.png"
-                    alt="whiteStone_dev logo"
-                    className="h-6 w-auto"
-                  />
-                  <span className="text-xl">
-                    white<span className="font-bold">Stone</span>
-                    <span className="italic">_dev</span>
-                  </span>
-                </Link>
-                <button
-                  type="button"
-                  className="-m-2.5 rounded-md p-2.5 text-foreground"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className="sr-only">Close menu</span>
-                  <X className="h-6 w-6" aria-hidden="true" />
-                </button>
+
+          <div className="inset-0 flex flex-col bg-background pb-96">
+            <div className="flex items-center justify-between p-4 ">
+              <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-2">
+                <img
+                  src="https://statics.whitestonedev.com.br/site/wsd_logo.png"
+                  alt="whiteStone_dev logo"
+                  className="h-8 w-auto"
+                />
+                <span className="text-2xl">
+                  white<span className="font-bold">Stone</span>
+                  <span className="italic">_dev</span>
+                </span>
+              </Link>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <X className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-4 py-6 space-y-2">
+              {navigation.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-accent text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={cn(
+                      "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-accent",
+                      location.pathname === item.href
+                        ? "text-primary"
+                        : "text-foreground"
+                    )}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
+            </div>
+
+            <div className="border-t border-border/40 p-4 flex items-center justify-between">
+              <div className="flex gap-x-2">
+                {socialLinks.map((item) => (
+                  <Button
+                    key={item.name}
+                    variant="ghost"
+                    size="icon"
+                    asChild
+                    className="h-9 w-9"
+                  >
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <item.icon className="h-4 w-4" />
+                      <span className="sr-only">{item.name}</span>
+                    </a>
+                  </Button>
+                ))}
               </div>
-              <div className="flex-1 px-4 pb-4">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) =>
-                    item.external ? (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-accent text-foreground"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </a>
-                    ) : (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className={cn(
-                          "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-accent",
-                          location.pathname === item.href
-                            ? "text-primary"
-                            : "text-foreground"
-                        )}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    )
-                  )}
-                </div>
-                <div className="py-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-x-2">
-                      {socialLinks.map((item) => (
-                        <Button
-                          key={item.name}
-                          variant="ghost"
-                          size="icon"
-                          asChild
-                          className="h-9 w-9"
-                        >
-                          <a
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <item.icon className="h-4 w-4" />
-                            <span className="sr-only">{item.name}</span>
-                          </a>
-                        </Button>
-                      ))}
-                    </div>
-                    <ThemeToggle />
-                  </div>
-                </div>
-              </div>
+              <ThemeToggle />
             </div>
           </div>
         </div>
