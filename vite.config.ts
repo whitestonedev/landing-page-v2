@@ -4,18 +4,16 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/tone-dev-hub/",
   server: {
     host: "::",
     port: 8080,
   },
-  plugins: [
-    react(),
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  optimizeDeps: {
-  },
+  optimizeDeps: {},
 });
