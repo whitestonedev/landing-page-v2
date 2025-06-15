@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -161,8 +160,8 @@ export default function Contribute() {
           </div>
         </section>
 
-        {/* Current Sponsors - Carousel Section */}
-        <section className="py-20 bg-muted/30">
+        {/* Current Sponsors - Animated Carousel Section */}
+        <section className="py-20 bg-muted/30 overflow-hidden">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center mb-16">
               <Trophy className="mx-auto h-12 w-12 text-primary mb-4" />
@@ -174,60 +173,82 @@ export default function Contribute() {
               </p>
             </div>
 
-            <div className="relative max-w-6xl mx-auto">
-              <Carousel
-                opts={{
-                  align: "start",
-                  loop: true,
-                }}
-                className="w-full"
-              >
-                <CarouselContent className="-ml-2 md:-ml-4">
-                  {sponsorsData.sponsors.map((sponsor, index) => (
-                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                      <Card className="hover:shadow-xl transition-all duration-300 group border-2 hover:border-primary/20 h-full">
-                        <CardHeader className="text-center pb-4">
-                          <div className="h-20 flex items-center justify-center mb-4">
-                            <img
-                              src={sponsor.thumb}
-                              alt={sponsor.name}
-                              className="max-h-16 max-w-full object-contain group-hover:scale-110 transition-transform duration-300"
-                            />
-                          </div>
-                          <CardTitle className="text-xl">{sponsor.name}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-1 flex flex-col justify-between">
-                          <p className="text-sm text-muted-foreground text-center leading-relaxed mb-4">
-                            {sponsor.description}
-                          </p>
-                          <div className="text-center">
-                            <Button variant="outline" size="sm" asChild>
-                              <a 
-                                href={sponsor.sponsor_link} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-xs"
-                              >
-                                Conhecer Empresa
-                              </a>
-                            </Button>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden md:flex" />
-                <CarouselNext className="hidden md:flex" />
-              </Carousel>
-              
-              {/* Mobile navigation dots */}
-              <div className="flex justify-center mt-6 md:hidden">
-                <div className="flex space-x-2">
-                  {Array.from({ length: Math.ceil(sponsorsData.sponsors.length / 1) }).map((_, index) => (
-                    <div key={index} className="w-2 h-2 rounded-full bg-muted-foreground/30" />
-                  ))}
-                </div>
+            <div className="relative">
+              <style>{`
+                @keyframes slide-sponsors-left {
+                  from {
+                    transform: translateX(0%);
+                  }
+                  to {
+                    transform: translateX(-50%);
+                  }
+                }
+              `}</style>
+
+              {/* Gradiente para fade nas extremidades */}
+              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
+
+              {/* Carrossel com animação automática e funcionalidade de arrastar */}
+              <div className="relative max-w-6xl mx-auto">
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                    dragFree: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent 
+                    className="-ml-2 md:-ml-4"
+                    style={{
+                      animation: "slide-sponsors-left 30s linear infinite"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.animationPlayState = "paused";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.animationPlayState = "running";
+                    }}
+                  >
+                    {/* Duplicamos os sponsors para criar o efeito infinito */}
+                    {[...sponsorsData.sponsors, ...sponsorsData.sponsors].map((sponsor, index) => (
+                      <CarouselItem key={`${sponsor.name}-${index}`} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                        <Card className="hover:shadow-xl transition-all duration-300 group border-2 hover:border-primary/20 h-full">
+                          <CardHeader className="text-center pb-4">
+                            <div className="h-20 flex items-center justify-center mb-4">
+                              <img
+                                src={sponsor.thumb}
+                                alt={sponsor.name}
+                                className="max-h-16 max-w-full object-contain group-hover:scale-110 transition-transform duration-300"
+                              />
+                            </div>
+                            <CardTitle className="text-xl">{sponsor.name}</CardTitle>
+                          </CardHeader>
+                          <CardContent className="flex-1 flex flex-col justify-between">
+                            <p className="text-sm text-muted-foreground text-center leading-relaxed mb-4">
+                              {sponsor.description}
+                            </p>
+                            <div className="text-center">
+                              <Button variant="outline" size="sm" asChild>
+                                <a 
+                                  href={sponsor.sponsor_link} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-xs"
+                                >
+                                  Conhecer Empresa
+                                </a>
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="hidden md:flex" />
+                  <CarouselNext className="hidden md:flex" />
+                </Carousel>
               </div>
             </div>
           </div>
