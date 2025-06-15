@@ -103,3 +103,19 @@
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 }
+
+.sponsor-table {
+  @apply flex flex-wrap justify-center gap-6 md:table w-full;
+}
+
+.sponsor-cell {
+  @apply w-full max-w-xs text-center p-4 md:table-cell;
+}
+
+.sponsor-img {
+  @apply w-full max-h-24 object-contain mx-auto;
+}
+
+.sponsor-link {
+  @apply text-primary hover:text-primary-foreground;
+}

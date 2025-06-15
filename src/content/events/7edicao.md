@@ -28,31 +28,45 @@ O evento será um mergulho profundo no ecossistema cripto, explorando temas como
 
 ## 🤝 Apoio e Patrocínio
 
-<table>
+<style>
+  @media (max-width: 768px) {
+    .sponsor-table {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .sponsor-cell {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
 
+<table class="sponsor-table" style="width: 100%; table-layout: fixed;">
   <tbody>
-    <tr>
-      <td style="text-align: center; padding: 10px;">
+    <tr style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+      <td class="sponsor-cell" style="text-align: center; padding: 10px; width: 220px;">
         <a href="https://www.inaitec.com.br/" target="_blank" rel="noopener noreferrer">
-          <img src="/img/sponsors/inaitec_logo_3_small.png" alt="Inaitec" style="width: 100%;" />
+          <img src="/img/sponsors/inaitec_logo_3_small.png" alt="Inaitec" style="width: 100%; max-height: 100px; object-fit: contain;" />
         </a>
         <br/>Local e Coffee Break
       </td>
-      <td style="text-align: center; padding: 10px;">
+      <td class="sponsor-cell" style="text-align: center; padding: 10px; width: 220px;">
         <a href="https://cheesecakelabs.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/img/sponsors/cheesecakelabs.png" alt="Cheesecake Labs" style="width: 100%;" />
+          <img src="/img/sponsors/cheesecakelabs.png" alt="Cheesecake Labs" style="width: 100%; max-height: 100px; object-fit: contain;" />
         </a>
         <br/>Coffee Break
       </td>
-      <td style="text-align: center; padding: 10px;">
+      <td class="sponsor-cell" style="text-align: center; padding: 10px; width: 220px;">
         <a href="https://nearx.com.br/" target="_blank" rel="noopener noreferrer">
-          <img src="/img/sponsors/nearx.png" alt="NearX" style="max-width: 300px;" />
+          <img src="/img/sponsors/nearx.png" alt="NearX" style="width: 100%; max-height: 100px; object-fit: contain;" />
         </a>
         <br/>Patrocínio educacional
       </td>
     </tr>
   </tbody>
 </table>
+
 
 ## 🗓️ Agenda Detalhada
 

@@ -93,18 +93,44 @@ export const markdownComponents = {
       </code>
     );
   },
-  img: ({ node, ...props }) => (
-    <img
-      className="my-4 rounded-md max-w-full h-auto"
-      {...props}
-      loading="lazy"
-    />
-  ),
-  table: ({ node, ...props }) => (
-    <div className="overflow-x-auto">
-      <table className="w-full border-collapse" {...props} />
-    </div>
-  ),
+  table: ({ node, ...props }) => {
+    const isSponsorTable = node?.children?.[0]?.children?.some((td) =>
+      td.children?.[0]?.properties?.src?.includes("/img/sponsors")
+    );
+
+    return (
+      <div className="overflow-x-auto">
+        <table
+          className={
+            isSponsorTable ? "sponsor-table" : "w-full border-collapse"
+          }
+          {...props}
+        />
+      </div>
+    );
+  },
+  td: ({ node, ...props }) => {
+    const isSponsor =
+      node?.children?.[0]?.properties?.src?.includes("/img/sponsors");
+    return (
+      <td
+        className={isSponsor ? "sponsor-cell" : "border px-4 py-2"}
+        {...props}
+      />
+    );
+  },
+  img: ({ node, ...props }) => {
+    const isSponsor = props.src?.includes("/img/sponsors");
+    return (
+      <img
+        className={
+          isSponsor ? "sponsor-img" : "my-4 rounded-md max-w-full h-auto"
+        }
+        {...props}
+        loading="lazy"
+      />
+    );
+  },
 };
 
 export const MarkdownRenderer = ({ content }: { content: string }) => (
