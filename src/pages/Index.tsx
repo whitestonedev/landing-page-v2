@@ -65,9 +65,9 @@ export default function Index() {
                     key={event.slug}
                     className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
                   >
-                    {event.matter.banner_link && (
+                    {event.matter.thumb && (
                       <img
-                        src={event.matter.banner_link}
+                        src={event.matter.thumb}
                         alt={event.matter.title}
                         className="h-48 w-full object-cover"
                       />
@@ -148,9 +148,9 @@ export default function Index() {
                     className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
                   >
                     <Link to={`/blog/${post.slug}`}>
-                      {post.matter.banner_link && (
+                      {post.matter.thumb && (
                         <img
-                          src={post.matter.banner_link}
+                          src={post.matter.thumb}
                           alt={post.matter.title}
                           className="h-48 w-full object-cover"
                         />

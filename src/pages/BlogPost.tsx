@@ -74,9 +74,9 @@ export default function BlogPost() {
                   </Badge>
                 ))}
               </div>
-              {matter.banner_link && (
+              {matter.thumb && (
                 <img
-                  src={matter.banner_link}
+                  src={matter.thumb}
                   alt={matter.title}
                   className="w-full h-64 object-cover rounded-lg"
                 />

@@ -6,7 +6,7 @@ duration: "2h"
 location: "Pedra Branca Tech Park"
 address: "Av. Luiz Boiteux Piazza, 1302 - Cachoeira do Bom Jesus, Florianópolis - SC"
 tags: ["React", "Frontend", "JavaScript"]
-banner_link: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop"
+thumb: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop"
 short_description: "Explorando as novidades do React 19 e como aplicá-las em projetos reais."
 registration_url: "https://links.whitestonedev.com.br"
 ---

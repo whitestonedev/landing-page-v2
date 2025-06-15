@@ -6,7 +6,7 @@ duration: "2h30"
 location: "Pedra Branca Tech Park"
 address: "Av. Luiz Boiteux Piazza, 1302 - Cachoeira do Bom Jesus, Florianópolis - SC"
 tags: ["DevOps", "Docker", "Kubernetes"]
-banner_link: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=400&fit=crop"
+thumb: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=400&fit=crop"
 short_description: "Workshop prático sobre containerização e orquestração de aplicações."
 registration_url: "https://links.whitestonedev.com.br"
 ---

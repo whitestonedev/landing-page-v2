@@ -7,6 +7,38 @@
       "linkedin": "https://www.linkedin.com/in/vitorjosestahelin/",
       "github": "https://github.com/vstahelin",
       "image": "img/blog/authors/vitor.jpg"
+    },
+    {
+      "name": "Daniel da Rosa",
+      "position": "Senior Software Engineer",
+      "company": "Mercado Livre",
+      "linkedin": "https://www.linkedin.com/in/danidr7/",
+      "github": "https://github.com/danidr7",
+      "image": "https://github.com/danidr7.png"
+    },
+    {
+      "name": "Gabriel Soares Costa",
+      "position": "Senior Software Engineer",
+      "company": "CheeseCake Labs",
+      "linkedin": "https://www.linkedin.com/in/gsoarescosta/",
+      "github": "https://github.com/gsoarescosta",
+      "image": "https://github.com/gsoarescosta.png"
+    },
+    {
+      "name": "Rafael Mateus",
+      "position": "Senior Software Engineer",
+      "company": "Neoway",
+      "linkedin": "https://www.linkedin.com/in/rafaelbmateus/",
+      "github": "https://github.com/rafaelbmateus",
+      "image": "https://github.com/rafaelbmateus.png"
+    },
+    {
+      "name": "Matheus dos Santos",
+      "position": "Senior Software Engineer",
+      "company": "Zarpo Viagens",
+      "linkedin": "https://www.linkedin.com/in/matheus-dos-santos-968485115/",
+      "github": "https://github.com/matheussf",
+      "image": "https://github.com/matheussf.png"
     }
   ]
 }

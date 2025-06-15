@@ -66,7 +66,7 @@ export default function Events() {
                     className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
                   >
                     <img
-                      src={event.matter.banner_link}
+                      src={event.matter.thumb}
                       alt={event.matter.title}
                       className="h-48 w-full object-cover"
                     />
@@ -127,7 +127,7 @@ export default function Events() {
                     className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
                   >
                     <img
-                      src={event.matter.banner_link}
+                      src={event.matter.thumb}
                       alt={event.matter.title}
                       className="h-48 w-full object-cover"
                     />

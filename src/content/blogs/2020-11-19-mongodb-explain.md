@@ -1,12 +1,11 @@
 ---
 title: 🔍 Desvendando a Lentidão no MongoDB - Guia Prático para Otimizar seus Índices 🚀
-date: "2024-06-15"
-author: "Maria Santos"
+date: "2020-11-19"
 tags: [MongoDB, Database, Performance, Index, Troubleshooting]
-banner_link: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop"
-short_description: "Desvendando a Lentidão no MongoDB - Guia Prático para Otimizar seus Índices"
+author: "Daniel da Rosa"
+thumb: /img/blog/thumbs/mongodb.png
+short_description: "Aprenda a identificar e resolver lentidão em queries do MongoDB analisando índices e planos de execução na prática."
 ---
-
 
 ## Seus Índices no MongoDB Estão Turbinados ou Te Deixando na Mão? 🤔
 
@@ -206,7 +205,7 @@ $ db.person.find({name: "danidr7", cpf: "12345678900"}).explain("executionStats"
 Ufa! 😅 O `explain()` retorna um caminhão de informações! 🚚 Mas calma, vamos focar no essencial: **`winningPlan`** e **`executionStats`**. [Quer saber o que cada campo significa? A documentação do MongoDB te explica tim-tim por tim-tim!](https://docs.mongodb.com/manual/reference/explain-results/)
 
 O **`winningPlan`** revela o plano de consulta **vencedor**, escolhido pelo otimizador do MongoDB. Ele pode ter até 3 estágios (`inputStage`). Os estágios mais importantes para a nossa análise são:
-`FETCH`
+
 - **`FETCH`**: Recupera os documentos propriamente ditos, buscando-os a partir das chaves retornadas no estágio anterior. 📦
 - **`COLLSCAN`**: Realiza uma varredura completa na collection, documento por documento. 🐌 **Sinal vermelho! 🚨 Índices não estão sendo usados!**
 - **`IXSCAN`**: Varre as chaves dos índices, buscando de forma otimizada os documentos. 🚀 **Índices em ação!**

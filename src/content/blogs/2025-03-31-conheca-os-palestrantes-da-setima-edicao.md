@@ -3,7 +3,7 @@ title: 🎤 7ª Edição do whiteStone_dev - Saiba Mais Sobre Nossos Palestrante
 date: "2025-03-31"
 author: "Vitor Stahelin"
 tags: [Blockchain, Palestrantes, Hyperledger, Stablecoin, Interoperabilidade, HyperledgerCacti]
-banner_link: /img/blog/thumbs/fifo-doug-gabs.png
+thumb: /img/blog/thumbs/fifo-doug-gabs.png
 short_description: "Na próxima whiteStone_dev, contaremos com três feras da blockchain: Doug, Fifo e Gabriel. Cada um com uma rica experiência e perspectivas valiosas para compartilhar. A seguir, apresentamos um pouco mais sobre a carreira desses profissionais e o que você pode esperar nas suas palestras."
 ---
 

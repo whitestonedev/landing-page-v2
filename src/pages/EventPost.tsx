@@ -53,7 +53,7 @@ export default function EventDetail() {
         {/* Hero Section */}
         <section className="relative">
           <img
-            src={event.matter.banner_link}
+            src={event.matter.thumb}
             alt={event.matter.title}
             className="h-64 w-full object-cover"
           />

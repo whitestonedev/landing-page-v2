@@ -81,7 +81,7 @@ export default function Blog() {
                 <div className="md:flex">
                   <div className="md:w-1/2">
                     <img
-                      src={featuredPost.matter.banner_link}
+                      src={featuredPost.matter.thumb}
                       alt={featuredPost.matter.title}
                       className="h-64 w-full object-cover md:h-full"
                     />
@@ -142,7 +142,7 @@ export default function Blog() {
                     className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
                   >
                     <img
-                      src={post.matter.banner_link}
+                      src={post.matter.thumb}
                       alt={post.matter.title}
                       className="h-48 w-full object-cover"
                     />

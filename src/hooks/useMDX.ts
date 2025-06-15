@@ -16,7 +16,7 @@ export interface MDXMatter {
   date: string;
   author: string;
   tags: string[];
-  banner_link?: string;
+  thumb?: string;
   short_description: string;
   [key: string]: any;
 }
