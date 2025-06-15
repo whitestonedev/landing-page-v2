@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -19,96 +20,112 @@ import {
   Building,
   CheckCircle,
   ArrowRight,
+  Zap,
+  Target,
+  Globe,
+  Lightbulb,
 } from "lucide-react";
+import sponsorsData from "@/data/sponsors.json";
 
 const supportTypes = [
   {
     icon: Coffee,
-    title: "Patrocínio Financeiro",
-    description: "Apoie com recursos para espaço, estrutura e coffee break",
-    benefits: [
-      "Logo em destaque no site",
-      "Reconhecimento nos eventos",
-      "Menção nas redes sociais",
-      "Networking com a comunidade",
+    title: "Patrocínio Financeiro (Essencial)",
+    description: "Apoie com recursos para espaço e coffee break nos eventos",
+    details: [
+      "Espaço para eventos adequado",
+      "Coffee break de qualidade",
+      "Infraestrutura necessária",
+      "Ambiente propício para networking",
     ],
-    color:
-      "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800",
+    color: "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800",
+    priority: "Essencial",
   },
   {
     icon: Star,
-    title: "Patrocínio Plus",
-    description: "Apoio premium com bebidas, brindes e palestrantes renomados",
-    benefits: [
-      "Todos os benefícios do patrocínio financeiro",
-      "Logo premium em materiais",
-      "Espaço para apresentação da empresa",
-      "Co-criação de eventos temáticos",
-      "Acesso VIP para representantes",
+    title: "Patrocínio Plus (Opcional, Mas Incrível!)",
+    description: "Apoio premium com bebidas, palestrantes renomados e brindes",
+    details: [
+      "Chop/bebidas para happy hour",
+      "Palestrantes de destaque",
+      "Itens para sorteio",
+      "Materiais promocionais personalizados",
     ],
-    color:
-      "bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800",
+    color: "bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800",
+    priority: "Premium",
   },
   {
     icon: Megaphone,
-    title: "Divulgação",
-    description: "Ajude compartilhando nossos eventos e conteúdos",
-    benefits: [
-      "Ampliação do alcance",
+    title: "Apoio em Divulgação",
+    description: "Ajude compartilhando nossos eventos em suas redes",
+    details: [
+      "Divulgação em redes sociais",
+      "Compartilhamento em canais internos",
+      "Indicação para network pessoal",
       "Fortalecimento da comunidade",
-      "Reconhecimento como apoiador",
-      "Participação em ações especiais",
     ],
-    color:
-      "bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800",
+    color: "bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800",
+    priority: "Colaborativo",
   },
   {
     icon: Handshake,
-    title: "Eventos Temáticos",
-    description: "Co-criação de eventos personalizados com sua empresa",
-    benefits: [
-      "Evento sob medida",
-      "Branding da empresa",
-      "Acesso direto a talentos",
-      "Fortalecimento da marca empregadora",
+    title: "Eventos Temáticos Exclusivos",
+    description: "Eventos personalizados sob medida para sua empresa",
+    details: [
+      "Tema focado na sua tecnologia",
+      "Palestras customizadas",
+      "Workshops específicos",
+      "Branding exclusivo da empresa",
     ],
-    color:
-      "bg-orange-50 dark:bg-orange-950/20 border-orange-200 dark:border-orange-800",
+    color: "bg-orange-50 dark:bg-orange-950/20 border-orange-200 dark:border-orange-800",
+    priority: "Personalizado",
   },
 ];
 
-const sponsors = [
+const benefits = [
   {
-    name: "TechCorp Solutions",
-    logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
-    tier: "Premium",
-    website: "https://techcorp.com",
+    icon: Target,
+    title: "Divulgação da Marca",
+    description: "Sua marca será amplamente divulgada em todos os materiais de eventos, online e offline"
   },
   {
-    name: "DevTools Inc",
-    logo: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=100&fit=crop",
-    tier: "Gold",
-    website: "https://devtools.com",
+    icon: Trophy,
+    title: "Logotipo em Destaque",
+    description: "Logo estampado em materiais, websites e redes sociais da whiteStone_dev"
   },
   {
-    name: "Cloud Innovations",
-    logo: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=200&h=100&fit=crop",
-    tier: "Silver",
-    website: "https://cloudinnovations.com",
+    icon: Heart,
+    title: "Agradecimento Público",
+    description: "Reconhecimento especial durante abertura e encerramento dos eventos"
   },
   {
-    name: "StartupHub",
-    logo: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=200&h=100&fit=crop",
-    tier: "Bronze",
-    website: "https://startuphub.com",
-  },
+    icon: Users,
+    title: "Networking Privilegiado",
+    description: "Oportunidade de interagir diretamente com a comunidade tech engajada"
+  }
 ];
 
-const impactStats = [
-  { number: "500+", label: "Participantes em eventos" },
-  { number: "25+", label: "Eventos realizados" },
-  { number: "50+", label: "Palestrantes voluntários" },
-  { number: "10+", label: "Empresas apoiadoras" },
+const whySupport = [
+  {
+    icon: Zap,
+    title: "Inovação e Tecnologia",
+    description: "Apoie uma comunidade na vanguarda da tecnologia"
+  },
+  {
+    icon: Globe,
+    title: "Open Source e Colaboração",
+    description: "Associe-se a valores de transparência e desenvolvimento aberto"
+  },
+  {
+    icon: Building,
+    title: "Desenvolvimento da Comunidade Tech",
+    description: "Contribua para a formação de profissionais capacitados"
+  },
+  {
+    icon: Lightbulb,
+    title: "Visibilidade e Networking",
+    description: "Conecte-se com talentos e profissionais qualificados"
+  }
 ];
 
 export default function Contribute() {
@@ -116,40 +133,93 @@ export default function Contribute() {
     <div className="min-h-screen bg-background">
       <main>
         {/* Hero Section */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <Heart className="mx-auto h-12 w-12 text-primary mb-4" />
+            <div className="mx-auto max-w-4xl text-center">
+              <Heart className="mx-auto h-16 w-16 text-primary mb-6" />
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-                Como Apoiar a Comunidade
+                Apoie a whiteStone_dev
               </h1>
-              <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Sua contribuição ajuda a manter nossa comunidade ativa e
-                acessível para todos. Descubra como fazer parte desta iniciativa
-                que está transformando o ecossistema tech em Florianópolis.
+              <p className="mt-6 text-xl leading-8 text-muted-foreground">
+                Seja um Patrocinador e Colaborador
               </p>
+              <div className="mt-8 max-w-3xl mx-auto">
+                <p className="text-lg text-muted-foreground">
+                  A <strong className="text-primary">whiteStone_dev</strong> é uma comunidade open source que respira tecnologia e inovação. 
+                  Nossos eventos são totalmente gratuitos e abertos a todos que desejam aprender, compartilhar e se conectar. 
+                  Para continuarmos a impulsionar a comunidade tech, <strong>precisamos do seu apoio!</strong>
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Impact Stats */}
+        {/* Current Sponsors - Highlighted Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <Trophy className="mx-auto h-12 w-12 text-primary mb-4" />
+              <h2 className="text-4xl font-bold tracking-tight text-foreground">
+                Empresas que já confiaram e apoiaram a whiteStone_dev
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Organizações que acreditam no poder da comunidade para transformar o cenário tech
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+              {sponsorsData.sponsors.map((sponsor, index) => (
+                <Card
+                  key={index}
+                  className="hover:shadow-xl transition-all duration-300 group border-2 hover:border-primary/20"
+                >
+                  <CardHeader className="text-center pb-4">
+                    <div className="h-20 flex items-center justify-center mb-4">
+                      <img
+                        src={sponsor.thumb}
+                        alt={sponsor.name}
+                        className="max-h-16 max-w-full object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <CardTitle className="text-xl">{sponsor.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                      {sponsor.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Support */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center mb-12">
+            <div className="mx-auto max-w-3xl text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                Nosso Impacto na Comunidade
+                Por Que Patrocinar a whiteStone_dev?
               </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Ao apoiar a whiteStone_dev, sua empresa estará investindo diretamente no crescimento 
+                da comunidade tecnológica brasileira e se conectando com um público altamente qualificado
+              </p>
             </div>
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {impactStats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-primary">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-1">
-                    {stat.label}
-                  </div>
-                </div>
+
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {whySupport.map((item, index) => (
+                <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
+                  <CardHeader>
+                    <item.icon className="mx-auto h-10 w-10 text-primary mb-3" />
+                    <CardTitle className="text-lg">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -158,40 +228,46 @@ export default function Contribute() {
         {/* Support Types */}
         <section className="py-16 bg-muted/30">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center mb-12">
+            <div className="mx-auto max-w-3xl text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                Formas de Apoio
+                Como Você Pode Colaborar?
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Escolha a modalidade que melhor se adequa à sua empresa ou
-                interesse pessoal
+                Existem diversas formas de apoiar a whiteStone_dev
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-8 lg:grid-cols-2">
               {supportTypes.map((type, index) => (
                 <Card
                   key={index}
-                  className={`${type.color} hover:shadow-lg transition-shadow duration-300`}
+                  className={`${type.color} hover:shadow-xl transition-all duration-300 border-2`}
                 >
                   <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <type.icon className="h-8 w-8 text-primary" />
-                      <CardTitle className="text-xl">{type.title}</CardTitle>
+                    <div className="flex items-start gap-4 mb-4">
+                      <type.icon className="h-10 w-10 text-primary flex-shrink-0 mt-1" />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <CardTitle className="text-xl">{type.title}</CardTitle>
+                          <Badge variant="secondary" className="text-xs">
+                            {type.priority}
+                          </Badge>
+                        </div>
+                        <CardDescription className="text-base">
+                          {type.description}
+                        </CardDescription>
+                      </div>
                     </div>
-                    <CardDescription className="text-base">
-                      {type.description}
-                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2">
-                      {type.benefits.map((benefit, benefitIndex) => (
+                    <div className="space-y-3">
+                      {type.details.map((detail, detailIndex) => (
                         <div
-                          key={benefitIndex}
-                          className="flex items-center gap-2"
+                          key={detailIndex}
+                          className="flex items-center gap-3"
                         >
-                          <CheckCircle className="h-4 w-4 text-green-600" />
-                          <span className="text-sm">{benefit}</span>
+                          <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                          <span className="text-sm">{detail}</span>
                         </div>
                       ))}
                     </div>
@@ -199,120 +275,33 @@ export default function Contribute() {
                 </Card>
               ))}
             </div>
-
-            <div className="mt-12 text-center">
-              <Button size="lg" asChild>
-                <Link to="/contato">
-                  <Handshake className="mr-2 h-5 w-5" />
-                  Quero Apoiar
-                </Link>
-              </Button>
-            </div>
           </div>
         </section>
 
         {/* Benefits for Sponsors */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center mb-12">
-              <Trophy className="mx-auto h-12 w-12 text-primary mb-4" />
+            <div className="mx-auto max-w-3xl text-center mb-12">
+              <Star className="mx-auto h-12 w-12 text-primary mb-4" />
               <h2 className="text-3xl font-bold tracking-tight text-foreground">
                 Benefícios para Patrocinadores
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Conecte sua marca a uma comunidade engajada e apaixonada por
-                tecnologia
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3">
-              <Card className="text-center">
-                <CardHeader>
-                  <Building className="mx-auto h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Visibilidade da Marca</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Logotipo em destaque no site, redes sociais, materiais de
-                    eventos e reconhecimento público
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <Users className="mx-auto h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Networking Qualificado</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Acesso direto a uma comunidade tech engajada e profissionais
-                    qualificados da região
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <Heart className="mx-auto h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Propósito e Impacto</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Associe sua marca a propósito, inclusão, inovação e
-                    desenvolvimento do ecossistema tech
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Current Sponsors */}
-        <section className="py-16 bg-muted/30">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                Empresas que Já Apoiam
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Organizações que acreditam no poder da comunidade para
-                transformar o cenário tech
+                Em reconhecimento ao seu apoio, sua empresa terá
               </p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {sponsors.map((sponsor, index) => (
-                <Card
-                  key={index}
-                  className="hover:shadow-lg transition-shadow duration-300 group"
-                >
-                  <CardContent className="p-6 text-center">
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      className="h-16 w-full object-contain mb-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <h3 className="font-semibold text-foreground mb-1">
-                      {sponsor.name}
-                    </h3>
-                    <Badge variant="secondary" className="mb-3">
-                      {sponsor.tier}
-                    </Badge>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="w-full"
-                    >
-                      <a
-                        href={sponsor.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Visitar Site <ArrowRight className="ml-2 h-3 w-3" />
-                      </a>
-                    </Button>
+              {benefits.map((benefit, index) => (
+                <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
+                  <CardHeader>
+                    <benefit.icon className="mx-auto h-10 w-10 text-primary mb-3" />
+                    <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      {benefit.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -321,27 +310,28 @@ export default function Contribute() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                Vamos Construir Juntos
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Seja parte desta iniciativa que está democratizando o acesso ao
-                conhecimento tech em Florianópolis
-              </p>
-              <div className="mt-8 flex items-center justify-center gap-x-6">
-                <Button size="lg" asChild>
-                  <Link to="https://links.whitestonedev.com.br/#/whatsapp">
-                    <Heart className="mr-2 h-5 w-5" />
-                    Começar Apoio
-                  </Link>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/sobre">Conhecer Mais</Link>
-                </Button>
-              </div>
+        <section className="py-20 bg-gradient-to-r from-primary/10 via-background to-secondary/10">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
+            <h2 className="text-4xl font-bold tracking-tight text-foreground mb-6">
+              Junte-se a Nós
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Seja um patrocinador ou colaborador da <strong className="text-primary">whiteStone_dev</strong> e 
+              faça parte da construção de uma comunidade tech cada vez mais forte e vibrante!
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Button size="lg" asChild className="text-lg px-8 py-6">
+                <a href="https://links.whitestonedev.com.br" target="_blank" rel="noopener noreferrer">
+                  <Heart className="mr-3 h-6 w-6" />
+                  Entre em Contato
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="text-lg px-8 py-6">
+                <Link to="/sobre">
+                  <ArrowRight className="mr-3 h-6 w-6" />
+                  Conhecer Mais
+                </Link>
+              </Button>
             </div>
           </div>
         </section>

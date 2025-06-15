@@ -1,0 +1,20 @@
+
+{
+  "sponsors": [
+    {
+      "name": "CheeseCake Labs",
+      "thumb": "/img/sponsors/cheesecakelabs.png",
+      "description": "Empresa de desenvolvimento de software especializada em aplicações móveis e web, apoiando a comunidade tech com inovação e expertise."
+    },
+    {
+      "name": "INAITEC",
+      "thumb": "/img/sponsors/inaitec_logo_3_small.png",
+      "description": "Instituto de inovação tecnológica focado em pesquisa e desenvolvimento de soluções tecnológicas avançadas."
+    },
+    {
+      "name": "NearX",
+      "thumb": "/img/sponsors/nearx.png",
+      "description": "Startup de tecnologia especializada em soluções de proximidade e localização, contribuindo para o ecossistema tech local."
+    }
+  ]
+}
