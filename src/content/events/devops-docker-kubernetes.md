@@ -1,348 +1,97 @@
 ---
-title: "DevOps com Docker e Kubernetes"
-date: "2024-07-22"
+title: "7ª Edição | Cripto - Especial Fênix"
+date: "2025-04-24"
 time: "19:00"
-duration: "2h30"
-location: "Pedra Branca Tech Park"
-address: "Av. Luiz Boiteux Piazza, 1302 - Cachoeira do Bom Jesus, Florianópolis - SC"
-tags: ["DevOps", "Docker", "Kubernetes"]
-thumb: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=400&fit=crop"
-short_description: "Workshop prático sobre containerização e orquestração de aplicações."
-registration_url: "https://links.whitestonedev.com.br"
+duration: "3h"
+location: "INAITEC, Pedra Branca"
+address: "R. Avenida das Águias, 231 - Pedra Branca, Palhoça - SC, 88137-280"
+tags: ["Cripto", "DeFi", "NFTs", "Smart Contracts", "Fênix", "Comunidade"]
+thumb: "https://whitestonedev.com.br/img/events/sticker_fenix.png"
+short_description: "Retomada da whiteStone_dev com foco no universo cripto: blockchain, DeFi, NFTs e smart contracts em uma noite de talks e networking."
+registration_url: "https://www.sympla.com.br/evento/whitestone-dev-7-edicao-fenix/2851067"
 ---
 
-# DevOps com Docker e Kubernetes
+# 7ª Edição | Cripto - Especial Fênix
 
-Bem-vindos ao workshop mais hands-on da temporada! Vamos aprender **containerização** e **orquestração** de aplicações do zero até o deploy em produção.
+A comunidade **whiteStone_dev** está de volta com sua **7ª edição**! Após uma pausa, retornamos como a **Fênix**, mais fortes e prontos para incendiar a cena tech com uma noite especial dedicada ao universo cripto.
 
-## 🎯 Objetivos do Workshop
+## 🔥 Edição Cripto
 
-Ao final deste workshop, você será capaz de:
-- Containerizar qualquer aplicação com Docker
-- Criar e gerenciar clusters Kubernetes
-- Fazer deploy de aplicações em produção
-- Implementar práticas de DevOps modernas
+O evento será um mergulho profundo no ecossistema cripto, explorando temas como **blockchain**, **finanças descentralizadas (DeFi)**, **NFTs** e **contratos inteligentes**, com conteúdo prático e espaço para networking.
 
-## 📋 Pré-requisitos
+## 📅 Quando e Onde
 
-### Conhecimento Técnico
-- **Linux básico**: Comandos de terminal
-- **Programação**: Qualquer linguagem
-- **Redes**: Conceitos básicos (IPs, portas)
+🗓️ **Data:** 24 de Abril de 2025  
+🕖 **Hora:** A partir das 19h  
+📍 **Local:** INAITEC - Pedra Branca  
+📌 **Endereço:** R. Avenida das Águias, 231, Palhoça - SC
 
-### Setup Obrigatório
-⚠️ **IMPORTANTE**: Traga seu notebook com:
+## 🤝 Apoio e Patrocínio
 
-```bash
-# Docker instalado
-docker --version
-# Docker deve estar >= 20.0
+<table>
 
-# kubectl instalado
-kubectl version --client
-# Qualquer versão recente
+  <tbody>
+    <tr>
+      <td style="text-align: center; padding: 10px;">
+        <a href="https://www.inaitec.com.br/" target="_blank" rel="noopener noreferrer">
+          <img src="/img/sponsors/inaitec_logo_3_small.png" alt="Inaitec" style="width: 100%;" />
+        </a>
+        <br/>Local e Coffee Break
+      </td>
+      <td style="text-align: center; padding: 10px;">
+        <a href="https://cheesecakelabs.com/" target="_blank" rel="noopener noreferrer">
+          <img src="/img/sponsors/cheesecakelabs.png" alt="Cheesecake Labs" style="width: 100%;" />
+        </a>
+        <br/>Coffee Break
+      </td>
+      <td style="text-align: center; padding: 10px;">
+        <a href="https://nearx.com.br/" target="_blank" rel="noopener noreferrer">
+          <img src="/img/sponsors/nearx.png" alt="NearX" style="max-width: 300px;" />
+        </a>
+        <br/>Patrocínio educacional
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-# Editor de código
-# VS Code, Vim, nano, etc.
-```
-
-### Instalação Docker
-```bash
-# Ubuntu/Debian
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-
-# Adicionar usuário ao grupo docker
-sudo usermod -aG docker $USER
-```
-
-## 🐳 Parte 1: Docker Fundamentals
-
-### Conceitos Essenciais
-- **Containers vs VMs**: Diferenças e vantagens
-- **Images vs Containers**: Entendendo a arquitetura
-- **Registry**: Docker Hub e registries privados
-
-### Hands-on: Primeira Aplicação
-Vamos containerizar uma API Node.js:
-
-```dockerfile
-# Dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY . .
-
-EXPOSE 3000
-
-USER node
-
-CMD ["npm", "start"]
-```
-
-### Docker Compose
-Orquestração local de múltiplos serviços:
-
-```yaml
-# docker-compose.yml
-version: '3.8'
-
-services:
-  api:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - DATABASE_URL=postgres://user:pass@db:5432/app
-    depends_on:
-      - db
-
-  db:
-    image: postgres:15
-    environment:
-      - POSTGRES_DB=app
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=pass
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:
-```
-
-## ☸️ Parte 2: Kubernetes Essentials
-
-### Arquitetura Kubernetes
-- **Master vs Worker Nodes**
-- **Pods, Services, Deployments**
-- **ConfigMaps e Secrets**
-- **Ingress e Load Balancing**
-
-### Setup Local
-Usaremos **k3d** para clusters locais:
-
-```bash
-# Instalar k3d
-curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
-
-# Criar cluster
-k3d cluster create workshop-cluster --port "8080:80@loadbalancer"
-
-# Verificar
-kubectl get nodes
-```
-
-### Primeiro Deploy
-```yaml
-# deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: api-deployment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: api
-  template:
-    metadata:
-      labels:
-        app: api
-    spec:
-      containers:
-      - name: api
-        image: nossa-api:latest
-        ports:
-        - containerPort: 3000
-        env:
-        - name: NODE_ENV
-          value: production
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: api-service
-spec:
-  selector:
-    app: api
-  ports:
-  - port: 80
-    targetPort: 3000
-  type: LoadBalancer
-```
-
-## 🚀 Parte 3: Deploy em Produção
-
-### CI/CD Pipeline
-Configuração com GitHub Actions:
-
-```yaml
-# .github/workflows/deploy.yml
-name: Deploy to Production
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Build Docker Image
-      run: |
-        docker build -t ${{ secrets.REGISTRY }}/api:${{ github.sha }} .
-        docker push ${{ secrets.REGISTRY }}/api:${{ github.sha }}
-    
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl set image deployment/api-deployment api=${{ secrets.REGISTRY }}/api:${{ github.sha }}
-```
-
-### Monitoramento e Observabilidade
-- **Logs**: Agregação com ELK Stack
-- **Métricas**: Prometheus + Grafana
-- **Health Checks**: Liveness e Readiness Probes
-
-## 📅 Agenda Detalhada
-
-| Horário | Atividade | Duração |
-|---------|-----------|---------|
-| 19:00 - 19:30 | **Coffee & Setup** | 30min |
-| 19:30 - 19:45 | **Introdução DevOps** | 15min |
-| 19:45 - 20:15 | **Docker Hands-on** | 30min |
-| 20:15 - 20:30 | **Break** | 15min |
-| 20:30 - 21:15 | **Kubernetes Workshop** | 45min |
-| 21:15 - 21:30 | **Deploy Production** | 15min |
-| 21:30 - 21:45 | **Q&A e Networking** | 15min |
-
-## 🛠 Projetos Práticos
-
-### Projeto 1: API Containerizada
-- Aplicação Node.js + PostgreSQL
-- Multi-stage build para otimização
-- Health checks e logging
-
-### Projeto 2: Microserviços
-- Frontend React + Backend Node.js + Database
-- Service mesh com Istio (conceitos)
-- Load balancing e service discovery
-
-### Projeto 3: CI/CD Completo
-- Pipeline automatizado
-- Tests, build, deploy
-- Rollback strategy
-
-## 👨‍💻 Sobre o Instrutor
-
-**Carlos Ferreira** é DevOps Engineer na CloudTech Solutions, especialista em arquiteturas cloud-native e automação de infraestrutura.
-
-### Background:
-- **10+ anos** em infraestrutura e DevOps
-- **Certified Kubernetes Administrator (CKA)**
-- **AWS Solutions Architect Professional**
-- **Contribuidor** de projetos CNCF
-
-### Experiência Prática:
-- Migração de monolitos para microserviços
-- Implementação de pipelines CI/CD em scale
-- Gerenciamento de clusters K8s com 1000+ pods
-- Automação de infraestrutura com Terraform
-
-## 🎁 Material Incluso
-
-### Durante o Workshop:
-- **Repositório GitHub** com todos os exemplos
-- **Cheat sheets** de Docker e Kubernetes
-- **Templates** de pipelines CI/CD
-- **Manifests** prontos para produção
-
-### Pós-Workshop:
-- **Gravação** do workshop (exclusiva para participantes)
-- **Acompanhamento** no Slack por 30 dias
-- **Office hours** quinzenais para dúvidas
-
-## 🏢 Infraestrutura do Evento
-
-### Setup Local:
-- **WiFi dedicado** para downloads pesados
-- **Tomadas** em todas as mesas
-- **Tela auxiliar** para acompanhar código
-
-### Cloud Environment:
-- **Cluster K8s gratuito** para cada participante
-- **Acesso por 7 dias** pós-evento
-- **Créditos AWS** para experimentação
-
-## 🎯 Próximos Passos
-
-### Certificações Recomendadas:
-1. **Docker Certified Associate (DCA)**
-2. **Certified Kubernetes Administrator (CKA)**
-3. **AWS/GCP/Azure DevOps certifications**
-
-### Eventos Futuros:
-- **Terraform Workshop** - Agosto
-- **GitOps com ArgoCD** - Setembro
-- **Monitoring & Observability** - Outubro
-
-### Comunidade:
-- **Slack #devops-br**
-- **Meetups mensais**
-- **Grupo de estudos para certificações**
-
-## ⚡ Dicas Para Aproveitar Melhor
-
-### Antes do Evento:
-- Instale Docker e kubectl
-- Clone o repositório: `git clone https://github.com/whitestonedev/devops-workshop`
-- Teste sua configuração local
-
-### Durante o Workshop:
-- Faça perguntas sempre que tiver dúvidas
-- Compartilhe tela com colegas se precisar de ajuda
-- Anote comandos e conceitos importantes
-
-### Depois do Workshop:
-- Pratique os exemplos em casa
-- Implemente em um projeto pessoal
-- Participe das discussões no Slack
-
-## 🤝 Networking e Oportunidades
-
-### Empresas Participantes:
-- **CloudTech Solutions** - Vagas de DevOps Engineer
-- **StartupLocal** - Busca SRE Jr/Pleno
-- **ConsultoriaTech** - Projetos de migração cloud
-
-### Networking:
-- **Speed networking** durante os breaks
-- **Grupo WhatsApp** exclusivo dos participantes
-- **LinkedIn** - conecte-se com outros participantes
+## 🗓️ Agenda Detalhada
+
+| Horário | Atividade |
+|--------|-----------|
+| 19:00  | Abertura e Check-in |
+| 19:30  | **Doug Silva** – *Eliminando o Ruído: Blockchain em 2025* |
+| 20:00  | **Gabriel Soares Costa** – *O que é uma 'stablecoin'?* (Flash Talk) |
+| 20:15  | Coffee Break / Networking |
+| 20:45  | **Fifo Zatti** – *Interoperabilidade em Blockchains e Hyperledger Cacti* |
+| 21:15  | Networking & Encerramento |
+
+## 🏢 Localização
+
+📌 **INAITEC - Inovação e Tecnologia**  
+📍 R. Avenida das Águias, 231 - Pedra Branca, Palhoça - SC  
+🌐 [Ver no Google Maps](https://maps.app.goo.gl/YN57VzadmgnQC9s28)
+
+## 🚗 Como Chegar
+
+- **De carro:** BR-101, acesso pela Marginal/R. Pedro Cota de Castro  
+- **De ônibus:** Linhas da Jotur `CIDADE UNIVERSITÁRIA CIRCULAR` ([Itinerário](https://www.jotur.com.br/horarios/palhoca,1/cidade-universitaria-pedra-branca,50#heading-4-162~692353))
+
+## 🌐 Conecte-se com a Comunidade
+
+- Site: [whitestonedev.com.br](https://whitestonedev.com.br/)
+- Instagram: [@whitestonedev](https://www.instagram.com/whitestonedev/)
+- LinkedIn: [@whitestone_dev](https://www.linkedin.com/company/whitestone-dev)
+- YouTube: [@whiteStone_dev](https://www.youtube.com/@whiteStone_dev)
+- WhatsApp: [Grupo da Comunidade](https://chat.whatsapp.com/LiB7z1n1Ahe3Ts0YD5uPoe)
+
+
+
+## ✨ Seja um Parceiro
+
+Interessado em apoiar a whiteStone_dev?  
+[Entenda mais sobre como patrocinar](https://calendario.tech/eventos/patrocinio)
 
 ---
 
-## 📞 Suporte e Contato
-
-### Durante o Evento:
-- **Assistentes**: 2 voluntários da comunidade
-- **Chat ao vivo**: Slack #workshop-devops
-- **Emergência**: WhatsApp do organizador
-
-### Problemas Técnicos:
-```bash
-# Se algo der errado, comandos de reset:
-docker system prune -a
-k3d cluster delete workshop-cluster
-k3d cluster create workshop-cluster --port "8080:80@loadbalancer"
-```
-
-**Vamos dominar containers e orquestração juntos!** 🚀🐳☸️
-
-*Este workshop é 100% hands-on. Traga disposição para codar!*
+**Publicado em:** 18 de Abril de 2025  
+*Prepare-se para uma noite de conhecimento, inovação e retomada da nossa comunidade tech!*

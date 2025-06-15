@@ -45,13 +45,13 @@ export default function Index() {
       <main>
         <Hero />
 
-        {/* Próximos Eventos */}
+        {/* Eventos */}
         {upcomingEvents && upcomingEvents.length > 0 && (
           <section className="py-16 bg-muted/30">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                  Próximos Eventos
+                  Eventos
                 </h2>
                 <p className="mt-4 text-lg text-muted-foreground">
                   Participe dos nossos encontros presenciais e conecte-se com a

@@ -95,7 +95,7 @@ export const markdownComponents = {
   },
   img: ({ node, ...props }) => (
     <img
-      className="my-4 rounded-md shadow-md max-w-full h-auto"
+      className="my-4 rounded-md max-w-full h-auto"
       {...props}
       loading="lazy"
     />
