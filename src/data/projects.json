@@ -10,13 +10,13 @@
     "demo": "https://calendario.tech"
   },
   {
-    "id": "landing-page",
-    "name": "landing-page V1",
-    "description": "This website is built using Docusaurus 3, a modern static website generator.",
-    "tech": ["JavaScript", "CSS"],
-    "status": "Arquivado",
+    "id": "landing-page-v2",
+    "name": "landing-page-v2",
+    "description": "Site atual da White Stone Dev, ele foi dado kickoff usando o Lovable IA, e está sendo desenvolvido e atualizado por nossa equipe.",
+    "tech": ["TypeScript", "Tailwind CSS", "React", "MDX"],
+    "status": "Em desenvolvimento",
     "image": "https://statics.whitestonedev.com.br/site/wsd_logo.png",
-    "github": "https://github.com/whitestonedev/landing-page",
+    "github": "https://github.com/whitestonedev/landing-page-v2",
     "demo": "https://whitestonedev.com.br/"
   },
   {
@@ -32,11 +32,19 @@
   {
     "id": "talk-to-markdown",
     "name": "talk-to-markdown",
-    "description": "",
+    "description": "Projeto para converter os eventos em blog posts, facilitando a criação de conteúdo a partir de eventos gravados.",
     "tech": ["Python", "HTML"],
     "status": "Beta",
-    "image": "https://github.com/whitestonedev.png",
-    "github": "https://github.com/whitestonedev/talk-to-markdown",
-    "demo": "https://github.com/whitestonedev/talk-to-markdown"
+    "image": "https://statics.whitestonedev.com.br/site/wsd_logo.png",
+    "github": "https://github.com/whitestonedev/talk-to-markdown"
+  },
+  {
+    "id": "landing-page",
+    "name": "landing-page-v1",
+    "description": "Este site foi construído usando o Docusaurus 3, um gerador de sites estáticos moderno.",
+    "tech": ["JavaScript", "CSS", "React", "MDX"],
+    "status": "Arquivado",
+    "image": "https://statics.whitestonedev.com.br/site/wsd_logo.png",
+    "github": "https://github.com/whitestonedev/landing-page-v1"
   }
 ]

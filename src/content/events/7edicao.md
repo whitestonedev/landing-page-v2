@@ -6,7 +6,7 @@ duration: "3h"
 location: "INAITEC, Pedra Branca"
 address: "R. Avenida das Águias, 231 - Pedra Branca, Palhoça - SC, 88137-280"
 tags: ["Cripto", "DeFi", "NFTs", "Smart Contracts", "Fênix", "Comunidade"]
-thumb: "https://whitestonedev.com.br/img/events/sticker_fenix.png"
+thumb: "https://statics.whitestonedev.com.br/site/sticker_fenix.png"
 short_description: "Retomada da whiteStone_dev com foco no universo cripto: blockchain, DeFi, NFTs e smart contracts em uma noite de talks e networking."
 registration_url: "https://www.sympla.com.br/evento/whitestone-dev-7-edicao-fenix/2851067"
 ---
