@@ -103,9 +103,4 @@ O evento será um mergulho profundo no ecossistema cripto, explorando temas como
 ## ✨ Seja um Parceiro
 
 Interessado em apoiar a whiteStone_dev?  
-[Entenda mais sobre como patrocinar](https://calendario.tech/eventos/patrocinio)
-
----
-
-**Publicado em:** 18 de Abril de 2025  
-*Prepare-se para uma noite de conhecimento, inovação e retomada da nossa comunidade tech!*
+[Entenda mais sobre como patrocinar](https://whitestonedev.com.br/#/como-apoiar)

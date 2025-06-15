@@ -30,7 +30,7 @@ export default function BlogPost() {
           <p className="text-muted-foreground mb-8">
             O post que você está procurando não existe ou foi removido.
           </p>
-          <Button asChild>
+          <Button asChild className="mt-8 mb-8">
             <Link to="/blog">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Voltar ao Blog
@@ -144,7 +144,7 @@ export default function BlogPost() {
               )}
 
               {/* Back to Blog Button */}
-              <div className="mt-8 text-center">
+              <div className="mt-8 mb-8 text-center">
                 <Button variant="outline" asChild>
                   <Link to="/blog">
                     <ArrowLeft className="mr-2 h-4 w-4" />
