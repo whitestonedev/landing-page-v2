@@ -2,7 +2,14 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, Github, Instagram, Linkedin } from "lucide-react";
+import {
+  Menu,
+  X,
+  Github,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -20,9 +27,22 @@ const navigation = [
 ];
 
 const socialLinks = [
-  { name: "GitHub", href: "#", icon: Github },
-  { name: "Instagram", href: "#", icon: Instagram },
-  { name: "LinkedIn", href: "#", icon: Linkedin },
+  { name: "GitHub", href: "https://github.com/whitestonedev", icon: Github },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/whitestonedev",
+    icon: Instagram,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/whitestone-dev/",
+    icon: Linkedin,
+  },
+  {
+    name: "WhatsApp",
+    href: "https://links.whitestonedev.com.br/#/whatsapp",
+    icon: MessageCircle,
+  },
 ];
 
 export function Navigation() {

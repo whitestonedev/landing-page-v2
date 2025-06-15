@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigation = {
@@ -10,12 +9,28 @@ const navigation = {
     { name: "Blog", href: "/blog" },
     { name: "Projetos", href: "/projetos" },
     { name: "Como Ajudar", href: "/como-ajudar" },
-    { name: "Contato", href: "/contato" },
+    {
+      name: "Contato",
+      href: "https://links.whitestonedev.com.br",
+    },
   ],
   social: [
-    { name: "GitHub", href: "#", icon: Github },
-    { name: "Instagram", href: "#", icon: Instagram },
-    { name: "LinkedIn", href: "#", icon: Linkedin },
+    { name: "GitHub", href: "https://github.com/whitestonedev", icon: Github },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/whitestonedev",
+      icon: Instagram,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/whitestone-dev/",
+      icon: Linkedin,
+    },
+    {
+      name: "WhatsApp",
+      href: "https://links.whitestonedev.com.br/#/whatsapp",
+      icon: MessageCircle,
+    },
   ],
 };
 

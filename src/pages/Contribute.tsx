@@ -333,7 +333,7 @@ export default function Contribute() {
               </p>
               <div className="mt-8 flex items-center justify-center gap-x-6">
                 <Button size="lg" asChild>
-                  <Link to="/contato">
+                  <Link to="https://links.whitestonedev.com.br/#/whatsapp">
                     <Heart className="mr-2 h-5 w-5" />
                     Começar Apoio
                   </Link>
