@@ -47,9 +47,12 @@ export default function BlogPost() {
     <div className="min-h-screen bg-background">
       <main>
         {/* Hero Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section className="pt-16 pb-4 bg-muted/30">
+          <div className="mx-auto max-w-7xl px-6 lg:px-6">
             <div className="mx-auto max-w-3xl text-center">
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
+                {matter.title}
+              </h1>
               <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-4">
                 <div className="flex items-center">
                   <Calendar className="mr-1 h-4 w-4" />
@@ -57,13 +60,14 @@ export default function BlogPost() {
                 </div>
                 <div className="flex items-center">
                   <User className="mr-1 h-4 w-4" />
-                  {matter.author}
+                  <a>
+                    {authorData?.name && authorData.name
+                      ? authorData.name
+                      : matter.author}
+                  </a>
                 </div>
               </div>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
-                {matter.title}
-              </h1>
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
+              <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {matter.tags?.map((tag: string) => (
                   <Badge key={tag} variant="secondary">
                     {tag}
@@ -74,7 +78,7 @@ export default function BlogPost() {
                 <img
                   src={matter.banner_link}
                   alt={matter.title}
-                  className="w-full h-64 object-cover rounded-lg mb-8"
+                  className="w-full h-64 object-cover rounded-lg"
                 />
               )}
             </div>
@@ -82,7 +86,7 @@ export default function BlogPost() {
         </section>
 
         {/* Content */}
-        <section className="py-16">
+        <section className="">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl">
               <article className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-code:text-pink-500 prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-muted prose-pre:rounded-lg prose-pre:shadow-sm prose-pre:overflow-x-auto prose-pre:not-prose prose-pre:my-4 prose-pre:p-0 prose-pre:before:content-none prose-pre:after:content-none prose-pre:code:bg-transparent prose-pre:code:p-0 prose-pre:code:text-foreground prose-pre:code:before:content-none prose-pre:code:after:content-none prose-table:border prose-table:border-border prose-table:rounded-lg prose-table:overflow-hidden prose-table:shadow-sm prose-th:bg-muted prose-th:text-foreground prose-th:font-semibold prose-th:p-4 prose-td:p-4 prose-td:border-t prose-td:border-border prose-td:text-muted-foreground">
@@ -110,7 +114,8 @@ export default function BlogPost() {
                           {authorData.name}
                         </h3>
                         <p className="text-muted-foreground">
-                          {authorData.position}
+                          {authorData.position}{" "}
+                          {authorData.company && `@ ${authorData.company}`}
                         </p>
                         <div className="flex gap-2 mt-2">
                           <Button variant="ghost" size="icon" asChild>

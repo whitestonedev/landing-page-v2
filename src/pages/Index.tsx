@@ -147,36 +147,39 @@ export default function Index() {
                     key={post.slug}
                     className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
                   >
-                    {post.matter.banner_link && (
-                      <img
-                        src={post.matter.banner_link}
-                        alt={post.matter.title}
-                        className="h-48 w-full object-cover"
-                      />
-                    )}
-                    <CardHeader>
-                      <CardTitle className="text-xl hover:text-primary transition-colors">
-                        <Link to={`/blog/${post.slug}`}>
-                          {post.matter.title}
-                        </Link>
-                      </CardTitle>
-                      {(post.matter.author || post.matter.date) && (
+                    <Link to={`/blog/${post.slug}`}>
+                      {post.matter.banner_link && (
+                        <img
+                          src={post.matter.banner_link}
+                          alt={post.matter.title}
+                          className="h-48 w-full object-cover"
+                        />
+                      )}
+                      <CardHeader>
+                        <CardTitle className="text-xl hover:text-primary transition-colors">
+                          <span>{post.matter.title}</span>
+                        </CardTitle>
                         <CardDescription>
-                          {post.matter.author && `Por ${post.matter.author}`}{" "}
-                          {post.matter.date &&
-                            `• ${new Date(post.matter.date).toLocaleDateString(
-                              "pt-BR"
-                            )}`}
+                          {post.matter.short_description}
                         </CardDescription>
-                      )}
-                    </CardHeader>
-                    <CardContent>
-                      {post.matter.excerpt && (
-                        <p className="text-muted-foreground">
-                          {post.matter.excerpt}
-                        </p>
-                      )}
-                    </CardContent>
+                        {(post.matter.author || post.matter.date) && (
+                          <CardDescription>
+                            {post.matter.author && `Por ${post.matter.author}`}{" "}
+                            {post.matter.date &&
+                              `• ${new Date(
+                                post.matter.date
+                              ).toLocaleDateString("pt-BR")}`}
+                          </CardDescription>
+                        )}
+                      </CardHeader>
+                      <CardContent>
+                        {post.matter.excerpt && (
+                          <p className="text-muted-foreground">
+                            {post.matter.excerpt}
+                          </p>
+                        )}
+                      </CardContent>
+                    </Link>
                   </Card>
                 ))}
               </div>
@@ -236,9 +239,9 @@ export default function Index() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      {project.shortDescription && (
+                      {project.description && (
                         <p className="text-muted-foreground mb-4">
-                          {project.shortDescription}
+                          {project.description}
                         </p>
                       )}
                       {project.tech && project.tech.length > 0 && (

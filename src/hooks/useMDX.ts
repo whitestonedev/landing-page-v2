@@ -3,19 +3,18 @@ import matter from "gray-matter";
 import authorsData from "@/data/authors.json";
 
 export interface Author {
-  id: string;
   name: string;
   position: string;
   linkedin: string;
   github: string;
   image: string;
+  company?: string;
 }
 
 export interface MDXMatter {
   title: string;
   date: string;
   author: string;
-  author_id: string;
   tags: string[];
   banner_link?: string;
   short_description: string;
@@ -29,7 +28,8 @@ export interface MDXPost {
   authorData?: Author;
 }
 
-const modules = import.meta.glob<string>("/src/content/**/*.md", {
+// Permite importar tanto .md quanto .mdx (caso queira migrar para MDX no futuro)
+const modules = import.meta.glob<string>("/src/content/**/*.{md,mdx}", {
   eager: true,
   query: "?raw",
   import: "default",
@@ -45,18 +45,18 @@ export const useMDXPosts = (folder: "blogs" | "events" | "projects") => {
     );
 
     const list = allEntries.map(([path, raw]) => {
-      const { data } = matter(raw);
+      const { data, content } = matter(raw);
       const filename = path.split("/").pop() || "";
-      const slug = filename.replace(/\.md$/, "");
+      const slug = filename.replace(/\.(md|mdx)$/, "");
 
       const authorData = authorsData.authors.find(
-        (a: Author) => a.id === data.author_id
+        (a: Author) => a.name === data.author_name
       );
 
       return {
         slug,
         matter: data as MDXMatter,
-        content: null,
+        content, // agora retorna o conteúdo markdown (com HTML embutido)
         authorData,
       } as MDXPost;
     });
@@ -81,11 +81,13 @@ export const useMDXPost = (
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const key = `/src/content/${folder}/${slug}.md`;
-    const raw = modules[key];
+    // Suporte a .md e .mdx
+    const keyMd = `/src/content/${folder}/${slug}.md`;
+    const keyMdx = `/src/content/${folder}/${slug}.mdx`;
+    const raw = modules[keyMd] || modules[keyMdx];
 
     if (!raw) {
-      console.error(`Post not found in build modules: ${key}`);
+      console.error(`Post not found in build modules: ${keyMd} or ${keyMdx}`);
       setPost(null);
       setLoading(false);
       return;
@@ -93,13 +95,13 @@ export const useMDXPost = (
 
     const { data, content } = matter(raw);
     const authorData = authorsData.authors.find(
-      (a: Author) => a.id === data.author_id
+      (a: Author) => a.name === data.author
     );
 
     setPost({
       slug,
       matter: data as MDXMatter,
-      content,
+      content, // retorna o conteúdo markdown (com HTML embutido)
       authorData,
     });
     setLoading(false);
