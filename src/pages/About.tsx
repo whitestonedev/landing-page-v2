@@ -29,7 +29,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <main className="py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-3 lg:px-8">
           {/* Header */}
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
@@ -37,7 +37,7 @@ export default function About() {
               <span className="italic">_dev</span>? 🤔
             </h1>
             <div className="mt-8 text-xl text-muted-foreground space-y-4">
-              <p className="font-semibold text-2xl text-foreground">
+              <p className="font-semibold text-1xl text-foreground">
                 Somos uma Comunidade Open Source que promove eventos gratuitos
                 de tecnologia na região da Grande Floripa, SC 🇧🇷
               </p>
@@ -494,8 +494,7 @@ export default function About() {
             </Card>
           </section>
 
-          {/* Call to Action */}
-          <section className="mt-20 bg-gradient-to-r from-primary/10 via-background to-secondary/10 rounded-2xl p-12">
+          <section className="mt-20 bg-gradient-to-r from-primary/10 via-background to-secondary/10 rounded-2xl p-8">
             <div className="text-center">
               <Heart className="mx-auto h-16 w-16 text-primary mb-6" />
               <h2 className="text-4xl font-bold tracking-tight text-foreground mb-6">
