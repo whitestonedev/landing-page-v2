@@ -31,7 +31,7 @@ export default function Blog() {
   if (!blogPosts || blogPosts.length === 0) {
     return (
       <div className="min-h-screen bg-background">
-        <main className="pt-16">
+        <main>
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
             <div className="text-center">
               <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">
@@ -52,7 +52,7 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-16">
+      <main>
         {/* Hero Section */}
         <section className="py-16 bg-muted/30">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
