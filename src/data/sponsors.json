@@ -1,39 +1,38 @@
-
 {
   "sponsors": [
     {
       "name": "Neoway",
-      "thumb": "https://whitestonedev.com.br/img/neoway_logo.svg",
+      "thumb": "https://statics.whitestonedev.com.br/sponsors/NEOWAY.png",
       "description": "Maior empresa brasileira de Dados & Analytics (parte da B3), oferecendo soluções de inteligência analítica com foco em prevenção de fraudes, marketing, vendas e decisões estratégicas.",
       "sponsor_link": "https://www.neoway.com.br/"
     },
     {
       "name": "ImpactHub Floripa",
-      "thumb": "https://whitestonedev.com.br/img/impacthub_logo.png",
+      "thumb": "https://statics.whitestonedev.com.br/sponsors/IMPACTHUB.jpg",
       "description": "Espaço de coworking e hub de inovação social em Florianópolis, conectando empreendedores, facilitando eventos, programas e networking para impacto sustentável.",
       "sponsor_link": "https://floripa.impacthub.net/"
     },
     {
       "name": "Inaitec",
-      "thumb": "https://whitestonedev.com.br/img/inaitec_logo.png",
+      "thumb": "https://statics.whitestonedev.com.br/sponsors/INAITECV2.png",
       "description": "Incubadora e aceleradora de startups de impacto na smart city Pedra Branca, com foco em inovação social e apoio estratégico-tecnológico.",
       "sponsor_link": "https://www.inaitec.com.br/"
     },
     {
       "name": "Eurotec Nutrition",
-      "thumb": "https://whitestonedev.com.br/img/eurotec_logo.png",
+      "thumb": "https://statics.whitestonedev.com.br/sponsors/EUROTEC.png",
       "description": "Referência global em aditivos de alta performance para nutrição animal, reciclagem e bem-estar, presente em 20+ países há mais de 30 anos.",
       "sponsor_link": "https://euronutri.com.br/"
     },
     {
       "name": "CheesecakeLabs",
-      "thumb": "https://whitestonedev.com.br/img/cheesecakelabs_logo.png",
+      "thumb": "https://statics.whitestonedev.com.br/sponsors/cheesecakelabs.png",
       "description": "Agência nearshore de software, design e blockchain, com mais de 10 anos de atuação, +300 apps entregues e clientes como Fortune 500.",
       "sponsor_link": "https://cheesecakelabs.com/"
     },
     {
       "name": "NearX",
-      "thumb": "https://whitestonedev.com.br/img/nearx_logo.png",
+      "thumb": "https://statics.whitestonedev.com.br/sponsors/nearx.png",
       "description": "Plataforma brasileira de educação e aceleração focada em Web3, blockchain, IA, programação e tokenização, capacitando profissionais para o futuro.",
       "sponsor_link": "https://nearx.com.br/"
     }
