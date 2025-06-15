@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -9,12 +8,12 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  MapPin, 
-  Users, 
-  Target, 
-  Heart, 
-  Coffee, 
+import {
+  MapPin,
+  Users,
+  Target,
+  Heart,
+  Coffee,
   Calendar,
   Video,
   Globe,
@@ -23,7 +22,7 @@ import {
   ArrowRight,
   Zap,
   CheckCircle,
-  Lightbulb
+  Lightbulb,
 } from "lucide-react";
 
 export default function About() {
@@ -39,10 +38,8 @@ export default function About() {
             </h1>
             <div className="mt-8 text-xl text-muted-foreground space-y-4">
               <p className="font-semibold text-2xl text-foreground">
-                whiteStone_dev: Uma Comunidade Open Source 🚀 
-              </p>
-              <p className="text-lg">
-                Impulsionando a Tecnologia e Conectando Desenvolvedores 🤝
+                Somos uma Comunidade Open Source que promove eventos gratuitos
+                de tecnologia na região da Grande Floripa, SC 🇧🇷
               </p>
             </div>
           </div>
@@ -59,38 +56,57 @@ export default function About() {
               <CardContent className="prose prose-lg max-w-none">
                 <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
                   <p>
-                    A <strong className="text-foreground">whiteStone_dev</strong> nasceu de uma{" "}
-                    <strong className="text-primary">dor real da comunidade de desenvolvedores</strong>{" "}
-                    da região continental da Grande Floripa: a dificuldade de acesso a eventos de tecnologia.
+                    A{" "}
+                    <strong className="text-foreground">whiteStone_dev</strong>{" "}
+                    nasceu de uma{" "}
+                    <strong className="text-primary">
+                      dor real da comunidade de desenvolvedores
+                    </strong>{" "}
+                    da região continental da Grande Floripa: a dificuldade de
+                    acesso a eventos de tecnologia.
                   </p>
-                  
+
                   <p>
-                    Localizados próximos à capital, Florianópolis, sofríamos porque{" "}
-                    <strong className="text-foreground">quase todos os eventos tech se concentravam na ilha</strong> 🏝️,
-                    tornando a participação inviável para muitos.
+                    Localizados próximos à capital, Florianópolis, sofríamos
+                    porque{" "}
+                    <strong className="text-foreground">
+                      quase todos os eventos tech se concentravam na ilha
+                    </strong>{" "}
+                    🏝️, tornando a participação inviável para muitos.
                   </p>
 
                   <div className="bg-muted/50 rounded-lg p-6">
                     <p className="mb-4">
-                      Para <strong className="text-foreground">desenvolvedores, estudantes e entusiastas de tecnologia</strong>{" "}
+                      Para{" "}
+                      <strong className="text-foreground">
+                        desenvolvedores, estudantes e entusiastas de tecnologia
+                      </strong>{" "}
                       que enfrentavam:
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">Longos deslocamentos após o expediente</span>
+                        <span className="text-sm">
+                          Longos deslocamentos após o expediente
+                        </span>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">Orçamento limitado para transporte 💸</span>
+                        <span className="text-sm">
+                          Orçamento limitado para transporte
+                        </span>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">Custos de alimentação fora de casa</span>
+                        <span className="text-sm">
+                          Custos de alimentação fora de casa
+                        </span>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">Tempo de viagem excessivo</span>
+                        <span className="text-sm">
+                          Tempo de viagem excessivo
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -100,10 +116,19 @@ export default function About() {
                       Foi assim que a whiteStone_dev surgiu:
                     </p>
                     <p>
-                      Para <strong className="text-primary">criar eventos de tecnologia acessíveis a todos</strong>,
-                      especialmente àqueles fora do centro da ilha. Nosso objetivo é{" "}
-                      <strong className="text-foreground">conectar mentes criativas e apaixonadas por tecnologia</strong>{" "}
-                      da região, <strong className="text-primary">quebrando barreiras geográficas 🗺️ e financeiras 💰</strong>{" "}
+                      Para{" "}
+                      <strong className="text-primary">
+                        criar eventos de tecnologia acessíveis a todos
+                      </strong>
+                      , especialmente àqueles fora do centro da ilha. Nosso
+                      objetivo é{" "}
+                      <strong className="text-foreground">
+                        conectar mentes criativas e apaixonadas por tecnologia
+                      </strong>{" "}
+                      da região,{" "}
+                      <strong className="text-primary">
+                        quebrando barreiras geográficas 🗺️ e financeiras
+                      </strong>{" "}
                       para o acesso ao conhecimento e ao networking.
                     </p>
                   </div>
@@ -118,15 +143,18 @@ export default function About() {
               <CardHeader>
                 <CardTitle className="flex items-center text-2xl">
                   <Users className="mr-3 h-6 w-6 text-teal-500" />
-                  Quem Somos 👥
+                  Quem Somos
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-lg text-muted-foreground space-y-6">
                   <p>
-                    Somos um grupo de desenvolvedores que se reúne periodicamente,{" "}
-                    <strong className="text-foreground">regularmente na Pedra Branca 📍 como local de encontro</strong>,
-                    para facilitar o acesso àqueles que residem fora da ilha.
+                    Somos um grupo de desenvolvedores que se reúne
+                    periodicamente,{" "}
+                    <strong className="text-foreground">
+                      regularmente na Pedra Branca como local de encontro
+                    </strong>
+                    , para facilitar o acesso àqueles que residem fora da ilha.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -138,8 +166,9 @@ export default function About() {
                             Explorar as Últimas Tendências Tecnológicas
                           </h4>
                           <p className="text-sm">
-                            Mergulhamos em temas relevantes como desenvolvimento web e mobile, 
-                            inteligência artificial, cloud computing e muito mais.
+                            Mergulhamos em temas relevantes como desenvolvimento
+                            web e mobile, inteligência artificial, cloud
+                            computing e muito mais.
                           </p>
                         </div>
                       </div>
@@ -151,8 +180,12 @@ export default function About() {
                             Compartilhar Conhecimento
                           </h4>
                           <p className="text-sm">
-                            Palestras e workshops com experts, transmitindo conhecimento aplicável,{" "}
-                            <strong>sempre com entrada franca e coffee break gratuito ☕</strong>
+                            Palestras e workshops com experts, transmitindo
+                            conhecimento aplicável,{" "}
+                            <strong>
+                              sempre com entrada franca e coffee break gratuito
+                              ☕
+                            </strong>
                           </p>
                         </div>
                       </div>
@@ -167,7 +200,10 @@ export default function About() {
                           </h4>
                           <p className="text-sm">
                             Ambiente ideal para expandir sua rede de contatos,{" "}
-                            <strong>independentemente de sua condição financeira ou localização</strong>
+                            <strong>
+                              independentemente de sua condição financeira ou
+                              localização
+                            </strong>
                           </p>
                         </div>
                       </div>
@@ -180,7 +216,10 @@ export default function About() {
                           </h4>
                           <p className="text-sm">
                             Valorizamos a colaboração e o aprendizado mútuo,{" "}
-                            <strong>construindo um ambiente de apoio e crescimento coletivo</strong>
+                            <strong>
+                              construindo um ambiente de apoio e crescimento
+                              coletivo
+                            </strong>
                           </p>
                         </div>
                       </div>
@@ -197,11 +236,12 @@ export default function About() {
               <CardHeader>
                 <CardTitle className="flex items-center text-2xl">
                   <Calendar className="mr-3 h-6 w-6 text-purple-500" />
-                  Nossos Eventos 🎉
+                  Nossos Eventos
                 </CardTitle>
                 <CardDescription className="text-base">
-                  O coração da whiteStone_dev e nosso compromisso com acessibilidade, 
-                  compartilhamento de conhecimento e networking inclusivo
+                  O coração da whiteStone_dev e nosso compromisso com
+                  acessibilidade, compartilhamento de conhecimento e networking
+                  inclusivo
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -209,17 +249,22 @@ export default function About() {
                   <div className="bg-muted/50 rounded-lg p-4">
                     <div className="flex items-center mb-3">
                       <Target className="h-5 w-5 text-primary mr-2" />
-                      <h4 className="font-semibold text-foreground">Eventos Temáticos</h4>
+                      <h4 className="font-semibold text-foreground">
+                        Eventos Temáticos
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Temporadas focadas em temas específicos para aprofundar conhecimento
+                      Temporadas focadas em temas específicos para aprofundar
+                      conhecimento
                     </p>
                   </div>
 
                   <div className="bg-muted/50 rounded-lg p-4">
                     <div className="flex items-center mb-3">
                       <Lightbulb className="h-5 w-5 text-primary mr-2" />
-                      <h4 className="font-semibold text-foreground">Palestras Práticas</h4>
+                      <h4 className="font-semibold text-foreground">
+                        Palestras Práticas
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground">
                       Conteúdo de alta qualidade com foco em aplicação prática
@@ -229,40 +274,52 @@ export default function About() {
                   <div className="bg-muted/50 rounded-lg p-4">
                     <div className="flex items-center mb-3">
                       <Users className="h-5 w-5 text-primary mr-2" />
-                      <h4 className="font-semibold text-foreground">Networking Tech</h4>
+                      <h4 className="font-semibold text-foreground">
+                        Networking Tech
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Ambiente propício para conhecer profissionais e expandir contatos
+                      Ambiente propício para conhecer profissionais e expandir
+                      contatos
                     </p>
                   </div>
 
                   <div className="bg-muted/50 rounded-lg p-4">
                     <div className="flex items-center mb-3">
                       <Coffee className="h-5 w-5 text-primary mr-2" />
-                      <h4 className="font-semibold text-foreground">Coffee Break ☕</h4>
+                      <h4 className="font-semibold text-foreground">
+                        Coffee Break ☕
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Delicioso coffee break gratuito para networking energizante
+                      Delicioso coffee break gratuito para networking
+                      energizante
                     </p>
                   </div>
 
                   <div className="bg-muted/50 rounded-lg p-4">
                     <div className="flex items-center mb-3">
                       <Heart className="h-5 w-5 text-primary mr-2" />
-                      <h4 className="font-semibold text-foreground">Eventos Gratuitos 🆓</h4>
+                      <h4 className="font-semibold text-foreground">
+                        Eventos Gratuitos
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Totalmente gratuitos e abertos, eliminando barreiras financeiras
+                      Totalmente gratuitos e abertos, eliminando barreiras
+                      financeiras
                     </p>
                   </div>
 
                   <div className="bg-muted/50 rounded-lg p-4">
                     <div className="flex items-center mb-3">
                       <Video className="h-5 w-5 text-primary mr-2" />
-                      <h4 className="font-semibold text-foreground">Conteúdo Acessível 📹</h4>
+                      <h4 className="font-semibold text-foreground">
+                        Conteúdo Acessível 📹
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Gravações, transmissões ao vivo e materiais publicados no blog
+                      Gravações, transmissões ao vivo e materiais publicados no
+                      blog
                     </p>
                   </div>
                 </div>
@@ -283,8 +340,7 @@ export default function About() {
             <Card className="border-l-4 border-l-orange-500 bg-gradient-to-r from-orange-50 dark:from-orange-950/20 to-background">
               <CardHeader>
                 <CardTitle className="flex items-center text-2xl">
-                  <Heart className="mr-3 h-6 w-6 text-orange-500" />
-                  Por Que Apoiar a whiteStone_dev? ❤️
+                  ❤️ Por Que Apoiar a whiteStone_dev?
                 </CardTitle>
                 <CardDescription className="text-base">
                   Uma iniciativa sem fins lucrativos mantida pela comunidade
@@ -293,53 +349,74 @@ export default function About() {
               <CardContent>
                 <div className="space-y-6">
                   <p className="text-lg text-muted-foreground">
-                    Para continuarmos a <strong className="text-foreground">quebrar barreiras e oferecer eventos gratuitos, 
-                    acessíveis e de alta qualidade</strong>, <strong className="text-primary">precisamos do seu apoio!</strong> 🙏
+                    Para continuarmos a{" "}
+                    <strong className="text-foreground">
+                      quebrar barreiras e oferecer eventos gratuitos, acessíveis
+                      e de alta qualidade
+                    </strong>
+                    ,{" "}
+                    <strong className="text-primary">
+                      precisamos do seu apoio!
+                    </strong>{" "}
+                    🙏
                   </p>
 
                   <div className="bg-primary/10 rounded-lg p-6">
                     <p className="font-semibold text-foreground mb-4">
-                      Ao apoiar a whiteStone_dev, você estará investindo diretamente na inclusão 
-                      e no crescimento da comunidade tecnológica brasileira 🇧🇷:
+                      Ao apoiar a whiteStone_dev, você estará investindo
+                      diretamente na inclusão e no crescimento da comunidade
+                      tecnológica brasileira 🇧🇷:
                     </p>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex items-start space-x-3">
                         <Globe className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                         <div>
-                          <h5 className="font-semibold text-foreground text-sm">Democratizar o Acesso</h5>
+                          <h5 className="font-semibold text-foreground text-sm">
+                            Democratizar o Acesso
+                          </h5>
                           <p className="text-sm text-muted-foreground">
-                            Eventos gratuitos independente de localização ou condição financeira
+                            Eventos gratuitos independente de localização ou
+                            condição financeira
                           </p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start space-x-3">
                         <Building className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                         <div>
-                          <h5 className="font-semibold text-foreground text-sm">Fortalecer o Ecossistema</h5>
+                          <h5 className="font-semibold text-foreground text-sm">
+                            Fortalecer o Ecossistema
+                          </h5>
                           <p className="text-sm text-muted-foreground">
-                            Desenvolvimento de profissionais capacitados e comunidade vibrante
+                            Desenvolvimento de profissionais capacitados e
+                            comunidade vibrante
                           </p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start space-x-3">
                         <Zap className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                         <div>
-                          <h5 className="font-semibold text-foreground text-sm">Promover Inovação</h5>
+                          <h5 className="font-semibold text-foreground text-sm">
+                            Promover Inovação
+                          </h5>
                           <p className="text-sm text-muted-foreground">
-                            Compartilhamento de conhecimento e cultura open source
+                            Compartilhamento de conhecimento e cultura open
+                            source
                           </p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start space-x-3">
                         <Trophy className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                         <div>
-                          <h5 className="font-semibold text-foreground text-sm">Conectar com Talentos</h5>
+                          <h5 className="font-semibold text-foreground text-sm">
+                            Conectar com Talentos
+                          </h5>
                           <p className="text-sm text-muted-foreground">
-                            Networking com público diverso e engajado da área tech
+                            Networking com público diverso e engajado da área
+                            tech
                           </p>
                         </div>
                       </div>
@@ -372,8 +449,8 @@ export default function About() {
                           Divulgação da Marca com Propósito
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          Sua marca divulgada em todos os materiais, associada a valores 
-                          de inclusão e desenvolvimento da comunidade
+                          Sua marca divulgada em todos os materiais, associada a
+                          valores de inclusão e desenvolvimento da comunidade
                         </p>
                       </div>
                     </div>
@@ -385,7 +462,7 @@ export default function About() {
                           Logotipo em Destaque
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          Logo destacado em materiais, website e redes sociais, 
+                          Logo destacado em materiais, website e redes sociais,
                           reforçando seu compromisso com a democratização tech
                         </p>
                       </div>
@@ -400,8 +477,9 @@ export default function About() {
                           Agradecimento Público
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          Reconhecimento especial durante abertura e encerramento, 
-                          destacando seu apoio crucial para a comunidade
+                          Reconhecimento especial durante abertura e
+                          encerramento, destacando seu apoio crucial para a
+                          comunidade
                         </p>
                       </div>
                     </div>
@@ -413,7 +491,7 @@ export default function About() {
                           Networking Privilegiado
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          Interação direta com comunidade engajada, contribuindo 
+                          Interação direta com comunidade engajada, contribuindo
                           para um ecossistema tech mais justo e inclusivo
                         </p>
                       </div>
@@ -433,34 +511,48 @@ export default function About() {
               </h2>
               <div className="max-w-4xl mx-auto space-y-6">
                 <p className="text-xl text-muted-foreground">
-                  Seja você desenvolvedor(a), empresa ou entusiasta da tecnologia que acredita em{" "}
-                  <strong className="text-primary">acessibilidade, inclusão e no poder da comunidade</strong>,{" "}
-                  <strong className="text-foreground">junte-se à whiteStone_dev e vamos construir juntos 
-                  um futuro da tecnologia mais forte, diverso e para todos!</strong> 🚀
+                  Seja você desenvolvedor(a), empresa ou entusiasta da
+                  tecnologia que acredita em{" "}
+                  <strong className="text-primary">
+                    acessibilidade, inclusão e no poder da comunidade
+                  </strong>
+                  ,{" "}
+                  <strong className="text-foreground">
+                    junte-se à whiteStone_dev e vamos construir juntos um futuro
+                    da tecnologia mais forte, diverso e para todos!
+                  </strong>{" "}
                 </p>
-                
+
                 <p className="text-lg text-muted-foreground">
-                  <strong className="text-foreground">Entre em contato conosco</strong> para saber mais e como 
-                  podemos trabalhar juntos para impulsionar a tecnologia e o conhecimento,{" "}
-                  <strong className="text-primary">tornando o ecossistema tech mais acessível e inclusivo para todos!</strong> ✨
+                  <strong className="text-foreground">
+                    Entre em contato conosco
+                  </strong>{" "}
+                  para saber mais e como podemos trabalhar juntos para
+                  impulsionar a tecnologia e o conhecimento,{" "}
+                  <strong className="text-primary">
+                    tornando o ecossistema tech mais acessível e inclusivo para
+                    todos!
+                  </strong>{" "}
+                  ✨
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
                 <Button size="lg" asChild className="text-lg px-8 py-6">
-                  <Link to="/contribuir">
-                    <Heart className="mr-3 h-6 w-6" />
-                    Como Apoiar
-                  </Link>
+                  <Link to="/como-ajudar">❤️ Como Apoiar</Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild className="text-lg px-8 py-6">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  asChild
+                  className="text-lg px-8 py-6"
+                >
                   <a
                     href="https://links.whitestonedev.com.br"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MapPin className="mr-3 h-6 w-6" />
-                    Onde nos Encontrar 📍
+                    📍 Onde nos Encontrar
                   </a>
                 </Button>
               </div>

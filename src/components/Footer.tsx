@@ -8,7 +8,7 @@ const navigation = {
     { name: "Eventos", href: "/eventos" },
     { name: "Blog", href: "/blog" },
     { name: "Projetos", href: "/projetos" },
-    { name: "Como Ajudar", href: "/como-ajudar" },
+    { name: "Como Apoiar", href: "/como-apoiar" },
     {
       name: "Contato",
       href: "https://links.whitestonedev.com.br",
