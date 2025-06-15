@@ -99,18 +99,16 @@ export function Hero() {
                   <img
                     src="https://statics.whitestonedev.com.br/site/wsd_logo.png"
                     alt="whiteStone_dev logo"
-                    className="h-32 w-auto sm:h-40 md:h-48 lg:h-56"
+                    className="h-56 w-auto"
                   />
                 </Link>
               </div>
-              <h1 className="mt-6 text-4xl tracking-tight text-foreground sm:text-7xl -mt-2 text-center">
+              <h1 className="text-5xl tracking-tight text-foreground sm:text-7xl -mt-6 text-center">
                 white<span className="font-bold">Stone</span>
                 <span className="italic">_dev</span>
               </h1>
-              <p className="mt-4 text-base leading-7 text-muted-foreground text-center max-w-xl">
-                A whiteStone_dev promove eventos gratuitos e presenciais de
-                tecnologia, focados em inclusão, networking e troca de
-                conhecimento na Grande Florianópolis.
+              <p className="mt-4 text-xl sm:text-2xl leading-7 text-muted-foreground text-center max-w-xl">
+                Open Source, Open Minds, Open Tech.
               </p>
 
               <div className="mt-8 w-full max-w-5xl">

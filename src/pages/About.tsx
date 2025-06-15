@@ -56,23 +56,15 @@ export default function About() {
               <CardContent className="prose prose-lg max-w-none">
                 <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
                   <p>
-                    A{" "}
-                    <strong className="text-foreground">whiteStone_dev</strong>{" "}
-                    nasceu de uma{" "}
+                    A whiteStone_dev nasceu de uma{" "}
                     <strong className="text-primary">
-                      dor real da comunidade de desenvolvedores
-                    </strong>{" "}
-                    da região continental da Grande Floripa: a dificuldade de
-                    acesso a eventos de tecnologia.
-                  </p>
-
-                  <p>
-                    Localizados próximos à capital, Florianópolis, sofríamos
-                    porque{" "}
-                    <strong className="text-foreground">
-                      quase todos os eventos tech se concentravam na ilha
-                    </strong>{" "}
-                    🏝️, tornando a participação inviável para muitos.
+                      necessidade real sentida pela comunidade tech da região
+                      continental de Floripa
+                    </strong>
+                    : o acesso limitado a eventos de tecnologia, quase sempre
+                    realizados na ilha 🏝️, o que dificultava e muitas vezes
+                    inviabilizava a participação de desenvolvedores, estudantes
+                    e entusiastas da nossa região.
                   </p>
 
                   <div className="bg-muted/50 rounded-lg p-6">
@@ -127,7 +119,7 @@ export default function About() {
                       </strong>{" "}
                       da região,{" "}
                       <strong className="text-primary">
-                        quebrando barreiras geográficas 🗺️ e financeiras
+                        quebrando barreiras geográficas e financeiras
                       </strong>{" "}
                       para o acesso ao conhecimento e ao networking.
                     </p>
@@ -361,7 +353,7 @@ export default function About() {
                     🙏
                   </p>
 
-                  <div className="bg-primary/10 rounded-lg p-6">
+                  <div className="bg-orange-50 dark:bg-orange-950/20 rounded-lg p-6">
                     <p className="font-semibold text-foreground mb-4">
                       Ao apoiar a whiteStone_dev, você estará investindo
                       diretamente na inclusão e no crescimento da comunidade
@@ -507,7 +499,7 @@ export default function About() {
             <div className="text-center">
               <Heart className="mx-auto h-16 w-16 text-primary mb-6" />
               <h2 className="text-4xl font-bold tracking-tight text-foreground mb-6">
-                Junte-se à whiteStone_dev 👋
+                Junte-se à Nós 👋
               </h2>
               <div className="max-w-4xl mx-auto space-y-6">
                 <p className="text-xl text-muted-foreground">

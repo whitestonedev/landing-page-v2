@@ -67,7 +67,8 @@ export function Footer() {
             ))}
           </div>
           <p className="mt-4 text-center text-xs leading-5 text-muted-foreground md:text-left">
-            &copy; 2024 whiteStone_dev. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} whiteStone_dev. Todos os direitos
+            reservados.
           </p>
         </div>
       </div>
