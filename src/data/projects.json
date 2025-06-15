@@ -1,54 +1,42 @@
 [
   {
-    "id": "event-manager",
-    "name": "Event Manager",
-    "shortDescription": "Sistema de gestão de eventos da comunidade, desenvolvido colaborativamente.",
-    "description": "Uma plataforma completa para gerenciar eventos da comunidade whiteStone_dev. Inclui cadastro de eventos, inscrições, check-in automático via QR Code, dashboard de analytics e integração com redes sociais.",
-    "tech": ["React", "Node.js", "PostgreSQL", "TypeScript"],
+    "id": "calendario-tech",
+    "name": "calendario-tech",
+    "description": "️ Calendário Tech: Nunca Mais Perca um Evento Tech na Região!",
+    "tech": ["TypeScript", "Python", "CSS", "HTML", "JavaScript", "Mako"],
     "status": "Em desenvolvimento",
-    "stars": 42,
-    "contributors": 8,
-    "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
-    "github": "https://github.com/whitestonedev/event-manager",
-    "demo": "https://events.whitestonedev.com.br"
+    "image": "https://calendario.tech/img/logotipo.png",
+    "github": "https://github.com/whitestonedev/calendario-tech",
+    "demo": "https://calendario.tech"
   },
   {
-    "id": "tech-jobs-sc",
-    "name": "Tech Jobs SC",
-    "shortDescription": "Plataforma para divulgação de vagas de tecnologia em Santa Catarina.",
-    "description": "Marketplace de vagas focado no ecossistema tech de Santa Catarina. Conecta empresas locais com talentos, oferece filtros avançados por stack tecnológica e localização, e promove transparência salarial.",
-    "tech": ["Next.js", "TypeScript", "Prisma", "Tailwind CSS"],
+    "id": "landing-page",
+    "name": "landing-page V1",
+    "description": "This website is built using Docusaurus 3, a modern static website generator.",
+    "tech": ["JavaScript", "CSS"],
+    "status": "Arquivado",
+    "image": "https://statics.whitestonedev.com.br/site/wsd_logo.png",
+    "github": "https://github.com/whitestonedev/landing-page",
+    "demo": "https://whitestonedev.com.br/"
+  },
+  {
+    "id": "link-vault",
+    "name": "link-vault",
+    "description": "Um projeto simples e eficiente para gerenciamento de links, com sistema de proteção contra bots através de captcha.",
+    "tech": ["TypeScript", "CSS"],
+    "status": "Em desenvolvimento",
+    "image": "https://statics.whitestonedev.com.br/site/links_logo.png",
+    "github": "https://github.com/whitestonedev/link-vault",
+    "demo": "https://links.whitestonedev.com.br/"
+  },
+  {
+    "id": "talk-to-markdown",
+    "name": "talk-to-markdown",
+    "description": "",
+    "tech": ["Python", "HTML"],
     "status": "Beta",
-    "stars": 67,
-    "contributors": 12,
-    "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop",
-    "github": "https://github.com/whitestonedev/tech-jobs-sc",
-    "demo": "https://jobs.whitestonedev.com.br"
-  },
-  {
-    "id": "community-hub",
-    "name": "Community Hub",
-    "shortDescription": "Portal da comunidade com integração de Discord, GitHub e redes sociais.",
-    "description": "Hub central da comunidade whiteStone_dev integrando Discord para chat em tempo real, GitHub para projetos open source, calendário de eventos, sistema de badges para contribuidores e feed de atividades.",
-    "tech": ["Vue.js", "Firebase", "Discord API", "GitHub API"],
-    "status": "Planejamento",
-    "stars": 23,
-    "contributors": 5,
-    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
-    "github": "https://github.com/whitestonedev/community-hub",
-    "demo": null
-  },
-  {
-    "id": "open-source-scanner",
-    "name": "Open Source Scanner",
-    "shortDescription": "Ferramenta para descobrir projetos open source brasileiros e oportunidades de contribuição.",
-    "description": "Scanner automatizado que identifica projetos open source brasileiros, analisa issues marcadas como 'good first issue', mapeia tecnologias utilizadas e sugere oportunidades de contribuição baseadas no perfil do desenvolvedor.",
-    "tech": ["Python", "FastAPI", "MongoDB", "Docker"],
-    "status": "Em desenvolvimento",
-    "stars": 89,
-    "contributors": 15,
-    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=400&fit=crop",
-    "github": "https://github.com/whitestonedev/oss-scanner",
-    "demo": "https://scanner.whitestonedev.com.br"
+    "image": "https://github.com/whitestonedev.png",
+    "github": "https://github.com/whitestonedev/talk-to-markdown",
+    "demo": "https://github.com/whitestonedev/talk-to-markdown"
   }
-] 
+]

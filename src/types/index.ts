@@ -1,7 +1,6 @@
 export interface Project {
   id: string;
   name: string;
-  shortDescription: string;
   description: string;
   tech: string[];
   status: string;
@@ -10,4 +9,4 @@ export interface Project {
   image?: string;
   github?: string;
   demo?: string;
-} 
+}

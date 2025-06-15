@@ -8,14 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useParams, Link } from "react-router-dom";
-import {
-  Calendar,
-  MapPin,
-  Users,
-  Clock,
-  ArrowLeft,
-  ExternalLink,
-} from "lucide-react";
+import { Calendar, MapPin, ArrowLeft } from "lucide-react";
 import { useMDXPost } from "@/hooks/useMDX";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
