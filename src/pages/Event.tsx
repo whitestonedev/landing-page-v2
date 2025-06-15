@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { Calendar, MapPin, Users, ArrowRight } from "lucide-react";
 import { useMDXPosts } from "@/hooks/useMDX";
 
-export default function Eventos() {
+export default function Events() {
   const { posts: events, loading } = useMDXPosts("events");
 
   if (loading) {
@@ -24,7 +24,6 @@ export default function Eventos() {
     );
   }
 
-  // Separar eventos futuros e passados baseado na data
   const currentDate = new Date();
   const upcomingEvents = events.filter(
     (event) => new Date(event.matter.date) >= currentDate

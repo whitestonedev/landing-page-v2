@@ -15,13 +15,12 @@ import projectsData from "@/data/projects.json";
 import { Project } from "@/types";
 
 // Ajuste a importação se projects.json não for importado diretamente como um array
-const projects: Project[] =
-  (projectsData as any).default || (projectsData as Project[]); // Handle potential default export
+const projects: Project[] = projectsData as Project[];
 
-export default function Projetos() {
+export default function Projects() {
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-16">
+      <main>
         {/* Hero Section */}
         <section className="py-16 bg-muted/30">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">

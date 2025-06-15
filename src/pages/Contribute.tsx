@@ -111,10 +111,10 @@ const impactStats = [
   { number: "10+", label: "Empresas apoiadoras" },
 ];
 
-export default function ComoAjudar() {
+export default function Contribute() {
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-16">
+      <main>
         {/* Hero Section */}
         <section className="py-16 bg-muted/30">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">

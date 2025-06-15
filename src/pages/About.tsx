@@ -8,7 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Users, Target, Heart } from "lucide-react";
 
-export default function Sobre() {
+export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <main className="py-16">

@@ -19,7 +19,7 @@ import {
 import { useMDXPost } from "@/hooks/useMDX";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
-export default function EventoDetalhes() {
+export default function EventDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { post: event, loading } = useMDXPost("events", slug || "");
 
@@ -56,7 +56,7 @@ export default function EventoDetalhes() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-16">
+      <main>
         {/* Hero Section */}
         <section className="relative">
           <img
