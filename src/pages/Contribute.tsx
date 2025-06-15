@@ -25,6 +25,13 @@ import {
   Globe,
   Lightbulb,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import sponsorsData from "@/data/sponsors.json";
 
 const supportTypes = [
@@ -154,7 +161,7 @@ export default function Contribute() {
           </div>
         </section>
 
-        {/* Current Sponsors - Highlighted Section */}
+        {/* Current Sponsors - Carousel Section */}
         <section className="py-20 bg-muted/30">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center mb-16">
@@ -167,29 +174,61 @@ export default function Contribute() {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
-              {sponsorsData.sponsors.map((sponsor, index) => (
-                <Card
-                  key={index}
-                  className="hover:shadow-xl transition-all duration-300 group border-2 hover:border-primary/20"
-                >
-                  <CardHeader className="text-center pb-4">
-                    <div className="h-20 flex items-center justify-center mb-4">
-                      <img
-                        src={sponsor.thumb}
-                        alt={sponsor.name}
-                        className="max-h-16 max-w-full object-contain group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <CardTitle className="text-xl">{sponsor.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                      {sponsor.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="relative max-w-6xl mx-auto">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {sponsorsData.sponsors.map((sponsor, index) => (
+                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                      <Card className="hover:shadow-xl transition-all duration-300 group border-2 hover:border-primary/20 h-full">
+                        <CardHeader className="text-center pb-4">
+                          <div className="h-20 flex items-center justify-center mb-4">
+                            <img
+                              src={sponsor.thumb}
+                              alt={sponsor.name}
+                              className="max-h-16 max-w-full object-contain group-hover:scale-110 transition-transform duration-300"
+                            />
+                          </div>
+                          <CardTitle className="text-xl">{sponsor.name}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1 flex flex-col justify-between">
+                          <p className="text-sm text-muted-foreground text-center leading-relaxed mb-4">
+                            {sponsor.description}
+                          </p>
+                          <div className="text-center">
+                            <Button variant="outline" size="sm" asChild>
+                              <a 
+                                href={sponsor.sponsor_link} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-xs"
+                              >
+                                Conhecer Empresa
+                              </a>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden md:flex" />
+                <CarouselNext className="hidden md:flex" />
+              </Carousel>
+              
+              {/* Mobile navigation dots */}
+              <div className="flex justify-center mt-6 md:hidden">
+                <div className="flex space-x-2">
+                  {Array.from({ length: Math.ceil(sponsorsData.sponsors.length / 1) }).map((_, index) => (
+                    <div key={index} className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
