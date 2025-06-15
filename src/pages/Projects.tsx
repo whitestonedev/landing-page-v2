@@ -62,13 +62,13 @@ export default function Projects() {
                 return (
                   <Card
                     key={project.id}
-                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
                   >
                     {project.image && (
                       <img
                         src={project.image}
                         alt={project.name}
-                        className="h-48 w-full object-contain"
+                        className="h-52 w-full object-contain"
                       />
                     )}
                     <CardHeader>
@@ -91,7 +91,7 @@ export default function Projects() {
                       </div>
                       <CardDescription>{project.description}</CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex flex-col flex-1">
                       <div className="flex items-center text-sm text-muted-foreground mb-4">
                         <Star className="mr-1 h-3 w-3" />{" "}
                         {stats.stars.toLocaleString()} estrelas
@@ -105,7 +105,7 @@ export default function Projects() {
                           </Badge>
                         ))}
                       </div>
-                      <div className="flex gap-4">
+                      <div className="flex gap-4 mt-auto">
                         {project.github && (
                           <Button variant="outline" className="flex-1" asChild>
                             <a
@@ -124,7 +124,8 @@ export default function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              Ver Demo <ExternalLink className="ml-2 h-4 w-4" />
+                              Ver Projeto{" "}
+                              <ExternalLink className="ml-2 h-4 w-4" />
                             </a>
                           </Button>
                         )}
@@ -151,7 +152,7 @@ export default function Projects() {
               <div className="mt-8">
                 <Button size="lg" asChild>
                   <a
-                    href="https://github.com/whitestonedev"
+                    href="https://github.com/orgs/whitestonedev/repositories"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
