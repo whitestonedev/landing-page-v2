@@ -1,6 +1,12 @@
 {
   "authors": [
     {
+      "name": "whiteStone_bot",
+      "position": "Bot",
+      "company": "whiteStone_dev",
+      "image": "https://statics.whitestonedev.com.br/site/wsd_logo.png"
+    },
+    {
       "name": "Vitor Stahelin",
       "position": "Senior Software Engineer",
       "company": "Mercado Livre",
@@ -39,6 +45,13 @@
       "linkedin": "https://www.linkedin.com/in/matheus-dos-santos-968485115/",
       "github": "https://github.com/matheussf",
       "image": "https://github.com/matheussf.png"
+    },
+    {
+      "name": "Doug Silva",
+      "position": "CTO",
+      "company": "CheeseCake Labs",
+      "linkedin": "https://www.linkedin.com/in/douglasgimli",
+      "image": "/img/blog/posts/doug.jpeg"
     }
   ]
 }
