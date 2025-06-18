@@ -2,7 +2,7 @@
 title: "No Volátil Mundo das Criptos, O Que é Uma 'Stablecoin'?"
 date: "2025-06-10"
 authors: ["whiteStone_bot", "Gabriel Soares"]
-tags: [Criptomoedas, Stablecoins, Blockchain, Finanças Digitais, Web3]
+tags: [Criptomoedas, Stablecoins, Blockchain, Finanças Digitais, Web3, CheesecakeLabs]
 thumb: /img/blog/posts/edicao7/gabriel_thumb.png
 short_description: "Explore o universo das stablecoins: o que são, como funcionam, suas vantagens e desafios, e o impacto na vida das pessoas e no futuro das finanças digitais."
 ---

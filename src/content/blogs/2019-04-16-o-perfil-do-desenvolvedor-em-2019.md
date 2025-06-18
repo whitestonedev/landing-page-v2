@@ -2,7 +2,7 @@
 title: 🚀 Raio-X do Desenvolvedor em 2019 - Análise Completa da Pesquisa Stack Overflow 👨‍💻👩‍💻
 date: "2019-04-16"
 tags: [StackOverflow, Análise, Pesquisa, Perfil, Lightning Post, Desenvolvedor]
-author: "Gabriel Soares Costa"
+author: "Gabriel Soares"
 thumb: "https://blog.sesisenai.org.br/wp-content/uploads/sites/23/2021/09/shutterstock_329205053-scaled-3-1024x684.jpg"
 short_description: "Veja os principais destaques e tendências da pesquisa Stack Overflow 2019 sobre o perfil dos desenvolvedores."
 ---

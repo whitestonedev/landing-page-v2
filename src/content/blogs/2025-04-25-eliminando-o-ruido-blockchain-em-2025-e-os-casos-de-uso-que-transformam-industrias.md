@@ -2,7 +2,7 @@
 title: "Eliminando o Ruído: Blockchain em 2025 e os Casos de Uso que Transformam Indústrias"
 date: "2025-04-25"
 authors: ["whiteStone_bot", "Doug Silva"]
-tags: [Blockchain, Web3, Cripto, CasosDeUso, Inovação, Stellar, Ethereum, Solana, DeFi, NFTs, Pagamentos, Tokenização, whiteStone_dev, CheesecakeLabs]
+tags: [Blockchain, Web3, Cripto, CasosDeUso, Inovação, Stellar, Ethereum, Solana, DeFi, NFTs, Pagamentos, Tokenização, CheesecakeLabs]
 thumb: "/img/blog/posts/edicao7/doug_slide1.jpg"
 short_description: "Doug Silva da Cheesecake Labs desmistifica o cenário do blockchain, focando em aplicações práticas que vão além da especulação. Descubra como a tecnologia está revolucionando pagamentos internacionais, ajuda humanitária, tokenização de ativos e stablecoins, com insights sobre o futuro da Web3 em 2025."
 ---

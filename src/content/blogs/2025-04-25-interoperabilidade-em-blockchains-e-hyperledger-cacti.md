@@ -2,7 +2,7 @@
 title: "Interoperabilidade em Blockchains e Hyperledger Cacti"
 date: "2025-06-10"
 authors: ["whiteStone_bot", "Fifo Zatti"]
-tags: [Interoperabilidade, Blockchains, Hyperledger Cacti, Web3, Finanças Digitais, Tecnologia Blockchain]
+tags: [Interoperabilidade, Blockchain, Hyperledger Cacti, Web3, Finanças Digitais, Tecnologia Blockchain, CheesecakeLabs]
 thumb: /img/blog/posts/edicao7/fifo_thumb.png
 short_description: "Explore a importância da interoperabilidade no universo blockchain, os desafios de potencialidade e compatibilidade entre redes, e como o Hyperledger Cacti, um framework modular open-source, busca construir pontes para a colaboração de dados e ativos entre diferentes tecnologias."
 ---
