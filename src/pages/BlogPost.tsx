@@ -93,53 +93,53 @@ export default function BlogPost() {
 
               {/* Author Cards */}
               {authorData && authorData.length > 0 && (
-                <div className="mt-16 flex flex-col items-center">
-                  <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                    <User className="h-5 w-5 text-primary" />
-                    Sobre o{authorData.length > 1 ? 's Autores' : ' Autor'}
-                  </h3>
-                  <div className="flex flex-row justify-center gap-6 w-full">
-                    {authorData.map((author) => (
-                      <Card key={author.name} className="flex flex-row items-center gap-3 px-4 py-2 shadow-none border border-muted-foreground/10 bg-muted/40">
-                        <img
-                          src={author.image}
-                          alt={author.name}
-                          className="h-12 w-12 rounded-full object-cover"
-                        />
-                        <div className="flex flex-col justify-center">
-                          <span className="font-medium text-base leading-tight">{author.name}</span>
-                          <span className="text-xs text-muted-foreground leading-tight">
-                            {author.position}{author.company && ` @ ${author.company}`}
-                          </span>
-                          <div className="flex gap-1 mt-1">
-                            {author.github && (
-                              <Button variant="ghost" size="icon" className="h-6 w-6 p-0" asChild>
-                                <a
-                                  href={author.github}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <Github className="h-4 w-4" />
-                                </a>
-                              </Button>
-                            )}
-                            {author.linkedin && (
-                              <Button variant="ghost" size="icon" className="h-6 w-6 p-0" asChild>
-                                <a
-                                  href={author.linkedin}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <Linkedin className="h-4 w-4" />
-                                </a>
-                              </Button>
-                            )}
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
+              <div className="mt-16 flex flex-col items-center">
+                <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                <User className="h-5 w-5 text-primary" />
+                Sobre o{authorData.length > 1 ? 's Autores' : ' Autor'}
+                </h3>
+                <div className="flex flex-col sm:flex-row justify-center gap-6 w-full">
+                {authorData.map((author) => (
+                  <Card key={author.name} className="flex flex-row items-center gap-3 px-4 py-2 shadow-none border border-muted-foreground/10 bg-muted/40 w-full sm:w-auto">
+                  <img
+                    src={author.image}
+                    alt={author.name}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
+                  <div className="flex flex-col justify-center">
+                    <span className="font-medium text-base leading-tight">{author.name}</span>
+                    <span className="text-xs text-muted-foreground leading-tight">
+                    {author.position}{author.company && ` @ ${author.company}`}
+                    </span>
+                    <div className="flex gap-1 mt-1">
+                    {author.github && (
+                      <Button variant="ghost" size="icon" className="h-6 w-6 p-0" asChild>
+                      <a
+                        href={author.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="h-4 w-4" />
+                      </a>
+                      </Button>
+                    )}
+                    {author.linkedin && (
+                      <Button variant="ghost" size="icon" className="h-6 w-6 p-0" asChild>
+                      <a
+                        href={author.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                      </Button>
+                    )}
+                    </div>
                   </div>
+                  </Card>
+                ))}
                 </div>
+              </div>
               )}
 
               {/* Back to Blog Button */}
