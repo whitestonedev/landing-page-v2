@@ -51,16 +51,19 @@ export default function BlogPost() {
         {/* Hero Section */}
         <section className="pt-16 pb-4 bg-muted/30">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
+            <div className="mx-auto max-w-4xl text-center">
+              <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
                 {matter.title}
               </h1>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-4 px-4">
                 <div className="flex items-center">
                   <User className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
-                  <span className="text-xs sm:text-sm">
+                  <Link 
+                    to={`/blog?author=${encodeURIComponent(authorData?.[0]?.name || '')}`}
+                    className="text-xs sm:text-sm hover:text-primary transition-colors cursor-pointer"
+                  >
                     {authorData?.map(a => a.name).join(' e ')}
-                  </span>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <span className="text-xs sm:text-sm">{formatDateAndReadingTime(matter.date, content)}</span>

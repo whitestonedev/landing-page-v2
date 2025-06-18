@@ -56,9 +56,12 @@ export function BlogCard({ post, variant = 'default', showTags = true, maxTags =
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-3">
                 <div className="flex items-center">
                   <User className="mr-1 h-3 w-3 lg:h-4 lg:w-4" />
-                  <span className="text-xs lg:text-sm">
+                  <Link 
+                    to={`/blog?author=${encodeURIComponent(post.authorData?.[0]?.name || '')}`}
+                    className="text-xs lg:text-sm hover:text-primary transition-colors cursor-pointer"
+                  >
                     {post.authorData?.map(a => a.name).join(' e ')}
-                  </span>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <Clock className="mr-1 h-3 w-3 lg:h-4 lg:w-4" />
@@ -107,9 +110,12 @@ export function BlogCard({ post, variant = 'default', showTags = true, maxTags =
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-2">
               <div className="flex items-center">
                 <User className="mr-1 h-3 w-3" />
-                <span className="text-xs lg:text-sm">
+                <Link 
+                  to={`/blog?author=${encodeURIComponent(post.authorData?.[0]?.name || '')}`}
+                  className="text-xs lg:text-sm hover:text-primary transition-colors cursor-pointer"
+                >
                   {post.authorData?.map(a => a.name).join(' e ')}
-                </span>
+                </Link>
               </div>
               
             </div>
