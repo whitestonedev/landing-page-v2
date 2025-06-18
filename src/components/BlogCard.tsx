@@ -37,54 +37,54 @@ export function BlogCard({ post, variant = 'default', showTags = true, maxTags =
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {isFeatured ? (
-        <div className="md:flex">
-          <div className="md:w-1/2">
+        <div className="flex flex-col lg:flex-row">
+          <div className="lg:w-1/2">
             {post.matter.thumb && (
               <img
                 src={post.matter.thumb}
                 alt={post.matter.title}
-                className="h-64 w-full object-cover md:h-full"
+                className="h-48 w-full object-cover lg:h-full"
               />
             )}
           </div>
-          <div className="md:w-1/2">
-            <CardHeader>
+          <div className="lg:w-1/2">
+            <CardHeader className="p-4 lg:p-6">
               
-              <CardTitle className="text-2xl mb-2">
+              <CardTitle className="text-xl lg:text-2xl mb-2 line-clamp-2">
                 {post.matter.title}
               </CardTitle>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-3">
                 <div className="flex items-center">
-                  <User className="mr-1 h-4 w-4" />
-                  <span>
+                  <User className="mr-1 h-3 w-3 lg:h-4 lg:w-4" />
+                  <span className="text-xs lg:text-sm">
                     {post.authorData?.map(a => a.name).join(' e ')}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Clock className="mr-1 h-4 w-4" />
-                  <span>{formatDateAndReadingTime(post.matter.date, post.content)}</span>
+                  <Clock className="mr-1 h-3 w-3 lg:h-4 lg:w-4" />
+                  <span className="text-xs lg:text-sm">{formatDateAndReadingTime(post.matter.date, post.content)}</span>
                 </div>
               </div>
-              <CardDescription className="text-base">
+              <CardDescription className="text-sm lg:text-base line-clamp-3">
                 {post.matter.short_description}
               </CardDescription>
               
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-4 lg:p-6 pt-0">
               {showTags && (
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 lg:gap-2 mb-4">
                   {post.matter.tags?.map((tag) => (
                     <Link key={tag} to={`/blog?tag=${encodeURIComponent(tag)}`}>
-                      <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80 transition-colors">
+                      <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80 transition-colors text-xs lg:text-sm px-2 py-1">
                         {tag}
                       </Badge>
                     </Link>
                   ))}
                 </div>
               )}
-              <Button asChild>
+              <Button asChild className="w-full sm:w-auto">
                 <Link to={`/blog/${post.slug}`}>
-                  Ler Artigo <ArrowRight className="ml-2 h-4 w-4" />
+                  Ler Artigo <ArrowRight className="ml-2 h-3 w-3 lg:h-4 lg:w-4" />
                 </Link>
               </Button>
             </CardContent>
@@ -96,42 +96,42 @@ export function BlogCard({ post, variant = 'default', showTags = true, maxTags =
             <img
               src={post.matter.thumb}
               alt={post.matter.title}
-              className="h-48 w-full object-cover"
+              className="h-40 sm:h-48 w-full object-cover"
             />
           )}
-          <CardHeader>
+          <CardHeader className="p-4">
             
-            <CardTitle className="text-lg line-clamp-2">
+            <CardTitle className="text-base lg:text-lg line-clamp-2 mb-2">
               {post.matter.title}
             </CardTitle>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-2">
               <div className="flex items-center">
                 <User className="mr-1 h-3 w-3" />
-                <span>
+                <span className="text-xs lg:text-sm">
                   {post.authorData?.map(a => a.name).join(' e ')}
                 </span>
               </div>
               
             </div>
             
-            <CardDescription className="line-clamp-3">
+            <CardDescription className="line-clamp-3 text-sm lg:text-base mb-2">
               {post.matter.short_description}
             </CardDescription>
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center mt-2">
+              <div className="flex items-center">
                 <Clock className="mr-1 h-3 w-3" />
-                <span>{formatDateAndReadingTime(post.matter.date, post.content)}</span>
+                <span className="text-xs lg:text-sm">{formatDateAndReadingTime(post.matter.date, post.content)}</span>
               </div>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 pt-0">
             {showTags && (
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-1.5 lg:gap-2 mb-4">
                 {post.matter.tags?.slice(0, maxTags).map((tag) => (
                   <Link key={tag} to={`/blog?tag=${encodeURIComponent(tag)}`}>
                     <Badge
                       variant="outline"
-                      className="text-xs cursor-pointer hover:bg-secondary/80 transition-colors"
+                      className="text-xs cursor-pointer hover:bg-secondary/80 transition-colors px-2 py-1"
                     >
                       {tag}
                     </Badge>

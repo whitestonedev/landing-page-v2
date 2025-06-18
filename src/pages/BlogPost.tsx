@@ -2,10 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useParams, Link } from "react-router-dom";
-import { User, ArrowLeft, Github, Linkedin, Clock } from "lucide-react";
+import { User, ArrowLeft } from "lucide-react";
 import { useMDXPost } from "@/hooks/useMDX";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { formatDateAndReadingTime } from "@/utils/dateTime";
+import { AuthorSection } from "@/components/AuthorCard";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -49,37 +50,39 @@ export default function BlogPost() {
       <main>
         {/* Hero Section */}
         <section className="pt-16 pb-4 bg-muted/30">
-          <div className="mx-auto max-w-7xl px-6 lg:px-6">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
                 {matter.title}
               </h1>
-              <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-4 px-4">
                 <div className="flex items-center">
-                  <User className="mr-1 h-4 w-4" />
-                  <span>
+                  <User className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="text-xs sm:text-sm">
                     {authorData?.map(a => a.name).join(' e ')}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <span>{formatDateAndReadingTime(matter.date, content)}</span>
+                  <span className="text-xs sm:text-sm">{formatDateAndReadingTime(matter.date, content)}</span>
                 </div>
               </div>
-              <div className="flex flex-wrap justify-center gap-2 mb-4">
+              <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-4 px-4">
                 {matter.tags?.map((tag: string) => (
                   <Link key={tag} to={`/blog?tag=${encodeURIComponent(tag)}`}>
-                    <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80 transition-colors">
+                    <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80 transition-colors text-xs sm:text-sm px-2 py-1">
                       {tag}
                     </Badge>
                   </Link>
                 ))}
               </div>
               {matter.thumb && (
-                <img
-                  src={matter.thumb}
-                  alt={matter.title}
-                  className="w-full h-64 object-cover rounded-lg"
-                />
+                <div className="px-4">
+                  <img
+                    src={matter.thumb}
+                    alt={matter.title}
+                    className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-lg"
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -95,53 +98,7 @@ export default function BlogPost() {
 
               {/* Author Cards */}
               {authorData && authorData.length > 0 && (
-              <div className="mt-16 flex flex-col items-center">
-                <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                <User className="h-5 w-5 text-primary" />
-                Sobre o{authorData.length > 1 ? 's Autores' : ' Autor'}
-                </h3>
-                <div className="flex flex-col sm:flex-row justify-center gap-6 w-full">
-                {authorData.map((author) => (
-                  <Card key={author.name} className="flex flex-row items-center gap-3 px-4 py-2 shadow-none border border-muted-foreground/10 bg-muted/40 w-full sm:w-auto">
-                  <img
-                    src={author.image}
-                    alt={author.name}
-                    className="h-12 w-12 rounded-full object-cover"
-                  />
-                  <div className="flex flex-col justify-center">
-                    <span className="font-medium text-base leading-tight">{author.name}</span>
-                    <span className="text-xs text-muted-foreground leading-tight">
-                    {author.position}{author.company && ` @ ${author.company}`}
-                    </span>
-                    <div className="flex gap-1 mt-1">
-                    {author.github && (
-                      <Button variant="ghost" size="icon" className="h-6 w-6 p-0" asChild>
-                      <a
-                        href={author.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="h-4 w-4" />
-                      </a>
-                      </Button>
-                    )}
-                    {author.linkedin && (
-                      <Button variant="ghost" size="icon" className="h-6 w-6 p-0" asChild>
-                      <a
-                        href={author.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                      </Button>
-                    )}
-                    </div>
-                  </div>
-                  </Card>
-                ))}
-                </div>
-              </div>
+                <AuthorSection authors={authorData} />
               )}
 
               {/* Back to Blog Button */}
