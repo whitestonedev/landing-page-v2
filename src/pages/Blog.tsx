@@ -1,18 +1,13 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { Calendar, User, ArrowRight, BookOpen } from "lucide-react";
+import { Link, useSearchParams } from "react-router-dom";
+import { BookOpen, X } from "lucide-react";
 import { useMDXPosts } from "@/hooks/useMDX";
+import { BlogCard } from "@/components/BlogCard";
 
 export default function Blog() {
   const { posts: blogPosts, loading } = useMDXPosts("blogs");
+  const [searchParams] = useSearchParams();
+  const tagFilter = searchParams.get("tag");
 
   if (loading) {
     return (
@@ -47,6 +42,108 @@ export default function Blog() {
     );
   }
 
+  // Filtrar posts por tag se houver filtro
+  const filteredPosts = tagFilter 
+    ? blogPosts.filter(post => 
+        post.matter.tags?.some(tag => 
+          tag.toLowerCase() === tagFilter.toLowerCase()
+        )
+      )
+    : blogPosts;
+
+  // Se não há posts com a tag filtrada
+  if (tagFilter && filteredPosts.length === 0) {
+    return (
+      <div className="min-h-screen bg-background">
+        <main>
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">
+                Nenhum post encontrado para a tag "{tagFilter}"
+              </h1>
+              <p className="text-muted-foreground mb-8">
+                Não encontramos posts com essa tag. Tente outra tag ou veja todos os posts.
+              </p>
+              <Button asChild>
+                <Link to="/blog">
+                  Ver Todos os Posts
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // Se há filtro por tag, mostrar apenas os posts filtrados em grade
+  if (tagFilter) {
+    return (
+      <div className="min-h-screen bg-background">
+        <main>
+          {/* Header com título da tag */}
+          <section className="py-16 bg-muted/30">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl">
+                    #{tagFilter}
+                  </h1>
+                  <p className="mt-4 text-lg text-muted-foreground">
+                    {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''} encontrado{filteredPosts.length !== 1 ? 's' : ''}
+                  </p>
+                </div>
+                <Button variant="outline" asChild>
+                  <Link to="/blog">
+                    <X className="mr-2 h-4 w-4" />
+                    Limpar Filtro
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Posts filtrados em grade de 3 colunas */}
+          <section className="py-16">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {filteredPosts.map((post) => (
+                  <BlogCard key={post.slug} post={post} />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Newsletter Signup */}
+          <section className="py-16 bg-muted/30">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Fique por Dentro das Novidades
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Receba notificações sobre novos posts e eventos da comunidade
+                </p>
+                <div className="mt-8">
+                  <Button size="lg" asChild>
+                    <a
+                      href="https://links.whitestonedev.com.br"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Participar da Comunidade
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    );
+  }
+
+  // Layout original quando não há filtro
   const featuredPost = blogPosts[0];
   const recentPosts = blogPosts.slice(1);
 
@@ -77,55 +174,7 @@ export default function Blog() {
               <h2 className="text-2xl font-bold text-foreground mb-8">
                 Post em Destaque
               </h2>
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="md:flex">
-                  <div className="md:w-1/2">
-                    <img
-                      src={featuredPost.matter.thumb}
-                      alt={featuredPost.matter.title}
-                      className="h-64 w-full object-cover md:h-full"
-                    />
-                  </div>
-                  <div className="md:w-1/2">
-                    <CardHeader>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
-                        <div className="flex items-center">
-                          <Calendar className="mr-1 h-4 w-4" />
-                          {new Date(
-                            featuredPost.matter.date
-                          ).toLocaleDateString("pt-BR")}
-                        </div>
-                        <div className="flex items-center">
-                          <User className="mr-1 h-4 w-4" />
-                          <span>
-                            {featuredPost.authorData?.map(a => a.name).join(' e ')}
-                          </span>
-                        </div>
-                      </div>
-                      <CardTitle className="text-2xl mb-2">
-                        {featuredPost.matter.title}
-                      </CardTitle>
-                      <CardDescription className="text-base">
-                        {featuredPost.matter.short_description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {featuredPost.matter.tags?.map((tag) => (
-                          <Badge key={tag} variant="secondary">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Button asChild>
-                        <Link to={`/blog/${featuredPost.slug}`}>
-                          Ler Artigo <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
+              <BlogCard post={featuredPost} variant="featured" />
             </div>
           </section>
         )}
@@ -139,61 +188,7 @@ export default function Blog() {
               </h2>
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {recentPosts.map((post) => (
-                  <Card
-                    key={post.slug}
-                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <img
-                      src={post.matter.thumb}
-                      alt={post.matter.title}
-                      className="h-48 w-full object-cover"
-                    />
-                    <CardHeader>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
-                        <div className="flex items-center">
-                          <Calendar className="mr-1 h-3 w-3" />
-                          {new Date(post.matter.date).toLocaleDateString(
-                            "pt-BR"
-                          )}
-                        </div>
-                        <div className="flex items-center">
-                          <User className="mr-1 h-3 w-3" />
-                          <span>
-                            {post.authorData?.map(a => a.name).join(' e ')}
-                          </span>
-                        </div>
-                      </div>
-                      <CardTitle className="text-lg line-clamp-2">
-                        {post.matter.title}
-                      </CardTitle>
-                      <CardDescription className="line-clamp-3">
-                        {post.matter.short_description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {post.matter.tags?.slice(0, 2).map((tag) => (
-                          <Badge
-                            key={tag}
-                            variant="outline"
-                            className="text-xs"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        asChild
-                        className="w-full"
-                      >
-                        <Link to={`/blog/${post.slug}`}>
-                          Ler Mais <ArrowRight className="ml-2 h-3 w-3" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
+                  <BlogCard key={post.slug} post={post} />
                 ))}
               </div>
             </div>

@@ -2,9 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, User, ArrowLeft, Github, Linkedin } from "lucide-react";
+import { User, ArrowLeft, Github, Linkedin, Clock } from "lucide-react";
 import { useMDXPost } from "@/hooks/useMDX";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { formatDateAndReadingTime } from "@/utils/dateTime";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -55,21 +56,22 @@ export default function BlogPost() {
               </h1>
               <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-4">
                 <div className="flex items-center">
-                  <Calendar className="mr-1 h-4 w-4" />
-                  {new Date(matter.date).toLocaleDateString("pt-BR")}
-                </div>
-                <div className="flex items-center">
                   <User className="mr-1 h-4 w-4" />
                   <span>
                     {authorData?.map(a => a.name).join(' e ')}
                   </span>
                 </div>
+                <div className="flex items-center">
+                  <span>{formatDateAndReadingTime(matter.date, content)}</span>
+                </div>
               </div>
               <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {matter.tags?.map((tag: string) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
+                  <Link key={tag} to={`/blog?tag=${encodeURIComponent(tag)}`}>
+                    <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80 transition-colors">
+                      {tag}
+                    </Badge>
+                  </Link>
                 ))}
               </div>
               {matter.thumb && (
