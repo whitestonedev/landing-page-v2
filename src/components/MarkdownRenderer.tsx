@@ -49,7 +49,7 @@ export const markdownComponents = {
     <h6 className="text-base font-semibold my-3" {...props} />
   ),
   p: ({ node, ...props }) => (
-    <p className="my-4 text-muted-foreground leading-relaxed" {...props} />
+    <p className="my-4 text-foreground leading-relaxed" {...props} />
   ),
   a: ({ node, ...props }) => (
     <a
@@ -59,13 +59,33 @@ export const markdownComponents = {
       {...props}
     />
   ),
-  ul: ({ node, ...props }) => (
-    <ul className="list-disc list-inside my-4 pl-4" {...props} />
-  ),
-  ol: ({ node, ...props }) => (
-    <ol className="list-decimal list-inside my-4 pl-4" {...props} />
-  ),
-  li: ({ node, ...props }) => <li className="my-1" {...props} />,
+  ul: ({ node, ...props }) => {
+    const isNested = node?.position?.start?.column > 1 || node?.depth > 1 || node?.parent?.type === 'listItem';
+    return (
+      <ul
+        className={
+          isNested
+            ? "list-disc my-2 pl-8"
+            : "list-disc my-4 pl-4"
+        }
+        {...props}
+      />
+    );
+  },
+  ol: ({ node, ...props }) => {
+    const isNested = node?.position?.start?.column > 1 || node?.depth > 1 || node?.parent?.type === 'listItem';
+    return (
+      <ol
+        className={
+          isNested
+            ? "list-decimal my-2 pl-8"
+            : "list-decimal my-4 pl-4"
+        }
+        {...props}
+      />
+    );
+  },
+  li: ({ node, ...props }) => <li className="my-1 leading-relaxed" {...props} />,
   blockquote: ({ node, ...props }) => (
     <blockquote
       className="border-l-4 border-muted pl-4 italic text-muted-foreground my-4"

@@ -97,7 +97,9 @@ export default function Blog() {
                         </div>
                         <div className="flex items-center">
                           <User className="mr-1 h-4 w-4" />
-                          {featuredPost.matter.author}
+                          <span>
+                            {featuredPost.authorData?.map(a => a.name).join(' e ')}
+                          </span>
                         </div>
                       </div>
                       <CardTitle className="text-2xl mb-2">
@@ -156,7 +158,9 @@ export default function Blog() {
                         </div>
                         <div className="flex items-center">
                           <User className="mr-1 h-3 w-3" />
-                          {post.matter.author}
+                          <span>
+                            {post.authorData?.map(a => a.name).join(' e ')}
+                          </span>
                         </div>
                       </div>
                       <CardTitle className="text-lg line-clamp-2">

@@ -162,9 +162,13 @@ export default function Index() {
                         <CardDescription>
                           {post.matter.short_description}
                         </CardDescription>
-                        {(post.matter.author || post.matter.date) && (
+                        {(post.matter.author || post.matter.authors || post.matter.date) && (
                           <CardDescription>
-                            {post.matter.author && `Por ${post.matter.author}`}{" "}
+                            {post.authorData && post.authorData.length > 0 && (
+                              <>
+                                Por {post.authorData.map(a => a.name).join(' e ')}
+                              </>
+                            )}
                             {post.matter.date &&
                               `• ${new Date(
                                 post.matter.date

@@ -5,16 +5,17 @@ import authorsData from "@/data/authors.json";
 export interface Author {
   name: string;
   position: string;
-  linkedin: string;
-  github: string;
+  company: string;
   image: string;
-  company?: string;
+  linkedin?: string;
+  github?: string;
 }
 
 export interface MDXMatter {
   title: string;
   date: string;
-  author: string;
+  author?: string;
+  authors?: string[];
   tags: string[];
   thumb?: string;
   short_description: string;
@@ -25,7 +26,7 @@ export interface MDXPost {
   slug: string;
   matter: MDXMatter;
   content: string | null;
-  authorData?: Author;
+  authorData?: Author[];
 }
 
 // Permite importar tanto .md quanto .mdx (caso queira migrar para MDX no futuro)
@@ -49,14 +50,18 @@ export const useMDXPosts = (folder: "blogs" | "events" | "projects") => {
       const filename = path.split("/").pop() || "";
       const slug = filename.replace(/\.(md|mdx)$/, "");
 
-      const authorData = authorsData.authors.find(
-        (a: Author) => a.name === data.author_name
-      );
+      // Suporte para múltiplos autores
+      const authorNames = data.authors || [data.author];
+      const authorData = authorNames
+        .map((name: string) => 
+          authorsData.authors.find((a) => a.name === name)
+        )
+        .filter((author): author is Author => author !== undefined);
 
       return {
         slug,
         matter: data as MDXMatter,
-        content, // agora retorna o conteúdo markdown (com HTML embutido)
+        content,
         authorData,
       } as MDXPost;
     });
@@ -81,7 +86,6 @@ export const useMDXPost = (
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Suporte a .md e .mdx
     const keyMd = `/src/content/${folder}/${slug}.md`;
     const keyMdx = `/src/content/${folder}/${slug}.mdx`;
     const raw = modules[keyMd] || modules[keyMdx];
@@ -94,14 +98,19 @@ export const useMDXPost = (
     }
 
     const { data, content } = matter(raw);
-    const authorData = authorsData.authors.find(
-      (a: Author) => a.name === data.author
-    );
+    
+    // Suporte para múltiplos autores
+    const authorNames = data.authors || [data.author];
+    const authorData = authorNames
+      .map((name: string) => 
+        authorsData.authors.find((a) => a.name === name)
+      )
+      .filter((author): author is Author => author !== undefined);
 
     setPost({
       slug,
       matter: data as MDXMatter,
-      content, // retorna o conteúdo markdown (com HTML embutido)
+      content,
       authorData,
     });
     setLoading(false);
