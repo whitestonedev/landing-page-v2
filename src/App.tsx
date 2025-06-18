@@ -13,6 +13,7 @@ import Projects from "./pages/Projects";
 import Contribute from "./pages/Contribute";
 import NotFound from "./pages/NotFound";
 import BlogPost from "./pages/BlogPost";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <HashRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<RootLayout />}>
             <Route path="/" element={<Index />} />

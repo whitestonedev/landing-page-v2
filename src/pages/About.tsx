@@ -530,7 +530,7 @@ export default function About() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
                 <Button size="lg" asChild className="text-lg px-8 py-6">
-                  <Link to="/como-ajudar">❤️ Como Apoiar</Link>
+                  <Link to="/como-apoiar">❤️ Como Apoiar</Link>
                 </Button>
                 <Button
                   variant="outline"
