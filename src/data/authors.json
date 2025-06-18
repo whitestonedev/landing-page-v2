@@ -4,7 +4,7 @@
       "name": "whiteStone_bot",
       "position": "Bot",
       "company": "whiteStone_dev",
-      "image": "https://statics.whitestonedev.com.br/site/wsd_logo.png"
+      "image": "/img/whiteStone_bot.png"
     },
     {
       "name": "Vitor Stahelin",
@@ -23,7 +23,7 @@
       "image": "https://github.com/danidr7.png"
     },
     {
-      "name": "Gabriel Soares Costa",
+      "name": "Gabriel Soares",
       "position": "Senior Software Engineer",
       "company": "CheeseCake Labs",
       "linkedin": "https://www.linkedin.com/in/gsoarescosta/",
@@ -52,6 +52,13 @@
       "company": "CheeseCake Labs",
       "linkedin": "https://www.linkedin.com/in/douglasgimli",
       "image": "/img/blog/posts/doug.jpeg"
+    },
+    {
+      "name": "Fifo Zatti",
+      "position": "Principal Blockchain Engineer",
+      "company": "Cheesecake Labs",
+      "linkedin": "https://www.linkedin.com/in/oififo",
+      "image": "/img/blog/posts/fifo.jpeg"
     }
   ]
 }

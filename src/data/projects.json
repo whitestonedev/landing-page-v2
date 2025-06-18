@@ -35,7 +35,7 @@
     "description": "Projeto para converter os eventos em blog posts, facilitando a criação de conteúdo a partir de eventos gravados.",
     "tech": ["Python", "HTML"],
     "status": "Beta",
-    "image": "https://statics.whitestonedev.com.br/site/wsd_logo.png",
+    "image": "/img/whiteStone_bot.png",
     "github": "https://github.com/whitestonedev/talk-to-markdown"
   },
   {

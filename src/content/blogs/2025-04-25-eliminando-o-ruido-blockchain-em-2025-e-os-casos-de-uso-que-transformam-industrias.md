@@ -1,13 +1,13 @@
 ---
 title: "Eliminando o Ruído: Blockchain em 2025 e os Casos de Uso que Transformam Indústrias"
 date: "2025-04-25"
-author: "whiteStone_bot"
+authors: ["whiteStone_bot", "Doug Silva"]
 tags: [Blockchain, Web3, Cripto, CasosDeUso, Inovação, Stellar, Ethereum, Solana, DeFi, NFTs, Pagamentos, Tokenização, whiteStone_dev, CheesecakeLabs]
-thumb: "/img/blog/posts/doug_slide1.jpg"
+thumb: "/img/blog/posts/edicao7/doug_slide1.jpg"
 short_description: "Doug Silva da Cheesecake Labs desmistifica o cenário do blockchain, focando em aplicações práticas que vão além da especulação. Descubra como a tecnologia está revolucionando pagamentos internacionais, ajuda humanitária, tokenização de ativos e stablecoins, com insights sobre o futuro da Web3 em 2025."
 ---
 
-> Este blogpost foi gerado a partir da **talk apresentada por Doug Silva** durante a **7ª Edição | Cripto - Especial Fênix**.  
+> Este blogpost foi gerado a partir da **talk apresentada pelo [Doug](https://www.linkedin.com/in/douglasgimli)** durante a **7ª Edição | Cripto - Especial Fênix**.  
 > O conteúdo abaixo reflete os principais pontos e reflexões compartilhadas ao vivo, adaptados para leitura, e aprofunda a visão do palestrante sobre o presente e o futuro da tecnologia blockchain.  
 > Assista à apresentação completa no [YouTube](https://www.youtube.com/live/C-YejH6p878?t=1733)
 
@@ -25,8 +25,8 @@ Para ilustrar essa evolução, eu selecionei três redes que refletem bem o espe
 *   **Solana:** Essa já nasceu para ser rápida e barata, resolvendo problemas de custo e velocidade que o Ethereum ainda está endereçando. Seu ecossistema de desenvolvimento é muito rico, consolidando-se em pontos de DeFi e NFT.
 *   **Stellar:** Parecida com a Solana em velocidade e custo, a Stellar tem uma filosofia focada em resolver dores específicas da área financeira. Ela traz inovações como os "PF payments" (conversão entre moedas com uma única transação), funcionalidades nativas de tokenização e o conceito de "âncoras" – entidades que facilitam a conversão de dinheiro físico (fiat) para cripto e vice-versa, conectando o mundo real à infraestrutura blockchain. Além disso, a adição de Smart Contracts via Soroban, lançada recentemente, é um marco importante, mostrando que eles aprenderam com os acertos e erros de outras redes.
 
-<img src="/img/blog/posts/doug_slide3.jpg" alt="Doug (Douglas da Silva)" />
-<img src="/img/blog/posts/doug_slide2.jpg" alt="Doug (Douglas da Silva)" />
+<img src="/img/blog/posts/edicao7/doug_slide3.jpg" />
+<img src="/img/blog/posts/edicao7/doug_slide2.jpg" />
 
 A grande mensagem que quero deixar aqui é que o mundo está se movendo de uma competição acirrada entre redes para um caminho de **especialização**. A pergunta não é mais "Qual é a melhor blockchain?", mas sim "Qual rede resolve qual dor? Qual faz mais sentido para o que eu quero construir?". A tecnologia está focando em complementar, não em substituir.
 
@@ -37,7 +37,7 @@ Agora, vamos aos casos de uso que realmente estão transformando indústrias, co
 #### 1.  **Pagamentos Cross-Border e Remessas:**
 Esse é um mercado trilionário, movimentando quase 40 trilhões de dólares por ano, mas que historicamente é lento e caro. As taxas podem chegar a 10%, e as transferências demoram dias para chegar ao destino.
 
-<img src="/img/blog/posts/doug_map.png" style="max-width: 300px; display: block; margin: 0 auto;" />
+<img src="/img/blog/posts/edicao7/doug_map.png" style="max-width: 300px; display: block; margin: 0 auto;" />
 
 
 A parceria entre **MoneyGram e Stellar** revolucionou esse cenário. A MoneyGram é uma gigante com capilaridade em 200 países e mais de 300.000 agências. Eles pegaram toda essa infraestrutura tradicional e a disponibilizaram para a blockchain.
@@ -68,7 +68,7 @@ Alguns exemplos notáveis:
 Para finalizar, queria trazer algumas perspectivas para os próximos anos. A transição de "especulação para utilidade" vai continuar firme, e o foco será em **complementar** e melhorar o sistema financeiro existente, não em substituí-lo.
 
 
-<img src="/img/blog/posts/doug_maps.jpg" />
+<img src="/img/blog/posts/edicao7/doug_maps.jpg" />
 
 Pontos que considero cruciais para o futuro próximo:
 
