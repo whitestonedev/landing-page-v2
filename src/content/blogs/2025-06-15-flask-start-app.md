@@ -6,7 +6,6 @@ tags: [Flask, Python, Docker, PostgreSQL, Swagger, API, Backend, Boas Práticas]
 thumb: /img/blog/posts/python_flask_docker.png
 short_description: "Aprenda a criar uma API do zero com Flask, Docker, PostgreSQL e documentação automática, seguindo boas práticas de desenvolvimento."
 ---
-# Criando uma API simples com Flask, Docker, PostgreSQL, Swagger e boas práticas
 
 Neste post, vamos construir juntos uma API RESTful completa, partindo do zero. Usaremos um conjunto de tecnologias poderosas e muito populares no mercado: **Flask** para o servidor, **PostgreSQL** como banco de dados, e **Docker** para criar um ambiente de desenvolvimento consistente e portátil. Para garantir a qualidade, aplicaremos **Ruff** e **Black** para formatação e linting de código, e geraremos uma documentação interativa com **Swagger (flasgger)**.
 
