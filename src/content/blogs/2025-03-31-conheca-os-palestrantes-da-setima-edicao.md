@@ -1,5 +1,5 @@
 ---
-title: 🎤 7ª Edição do whiteStone_dev - Saiba Mais Sobre Nossos Palestrantes!
+title: 7ª Edição do whiteStone_dev - Saiba Mais Sobre Nossos Palestrantes!
 date: "2025-03-31"
 author: "Vitor Stahelin"
 tags: [Blockchain, Palestrantes, Hyperledger, Stablecoin, Interoperabilidade, HyperledgerCacti, CheesecakeLabs]

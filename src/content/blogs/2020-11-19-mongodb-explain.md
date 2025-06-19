@@ -1,5 +1,5 @@
 ---
-title: 🔍 Desvendando a Lentidão no MongoDB - Guia Prático para Otimizar seus Índices 🚀
+title: Desvendando a Lentidão no MongoDB - Guia Prático para Otimizar seus Índices
 date: "2020-11-19"
 tags: [MongoDB, Database, Performance, Index, Troubleshooting]
 author: "Daniel da Rosa"
@@ -7,15 +7,15 @@ thumb: /img/blog/thumbs/mongodb.png
 short_description: "Aprenda a identificar e resolver lentidão em queries do MongoDB analisando índices e planos de execução na prática."
 ---
 
-## Seus Índices no MongoDB Estão Turbinados ou Te Deixando na Mão? 🤔
+## Seus Índices no MongoDB Estão Turbinados ou Te Deixando na Mão? 
 
-Quem nunca se deparou com aquela lentidão раздрашивающая nas consultas ao banco de dados, não é mesmo? 😩 Em um cenário como esse, otimizar os índices do MongoDB pode ser a chave para **turbinar a performance** da sua aplicação! 🚀
+Quem nunca se deparou com aquela lentidão раздрашивающая nas consultas ao banco de dados, não é mesmo? Em um cenário como esse, otimizar os índices do MongoDB pode ser a chave para **turbinar a performance** da sua aplicação! 
 
-Neste artigo, vamos mergulhar em um caso real de troubleshooting de índices no MongoDB. Você vai aprender a identificar gargalos, analisar o plano de execução de queries com o poderoso `explain()` e descobrir como criar índices eficientes para **deixar suas consultas voando baixo!** 💨
+Neste artigo, vamos mergulhar em um caso real de troubleshooting de índices no MongoDB. Você vai aprender a identificar gargalos, analisar o plano de execução de queries com o poderoso `explain()` e descobrir como criar índices eficientes para **deixar suas consultas voando baixo!** 
 
-Recentemente, no trabalho, enfrentei um desafio com uma collection no MongoDB que estava apresentando lentidão em algumas consultas. 🐌 A collection era grande (4 milhões de documentos), mas a lentidão era **sorrateira**, mascarada em meio a outros processos demorados.
+Recentemente, no trabalho, enfrentei um desafio com uma collection no MongoDB que estava apresentando lentidão em algumas consultas.  A collection era grande (4 milhões de documentos), mas a lentidão era **sorrateira**, mascarada em meio a outros processos demorados.
 
-O problema veio à tona com a ajuda do [Sysdig](https://sysdig.com/), que apontou essa collection como a **mais lenta do banco!** 🚨 [Quer saber como configurar um agente Sysdig no MongoDB? Clique aqui!](https://docs.sysdig.com/en/mongodb.html)
+O problema veio à tona com a ajuda do [Sysdig](https://sysdig.com/), que apontou essa collection como a **mais lenta do banco!**  [Quer saber como configurar um agente Sysdig no MongoDB? Clique aqui!](https://docs.sysdig.com/en/mongodb.html)
 
 Para ilustrar a situação, imagine uma collection com 4 milhões de registros de pessoas, seguindo este modelo:
 
@@ -76,9 +76,9 @@ $ db.person.getIndexes()
 ]
 ```
 
-Ok, tínhamos um índice composto por 'name' e 'cpf', e outro individual para 'occupation'. 🤔 Será que esses índices estavam sendo **bem aproveitados**? O que acontecia por trás dos panos quando o MongoDB executava as queries? Para responder essas perguntas, a ferramenta chave é o **[explain()](https://docs.mongodb.com/manual/reference/method/cursor.explain/)**! 🕵️‍♀️
+Ok, tínhamos um índice composto por 'name' e 'cpf', e outro individual para 'occupation'. Será que esses índices estavam sendo **bem aproveitados**? O que acontecia por trás dos panos quando o MongoDB executava as queries? Para responder essas perguntas, a ferramenta chave é o **[explain()](https://docs.mongodb.com/manual/reference/method/cursor.explain/)**!
 
-O `explain()` é o nosso **detetive de queries!** 🕵️ Ele nos revela o plano de execução da consulta, permitindo analisar se os índices estão sendo utilizados e como a query está performando. Vamos investigar a primeira query:
+O `explain()` é o nosso **detetive de queries!** Ele nos revela o plano de execução da consulta, permitindo analisar se os índices estão sendo utilizados e como a query está performando. Vamos investigar a primeira query:
 
 ```javascript
 $ db.person.find({name: "danidr7", cpf: "12345678900"}).explain("executionStats")
@@ -202,15 +202,15 @@ $ db.person.find({name: "danidr7", cpf: "12345678900"}).explain("executionStats"
 }
 ```
 
-Ufa! 😅 O `explain()` retorna um caminhão de informações! 🚚 Mas calma, vamos focar no essencial: **`winningPlan`** e **`executionStats`**. [Quer saber o que cada campo significa? A documentação do MongoDB te explica tim-tim por tim-tim!](https://docs.mongodb.com/manual/reference/explain-results/)
+Ufa! O `explain()` retorna um caminhão de informações! Mas calma, vamos focar no essencial: **`winningPlan`** e **`executionStats`**. [Quer saber o que cada campo significa? A documentação do MongoDB te explica tim-tim por tim-tim!](https://docs.mongodb.com/manual/reference/explain-results/)
 
 O **`winningPlan`** revela o plano de consulta **vencedor**, escolhido pelo otimizador do MongoDB. Ele pode ter até 3 estágios (`inputStage`). Os estágios mais importantes para a nossa análise são:
 
-- **`FETCH`**: Recupera os documentos propriamente ditos, buscando-os a partir das chaves retornadas no estágio anterior. 📦
-- **`COLLSCAN`**: Realiza uma varredura completa na collection, documento por documento. 🐌 **Sinal vermelho! 🚨 Índices não estão sendo usados!**
-- **`IXSCAN`**: Varre as chaves dos índices, buscando de forma otimizada os documentos. 🚀 **Índices em ação!**
+- **`FETCH`**: Recupera os documentos propriamente ditos, buscando-os a partir das chaves retornadas no estágio anterior.
+- **`COLLSCAN`**: Realiza uma varredura completa na collection, documento por documento. **Sinal vermelho! Índices não estão sendo usados!**
+- **`IXSCAN`**: Varre as chaves dos índices, buscando de forma otimizada os documentos. **Índices em ação!**
 
-No `winningPlan` do nosso exemplo, vemos os estágios `FETCH` e `IXSCAN`. 🎉 Ótima notícia! Um índice está sendo usado! O nome dele? `indexName` nos revela: **`name_1_cpf_1`**.
+No `winningPlan` do nosso exemplo, vemos os estágios `FETCH` e `IXSCAN`. Ótima notícia! Um índice está sendo usado! O nome dele? `indexName` nos revela: **`name_1_cpf_1`**.
 
 Agora, vamos analisar o **`executionStats`**:
 
@@ -224,12 +224,12 @@ Agora, vamos analisar o **`executionStats`**:
 }
 ```
 
-- **`nReturned`**: Número de documentos retornados pela consulta. 🔢
-- **`executionTimeMillis`**: Tempo total de execução da consulta em milissegundos. ⏱️
-- **`totalKeysExamined`**: Número de chaves de índice examinadas. > 0 indica uso de `IXSCAN`. 🔑
-- **`totalDocsExamined`**: Número de documentos examinados durante a consulta. Pode ocorrer em estágios `FETCH` e `COLLSCAN`. 📄
+- **`nReturned`**: Número de documentos retornados pela consulta.
+- **`executionTimeMillis`**: Tempo total de execução da consulta em milissegundos.
+- **`totalKeysExamined`**: Número de chaves de índice examinadas. > 0 indica uso de `IXSCAN`.
+- **`totalDocsExamined`**: Número de documentos examinados durante a consulta. Pode ocorrer em estágios `FETCH` e `COLLSCAN`.
 
-Com base nos números do `executionStats`, a primeira query está **performando muito bem!** ✅ O estágio `IXSCAN` filtrou as chaves de índice de forma eficiente, retornando apenas **1 resultado** para o estágio `FETCH` buscar o documento.
+Com base nos números do `executionStats`, a primeira query está **performando muito bem!** O estágio `IXSCAN` filtrou as chaves de índice de forma eficiente, retornando apenas **1 resultado** para o estágio `FETCH` buscar o documento.
 
 Agora, vamos repetir a análise para a segunda query. Para facilitar a visualização, vamos focar apenas no `executionStats`:
 
@@ -305,38 +305,38 @@ $ db.person.find({occupation: "programmer", cpf: "12345678900"}).explain("execut
 ```json
 "executionStats" : {
     "nReturned" : 1,
-    "executionTimeMillis" : 1101, // Tempo de execução ALTO! 🐌
-    "totalKeysExamined" : 799296, // Muitas chaves examinadas! 🔑
-    "totalDocsExamined" : 799296, // Muitos documentos examinados! 📄
+    "executionTimeMillis" : 1101, // Tempo de execução ALTO!
+    "totalKeysExamined" : 799296, // Muitas chaves examinadas!
+    "totalDocsExamined" : 799296, // Muitos documentos examinados!
 ```
 
-Tempo de execução alto, um mar de chaves e documentos examinados... 😫 O que aconteceu? Analisando o `executionStages`, o mistério se revela:
+Tempo de execução alto, um mar de chaves e documentos examinados... O que aconteceu? Analisando o `executionStages`, o mistério se revela:
 
 No estágio **`IXSCAN`**:
 
 ```json
 "inputStage" : {
     "stage" : "IXSCAN",
-    "nReturned" : 799296, // Retornou MUITOS documentos! 🤯
+    "nReturned" : 799296, // Retornou MUITOS documentos!
     "indexName" : "occupation_1", // Índice utilizado: occupation_1
     ...
 }
 ```
 
-O índice `occupation_1` foi utilizado, mas retornou **799296 documentos!** 😱 Isso porque o índice cobre apenas o campo `occupation`. Ele filtrou por profissão, ok, mas encontrou **todos** os programadores da collection!
+O índice `occupation_1` foi utilizado, mas retornou **799296 documentos!** Isso porque o índice cobre apenas o campo `occupation`. Ele filtrou por profissão, ok, mas encontrou **todos** os programadores da collection!
 
 No estágio **`FETCH`**:
 
 ```json
 "executionStages" : {
     "stage" : "FETCH",
-    "docsExamined" : 799296, // Examinou MUITOS documentos! 😫
-    "nReturned" : 1, // Para retornar APENAS 1! 🤦‍♀️
+    "docsExamined" : 799296, // Examinou MUITOS documentos!
+    "nReturned" : 1, // Para retornar APENAS 1!
     ...
 }
 ```
 
-O estágio `FETCH` teve que examinar **TODOS** os 799296 documentos retornados pelo `IXSCAN` para só então encontrar o documento que também correspondia ao filtro de `cpf`! 🤯 Um **trabalho hercúleo e desnecessário!** 😫 Precisamos de um índice mais **inteligente!** 🧠
+O estágio `FETCH` teve que examinar **TODOS** os 799296 documentos retornados pelo `IXSCAN` para só então encontrar o documento que também correspondia ao filtro de `cpf`! Um **trabalho hercúleo e desnecessário!** Precisamos de um índice mais **inteligente!** 🧠
 
 Vamos criar um **índice composto** que inclua os campos `cpf` e `occupation`:
 
@@ -350,7 +350,7 @@ $ db.person.createIndex({cpf: 1, occupation: 1})
 }
 ```
 
-**Por que um índice composto de `cpf` e `occupation` e não apenas um índice para `cpf`?** 🤔 O MongoDB escolhe **apenas um índice** por consulta. Precisamos analisar **quais campos são mais relevantes** para o índice. Índices compostos (até 32 campos!) são poderosos para otimizar queries com múltiplos critérios de filtro. 💪
+**Por que um índice composto de `cpf` e `occupation` e não apenas um índice para `cpf`?** O MongoDB escolhe **apenas um índice** por consulta. Precisamos analisar **quais campos são mais relevantes** para o índice. Índices compostos (até 32 campos!) são poderosos para otimizar queries com múltiplos critérios de filtro.
 
 Será que o novo índice fez mágica? ✨ Vamos rodar o `explain()` novamente:
 
@@ -361,9 +361,9 @@ $ db.person.find({occupation: "programmer", cpf: "12345678900"}).explain("execut
     "executionStats" : {
         "executionSuccess" : true,
         "nReturned" : 1,
-        "executionTimeMillis" : 11, // Tempo de execução LÁ EMBAIXO! 🚀
-        "totalKeysExamined" : 1,     // Apenas 1 chave examinada! 🔑
-        "totalDocsExamined" : 1,     // Apenas 1 documento examinado! 📄
+        "executionTimeMillis" : 11, // Tempo de execução LÁ EMBAIXO!
+        "totalKeysExamined" : 1,     // Apenas 1 chave examinada!
+        "totalDocsExamined" : 1,     // Apenas 1 documento examinado!
         "executionStages" : {
             "stage" : "FETCH",
             "nReturned" : 1,
@@ -379,7 +379,7 @@ $ db.person.find({occupation: "programmer", cpf: "12345678900"}).explain("execut
             "alreadyHasObj" : 0,
             "inputStage" : {
                 "stage" : "IXSCAN",
-                "nReturned" : 1,     // Retornou APENAS 1 documento! 🎉
+                "nReturned" : 1,     // Retornou APENAS 1 documento!
                 "executionTimeMillisEstimate" : 10,
                 "works" : 2,
                 "advanced" : 1,
@@ -392,7 +392,7 @@ $ db.person.find({occupation: "programmer", cpf: "12345678900"}).explain("execut
                     "cpf" : 1,
                     "occupation" : 1
                 },
-                "indexName" : "cpf_1_occupation_1", // Índice composto em ação! 💪
+                "indexName" : "cpf_1_occupation_1", // Índice composto em ação!
                 ...
             }
         }
@@ -411,7 +411,7 @@ $ db.person.find({occupation: "programmer", cpf: "12345678900"}).explain("execut
                 "keyPattern" : {
                     "occupation" : 1
                 },
-                "indexName" : "occupation_1", // Plano rejeitado usava o índice antigo! 👎
+                "indexName" : "occupation_1", // Plano rejeitado usava o índice antigo!
                 ...
             }
         }
@@ -420,17 +420,17 @@ $ db.person.find({occupation: "programmer", cpf: "12345678900"}).explain("execut
 }
 ```
 
-**QUE MELHORA INCRÍVEL! 🤩** O tempo de resposta despencou de 1101ms para **apenas 11ms!** 🚀 No `executionStages`, o `IXSCAN` agora utiliza o índice composto `cpf_1_occupation_1` e retorna **apenas 1 chave!** 🎉 O índice composto **resolveu o problema!** ✅
+**QUE MELHORA INCRÍVEL!** O tempo de resposta despencou de 1101ms para **apenas 11ms!** No `executionStages`, o `IXSCAN` agora utiliza o índice composto `cpf_1_occupation_1` e retorna **apenas 1 chave!** 🎉 O índice composto **resolveu o problema!**
 
-Outro ponto interessante é o **`rejectedPlans`**. Ele lista planos de consulta que foram considerados, mas **rejeitados** pelo otimizador do MongoDB, que optou por um plano mais eficiente. No nosso caso, o `rejectedPlans` mostra um plano que utilizava o índice antigo `occupation_1`. Como esse índice se tornou **obsoleto** para essa query, podemos **removê-lo** da collection! 🧹
+Outro ponto interessante é o **`rejectedPlans`**. Ele lista planos de consulta que foram considerados, mas **rejeitados** pelo otimizador do MongoDB, que optou por um plano mais eficiente. No nosso caso, o `rejectedPlans` mostra um plano que utilizava o índice antigo `occupation_1`. Como esse índice se tornou **obsoleto** para essa query, podemos **removê-lo** da collection!
 
-#### Considerações Finais 🤔
+#### Considerações Finais
 
 Otimizar índices no MongoDB exige **cautela e análise.** Lembre-se:
 
-- O MongoDB usa **apenas um índice por consulta.** ☝️
-- **Muitos índices impactam a performance de escrita.** ✍️ Cada índice adiciona um custo extra a cada inserção de documento. [Saiba mais sobre performance de escrita aqui!](https://docs.mongodb.com/manual/core/write-performance/)
-- O **`explain()`** é seu melhor amigo na análise de queries! 🕵️ Use-o para entender o plano de execução e identificar gargalos.
-- Ferramentas como **Prometheus** ([https://prometheus.io/docs/instrumenting/exporters/](https://prometheus.io/docs/instrumenting/exporters/)) e **Sysdig** ([https://docs.sysdig.com/en/mongodb.html](https://docs.sysdig.com/en/mongodb.html)) são **poderosas** para monitorar a performance do seu banco de dados em um contexto mais amplo e identificar queries lentas que precisam de atenção. 🚀
+- O MongoDB usa **apenas um índice por consulta.**
+- **Muitos índices impactam a performance de escrita.** Cada índice adiciona um custo extra a cada inserção de documento. [Saiba mais sobre performance de escrita aqui!](https://docs.mongodb.com/manual/core/write-performance/)
+- O **`explain()`** é seu melhor amigo na análise de queries! Use-o para entender o plano de execução e identificar gargalos.
+- Ferramentas como **Prometheus** ([https://prometheus.io/docs/instrumenting/exporters/](https://prometheus.io/docs/instrumenting/exporters/)) e **Sysdig** ([https://docs.sysdig.com/en/mongodb.html](https://docs.sysdig.com/en/mongodb.html)) são **poderosas** para monitorar a performance do seu banco de dados em um contexto mais amplo e identificar queries lentas que precisam de atenção.
 
-Com as ferramentas e técnicas certas, você pode **dominar a arte da otimização de índices no MongoDB** e garantir que suas aplicações voem em alta performance! 🚀 **E você, já usou o `explain()` para otimizar suas queries? Compartilhe sua experiência nos comentários!** 👇
+Com as ferramentas e técnicas certas, você pode **dominar a arte da otimização de índices no MongoDB** e garantir que suas aplicações voem em alta performance! **E você, já usou o `explain()` para otimizar suas queries?
