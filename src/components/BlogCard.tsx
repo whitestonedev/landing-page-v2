@@ -46,17 +46,24 @@ export function BlogCard({
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-1/2">
             {post.matter.thumb && (
-              <img
-                src={post.matter.thumb}
-                alt={post.matter.title}
-                className="h-48 w-full object-cover lg:h-full"
-              />
+              <Link to={`/blog/${post.slug}`}>
+                <img
+                  src={post.matter.thumb}
+                  alt={post.matter.title}
+                  className="h-48 w-full object-cover lg:h-full hover:opacity-90 transition-opacity"
+                />
+              </Link>
             )}
           </div>
           <div className="lg:w-1/2">
             <CardHeader className="p-4 lg:p-6">
               <CardTitle className="text-xl lg:text-2xl mb-2 line-clamp-2">
-                {post.matter.title}
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="hover:text-primary transition-colors"
+                >
+                  {post.matter.title}
+                </Link>
               </CardTitle>
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-3">
                 <div className="flex items-center">
@@ -113,15 +120,22 @@ export function BlogCard({
       ) : (
         <>
           {post.matter.thumb && (
-            <img
-              src={post.matter.thumb}
-              alt={post.matter.title}
-              className="h-40 sm:h-48 w-full object-cover"
-            />
+            <Link to={`/blog/${post.slug}`}>
+              <img
+                src={post.matter.thumb}
+                alt={post.matter.title}
+                className="h-40 sm:h-48 w-full object-cover hover:opacity-90 transition-opacity"
+              />
+            </Link>
           )}
           <CardHeader className="p-4">
             <CardTitle className="text-base lg:text-lg line-clamp-2 mb-2">
-              {post.matter.title}
+              <Link
+                to={`/blog/${post.slug}`}
+                className="hover:text-primary transition-colors"
+              >
+                {post.matter.title}
+              </Link>
             </CardTitle>
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-2">
               <div className="flex items-center">
