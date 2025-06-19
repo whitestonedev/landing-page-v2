@@ -2,7 +2,7 @@
 title: "Rewind: O que rolou na 7ª Edição?"
 date: "2025-07-01"
 author: "Vitor Stahelin"
-tags: [Podcast, Blockchain, Rewind, whiteStone_dev, Cripto, DeFi, Interoperabilidade]
+tags: [Rewind, Podcast, Blockchain, Cripto, Criptomoedas, Interoperabilidade]
 thumb: /img/rewind_thumb.png
 short_description: "A 7ª edição do whiteStone_dev foi um sucesso! Preparamos um podcast especial com o resumo completo. Ouça agora e saiba tudo o que rolou."
 ---
