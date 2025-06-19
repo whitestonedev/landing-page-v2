@@ -7,6 +7,7 @@ import { useMDXPost } from "@/hooks/useMDX";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { formatDateAndReadingTime } from "@/utils/dateTime";
 import { AuthorSection } from "@/components/AuthorCard";
+import React from "react";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -58,21 +59,33 @@ export default function BlogPost() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-4 px-4">
                 <div className="flex items-center">
                   <User className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
-                  <Link 
-                    to={`/blog?author=${encodeURIComponent(authorData?.[0]?.name || '')}`}
-                    className="text-xs sm:text-sm hover:text-primary transition-colors cursor-pointer"
-                  >
-                    {authorData?.map(a => a.name).join(' e ')}
-                  </Link>
+                  {authorData?.map((a, idx) => (
+                    <React.Fragment key={a.name}>
+                      <Link
+                        to={`/blog?author=${encodeURIComponent(a.name.trim())}`}
+                        className="text-xs sm:text-sm hover:text-primary transition-colors cursor-pointer"
+                      >
+                        {a.name.trim()}
+                      </Link>
+                      {idx < authorData.length - 1 && (
+                        <span>&nbsp;e&nbsp;</span>
+                      )}
+                    </React.Fragment>
+                  ))}
                 </div>
                 <div className="flex items-center">
-                  <span className="text-xs sm:text-sm">{formatDateAndReadingTime(matter.date, content)}</span>
+                  <span className="text-xs sm:text-sm">
+                    {formatDateAndReadingTime(matter.date, content)}
+                  </span>
                 </div>
               </div>
               <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-4 px-4">
                 {matter.tags?.map((tag: string) => (
                   <Link key={tag} to={`/blog?tag=${encodeURIComponent(tag)}`}>
-                    <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80 transition-colors text-xs sm:text-sm px-2 py-1">
+                    <Badge
+                      variant="secondary"
+                      className="cursor-pointer hover:bg-secondary/80 transition-colors text-xs sm:text-sm px-2 py-1"
+                    >
                       {tag}
                     </Badge>
                   </Link>
@@ -83,7 +96,7 @@ export default function BlogPost() {
                   <img
                     src={matter.thumb}
                     alt={matter.title}
-                    className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-lg"
+                    className="w-full object-cover rounded-lg"
                   />
                 </div>
               )}

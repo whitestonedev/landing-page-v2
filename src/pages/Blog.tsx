@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link, useSearchParams } from "react-router-dom";
-import { BookOpen, X } from "lucide-react";
+import { BookOpen, X, Github, Linkedin } from "lucide-react";
 import { useMDXPosts } from "@/hooks/useMDX";
 import { BlogCard } from "@/components/BlogCard";
 
@@ -44,25 +44,36 @@ export default function Blog() {
   }
 
   // Filtrar posts por tag e/ou autor
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesTag = tagFilters.length > 0
-      ? tagFilters.some(tag => post.matter.tags?.some(t => t.toLowerCase() === tag.toLowerCase()))
-      : true;
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesTag =
+      tagFilters.length > 0
+        ? tagFilters.some((tag) =>
+            post.matter.tags?.some((t) => t.toLowerCase() === tag.toLowerCase())
+          )
+        : true;
     const matchesAuthor = authorFilter
-      ? post.authorData?.some(author => author.name.toLowerCase() === authorFilter.toLowerCase())
+      ? post.authorData?.some(
+          (author) => author.name.toLowerCase() === authorFilter.toLowerCase()
+        )
       : true;
     return matchesTag && matchesAuthor;
   });
 
   // Se não há posts com o filtro aplicado
   if ((tagFilters.length > 0 || authorFilter) && filteredPosts.length === 0) {
-    const filterType = tagFilters.length > 0 && authorFilter ? 'autor e tags' : tagFilters.length > 0 ? 'tags' : 'autor';
-    const filterValue = tagFilters.length > 0 && authorFilter
-      ? `${authorFilter} + ${tagFilters.join(', ')}`
-      : tagFilters.length > 0
-        ? tagFilters.join(', ')
+    const filterType =
+      tagFilters.length > 0 && authorFilter
+        ? "autor e tags"
+        : tagFilters.length > 0
+        ? "tags"
+        : "autor";
+    const filterValue =
+      tagFilters.length > 0 && authorFilter
+        ? `${authorFilter} + ${tagFilters.join(", ")}`
+        : tagFilters.length > 0
+        ? tagFilters.join(", ")
         : authorFilter;
-    
+
     return (
       <div className="min-h-screen bg-background">
         <main>
@@ -72,12 +83,11 @@ export default function Blog() {
                 Nenhum post encontrado para {filterType} "{filterValue}"
               </h1>
               <p className="text-muted-foreground mb-8">
-                Não encontramos posts com esse(s) {filterType}. Tente outro filtro ou veja todos os posts.
+                Não encontramos posts com esse(s) {filterType}. Tente outro
+                filtro ou veja todos os posts.
               </p>
               <Button asChild>
-                <Link to="/blog">
-                  Ver Todos os Posts
-                </Link>
+                <Link to="/blog">Ver Todos os Posts</Link>
               </Button>
             </div>
           </div>
@@ -90,13 +100,16 @@ export default function Blog() {
   function renderDynamicHeader() {
     // Encontrar informações do autor se houver filtro
     const authorInfo = authorFilter
-      ? blogPosts.find(post =>
-          post.authorData?.some(author =>
-            author.name.toLowerCase() === authorFilter.toLowerCase()
+      ? blogPosts
+          .find((post) =>
+            post.authorData?.some(
+              (author) =>
+                author.name.toLowerCase() === authorFilter.toLowerCase()
+            )
           )
-        )?.authorData?.find(author =>
-          author.name.toLowerCase() === authorFilter.toLowerCase()
-        )
+          ?.authorData?.find(
+            (author) => author.name.toLowerCase() === authorFilter.toLowerCase()
+          )
       : null;
 
     return (
@@ -114,8 +127,32 @@ export default function Blog() {
               <div className="text-center sm:text-left w-full">
                 {/* Nome do autor, se houver */}
                 {authorFilter && (
-                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
+                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground flex items-center justify-center sm:justify-start gap-2 flex-wrap">
                     {authorInfo?.name || authorFilter}
+                    {authorInfo?.github && (
+                      <a
+                        href={authorInfo.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-1"
+                        aria-label={`GitHub de ${authorInfo.name}`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github className="inline h-5 w-5 text-muted-foreground hover:text-primary align-text-bottom" />
+                      </a>
+                    )}
+                    {authorInfo?.linkedin && (
+                      <a
+                        href={authorInfo.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-1"
+                        aria-label={`LinkedIn de ${authorInfo.name}`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Linkedin className="inline h-5 w-5 text-muted-foreground hover:text-primary align-text-bottom" />
+                      </a>
+                    )}
                   </h1>
                 )}
                 {/* Cargo/empresa do autor, se houver */}
@@ -133,8 +170,11 @@ export default function Blog() {
                 {/* Todas as tags, se houver */}
                 {tagFilters.length > 0 && (
                   <div className="mt-2 flex flex-wrap justify-center sm:justify-start gap-2">
-                    {tagFilters.map(tag => (
-                      <span key={tag} className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-base sm:text-lg font-semibold">
+                    {tagFilters.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-base sm:text-lg font-semibold"
+                      >
                         #{tag}
                       </span>
                     ))}
@@ -142,11 +182,17 @@ export default function Blog() {
                 )}
                 {/* Contador de posts */}
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground">
-                  {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''} encontrado{filteredPosts.length !== 1 ? 's' : ''}
+                  {filteredPosts.length} post
+                  {filteredPosts.length !== 1 ? "s" : ""} encontrado
+                  {filteredPosts.length !== 1 ? "s" : ""}
                 </p>
               </div>
             </div>
-            <Button variant="outline" asChild className="mt-4 sm:mt-0 w-full sm:w-auto">
+            <Button
+              variant="outline"
+              asChild
+              className="mt-4 sm:mt-0 w-full sm:w-auto"
+            >
               <Link to="/blog">
                 <X className="mr-2 h-4 w-4" />
                 Limpar Filtro
