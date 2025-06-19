@@ -50,7 +50,7 @@ export default function BlogPost() {
     <div className="min-h-screen bg-background">
       <main>
         {/* Hero Section */}
-        <section className="pt-16 pb-4 bg-muted/30">
+        <section className="pt-16 pb-4 bg-muted/50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
             <div className="mx-auto max-w-4xl text-center">
               <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
@@ -92,11 +92,11 @@ export default function BlogPost() {
                 ))}
               </div>
               {matter.thumb && (
-                <div className="px-4">
+                <div className="px-4 -mb-4 flex justify-center">
                   <img
                     src={matter.thumb}
                     alt={matter.title}
-                    className="w-full object-cover rounded-lg"
+                    className="max-w-full md:max-w-[770px] object-cover rounded-t-lg"
                   />
                 </div>
               )}
