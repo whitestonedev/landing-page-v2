@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, Code, Users, ExternalLink } from "lucide-react";
 import { useMDXPosts } from "@/hooks/useMDX";
+import { formatShortDatePtBR } from "@/utils/dateTime";
 import projectsData from "@/data/projects.json";
 import { Project } from "@/types";
 
@@ -77,10 +78,8 @@ export default function Index() {
                         {event.matter.date && event.matter.time && (
                           <Badge variant="secondary" className="mb-2">
                             <Calendar className="mr-1 h-3 w-3" />
-                            {new Date(event.matter.date).toLocaleDateString(
-                              "pt-BR"
-                            )}{" "}
-                            às {event.matter.time}
+                            {formatShortDatePtBR(event.matter.date)} às{" "}
+                            {event.matter.time}
                           </Badge>
                         )}
                       </div>
@@ -162,11 +161,14 @@ export default function Index() {
                         <CardDescription>
                           {post.matter.short_description}
                         </CardDescription>
-                        {(post.matter.author || post.matter.authors || post.matter.date) && (
+                        {(post.matter.author ||
+                          post.matter.authors ||
+                          post.matter.date) && (
                           <CardDescription>
                             {post.authorData && post.authorData.length > 0 && (
                               <>
-                                Por {post.authorData.map(a => a.name).join(' e ')}
+                                Por{" "}
+                                {post.authorData.map((a) => a.name).join(" e ")}
                               </>
                             )}
                             {post.matter.date &&

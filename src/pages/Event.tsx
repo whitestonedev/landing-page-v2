@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, MapPin, Users, ArrowRight } from "lucide-react";
 import { useMDXPosts } from "@/hooks/useMDX";
+import { formatShortDatePtBR } from "@/utils/dateTime";
 
 export default function Events() {
   const { posts: events, loading } = useMDXPosts("events");
@@ -74,10 +75,8 @@ export default function Events() {
                       <div className="flex items-center justify-between mb-2">
                         <Badge variant="secondary" className="mb-2">
                           <Calendar className="mr-1 h-3 w-3" />
-                          {new Date(event.matter.date).toLocaleDateString(
-                            "pt-BR"
-                          )}{" "}
-                          às {event.matter.time}
+                          {formatShortDatePtBR(event.matter.date)} às{" "}
+                          {event.matter.time}
                         </Badge>
                       </div>
                       <CardTitle className="text-xl">
@@ -135,9 +134,7 @@ export default function Events() {
                       <div className="flex items-center justify-between mb-2">
                         <Badge variant="outline">
                           <Calendar className="mr-1 h-3 w-3" />
-                          {new Date(event.matter.date).toLocaleDateString(
-                            "pt-BR"
-                          )}
+                          {formatShortDatePtBR(event.matter.date)}
                         </Badge>
                       </div>
                       <CardTitle className="text-xl">

@@ -11,6 +11,7 @@ import { useParams, Link } from "react-router-dom";
 import { Calendar, MapPin, ArrowLeft } from "lucide-react";
 import { useMDXPost } from "@/hooks/useMDX";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { formatFullDatePtBR } from "@/utils/dateTime";
 
 export default function EventDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -105,15 +106,7 @@ export default function EventDetail() {
                     <Calendar className="mr-3 h-4 w-4 text-muted-foreground" />
                     <div>
                       <p className="font-medium">
-                        {new Date(event.matter.date).toLocaleDateString(
-                          "pt-BR",
-                          {
-                            weekday: "long",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          }
-                        )}
+                        {formatFullDatePtBR(event.matter.date)}
                       </p>
                       <p className="text-muted-foreground">
                         {event.matter.time}
