@@ -1,6 +1,12 @@
 {
   "sponsors": [
     {
+      "name": "FIAP",
+      "thumb": "https://statics.whitestonedev.com.br/sponsors/fiap-logo.jpg",
+      "description": "Uma das principais instituições de ensino em tecnologia e inovação do Brasil",
+      "sponsor_link": "https://www.fiap.com.br/"
+    },
+    {
       "name": "Neoway",
       "thumb": "https://statics.whitestonedev.com.br/sponsors/NEOWAY.png",
       "description": "Maior empresa brasileira de Dados & Analytics (parte da B3), oferecendo soluções de inteligência analítica com foco em prevenção de fraudes, marketing, vendas e decisões estratégicas.",
